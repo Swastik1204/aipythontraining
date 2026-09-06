@@ -134,6 +134,23 @@ body{padding-top:60px}
   window.closeMob = function(){document.getElementById('snMob').classList.remove('open');};
 
   // Mark active page
+  
+  // Sync and handle theme
+  var dm = localStorage.getItem('dm') || 'dark';
+  document.documentElement.setAttribute('data-theme', dm);
+  function updateDmBtns(m) {
+    var b = document.getElementById('sn-dm-btn');
+    if(b) b.innerHTML = m === 'light' ? '&#x1F319;' : '&#x2600;';
+  }
+  updateDmBtns(dm);
+  window.toggleDM = function() {
+    var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('dm', next);
+    updateDmBtns(next);
+  };
+
   var page = document.body.getAttribute('data-page') || '';
   document.querySelectorAll('[data-page="'+page+'"]').forEach(function(el){el.classList.add('active');});
 })();
