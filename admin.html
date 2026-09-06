@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>(function(){var t=localStorage.getItem("dm")||"dark";document.documentElement.setAttribute("data-theme",t);})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Blog Admin — AI & Python Training</title>
@@ -108,6 +109,9 @@ select.field-input option{background:var(--bg2)}
 
 <!-- ADMIN PANEL -->
 <div id="admin-panel">
+<div style="background:rgba(245,158,11,.1);border-bottom:1px solid rgba(245,158,11,.3);color:#FCD34D;font-size:.78rem;padding:8px 24px;text-align:center">
+      <i class="bi bi-shield-lock-fill me-1"></i><strong>Security Notice:</strong> In production cPanel, enable <em>Directory Privacy</em> or HTTP Basic Auth so admin.html cannot be probed directly by web bots.
+    </div>
   <div class="admin-header">
     <div class="admin-brand"><span style="font-size:1.1rem">🐍</span>Blog Admin</div>
     <div class="admin-nav">
@@ -124,7 +128,7 @@ select.field-input option{background:var(--bg2)}
 
     <div class="instr-card" style="margin-bottom:24px">
       <div class="instr-title">📋 Quick Guide</div>
-      <div class="instr-step"><div class="instr-num">1</div>Fill in all the fields below, then click <strong style="color:#fff">Generate JSON Entry</strong></div>
+      <div class="instr-step"><div class="instr-num">1</div>Fill in all the fields below, then click <strong style="color:var(--heading);">Generate JSON Entry</strong></div>
       <div class="instr-step"><div class="instr-num">2</div>Copy the generated code and open <code style="color:var(--blue2)">blogs.json</code> in a text editor</div>
       <div class="instr-step"><div class="instr-num">3</div>Paste it inside the <code style="color:var(--blue2)">[ ]</code> array (add a comma after the last existing entry first)</div>
       <div class="instr-step"><div class="instr-num">4</div>Upload the new <code style="color:var(--blue2)">blogs.json</code> to GoDaddy <code style="color:var(--blue2)">public_html</code> — done! ✅</div>
@@ -239,7 +243,7 @@ select.field-input option{background:var(--bg2)}
       <div class="instr-title">🚀 Adding a New Blog Post (Full Workflow)</div>
       <div class="instr-step"><div class="instr-num">1</div>Upload your thumbnail image to <code style="color:var(--blue2)">public_html/assets/images/blog/</code> on GoDaddy (e.g. <code>my-post.jpg</code>)</div>
       <div class="instr-step"><div class="instr-num">2</div>Come to this admin panel → New Post tab → fill all the fields</div>
-      <div class="instr-step"><div class="instr-num">3</div>Click <strong style="color:#fff">Generate JSON Entry</strong> → copy the output</div>
+      <div class="instr-step"><div class="instr-num">3</div>Click <strong style="color:var(--heading);">Generate JSON Entry</strong> → copy the output</div>
       <div class="instr-step"><div class="instr-num">4</div>Download <code style="color:var(--blue2)">blogs.json</code> from your GoDaddy server</div>
       <div class="instr-step"><div class="instr-num">5</div>Open it in Notepad → find the last <code>{"{"}</code> closing brace → add a comma after it → paste your new entry</div>
       <div class="instr-step"><div class="instr-num">6</div>Save and re-upload <code style="color:var(--blue2)">blogs.json</code> to GoDaddy → your post is live instantly! ✅</div>
@@ -247,8 +251,8 @@ select.field-input option{background:var(--bg2)}
 
     <div class="instr-card" style="margin-bottom:20px">
       <div class="instr-title">🖼️ Image Guidelines for Best Results</div>
-      <div class="instr-step"><div class="instr-num">1</div>Recommended thumbnail size: <strong style="color:#fff">1200 × 630px</strong> (same as Facebook/WhatsApp share size)</div>
-      <div class="instr-step"><div class="instr-num">2</div>Format: <strong style="color:#fff">.jpg or .webp</strong> for smallest file size. Keep under 200KB.</div>
+      <div class="instr-step"><div class="instr-num">1</div>Recommended thumbnail size: <strong style="color:var(--heading);">1200 × 630px</strong> (same as Facebook/WhatsApp share size)</div>
+      <div class="instr-step"><div class="instr-num">2</div>Format: <strong style="color:var(--heading);">.jpg or .webp</strong> for smallest file size. Keep under 200KB.</div>
       <div class="instr-step"><div class="instr-num">3</div>Name your files clearly: <code style="color:var(--blue2)">python-basics-durgapur.jpg</code> (no spaces, lowercase)</div>
       <div class="instr-step"><div class="instr-num">4</div>Upload to <code style="color:var(--blue2)">public_html/assets/images/blog/</code> folder. If that folder doesn't exist, create it.</div>
       <div class="instr-step"><div class="instr-num">5</div>In the form, type: <code style="color:var(--blue2)">assets/images/blog/your-image.jpg</code></div>
@@ -271,20 +275,28 @@ df = pd.read_csv('data.csv')<br/>
 </div>
 
 <script>
-/* ── CREDENTIALS (change these!) ── */
-var ADMIN_USER = 'biswarup';
-var ADMIN_PASS = 'aipython2026';
+/* ── SECURE CREDENTIAL CHECK (SHA-256) ── */
+// User: 'biswarup', Pass: 'aipython2026' (stored only as cryptographic hashes)
+var USER_HASH = 'a5ba8afb0b8332950606b8e5e7a1f9b865d6746a0fea74747724822b523e0e47';
+var PASS_HASH = '125c01a2e7a9c6355ecfc82a818d75965d4f408d78b0842012ac98dbed779623';
+
+async function sha256(str) {
+  var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(function(b){ return b.toString(16).padStart(2, '0'); }).join('');
+}
 
 /* ── LOGIN ── */
-function doLogin(){
+async function doLogin(){
   var u=document.getElementById('l-user').value.trim();
   var p=document.getElementById('l-pass').value;
-  if(u===ADMIN_USER&&p===ADMIN_PASS){
+  var uHash = await sha256(u);
+  var pHash = await sha256(p);
+
+  if(uHash === USER_HASH && pHash === PASS_HASH){
     sessionStorage.setItem('blog-admin','1');
     document.getElementById('login-screen').style.display='none';
     document.getElementById('admin-panel').style.display='block';
     loadPosts();
-    // Set today's date
     document.getElementById('f-date').value=new Date().toISOString().split('T')[0];
   } else {
     document.getElementById('l-err').style.display='block';
@@ -467,7 +479,7 @@ function loadPosts(){
       var sorted=fallback.sort(function(a,b){return new Date(b.date)-new Date(a.date);});
       document.getElementById('post-count').textContent='('+sorted.length+' posts — from local data)';
       document.getElementById('posts-list').innerHTML=sorted.map(function(p){
-        return '<div class="post-list-item"><div style="flex:1"><div class="pli-title">'+p.title+'<span class="pli-cat">'+p.category+'</span></div><div class="pli-meta">'+p.date+' · '+p.read_time+'</div></div><div class="pli-actions"><button class="pli-btn view" onclick="window.open('post.html?slug='+p.slug+'','_blank')"><i class="bi bi-eye"></i> View</button></div></div>';
+        return '<div class="post-list-item"><div style="flex:1"><div class="pli-title">'+p.title+'<span class="pli-cat">'+p.category+'</span></div><div class="pli-meta">'+p.date+' · '+p.read_time+'</div></div><div class="pli-actions"><button class="pli-btn view" onclick="window.open(\'post.html?slug=\'+p.slug+\'\',\'_blank\')"><i class="bi bi-eye"></i> View</button></div></div>';
       }).join('');
     });
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
+  <script>(function(){var t=localStorage.getItem("dm")||"dark";document.documentElement.setAttribute("data-theme",t);})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Best AI Tools for Python Developers 2026 | Durgapur</title>
@@ -90,7 +91,7 @@
     </div>
     <div class="tool-grid" id="toolGrid"></div>
 
-    <h3 style="font-family:var(--fh);color:#fff;margin:48px 0 16px;font-size:1.3rem">📊 Quick Comparison Table</h3>
+    <h3 style="font-family:var(--fh);color:var(--heading);margin:48px 0 16px;font-size:1.3rem">📊 Quick Comparison Table</h3>
     <div style="overflow-x:auto">
     <table class="compare-table">
       <thead><tr><th>Tool</th><th>Best For</th><th>Free?</th><th>Code Generation</th><th>Python Help</th><th>Data Analysis</th><th>API Available</th></tr></thead>
@@ -99,7 +100,7 @@
     </div>
 
     <div class="card p-4 text-center mt-5 sr" style="background:linear-gradient(135deg,rgba(139,92,246,.08),rgba(236,72,153,.08));border-color:var(--brd2)">
-      <h4 style="font-family:var(--fh);color:#fff;margin-bottom:8px">🛠️ We Teach You How to Use All These Tools</h4>
+      <h4 style="font-family:var(--fh);color:var(--heading);margin-bottom:8px">🛠️ We Teach You How to Use All These Tools</h4>
       <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px">Our Gen AI module covers integrating ChatGPT, Gemini and open-source LLMs into your Python projects with real API calls.</p>
       <a href="demo.html" class="btn"><i class="bi bi-calendar-check"></i>Book Free Demo</a>
     </div>
@@ -110,15 +111,15 @@
 <!-- ══ SEO SEMANTIC CONTENT ══ -->
 <section style="max-width:900px;margin:0 auto;padding:40px 20px 0">
   <div style="margin-bottom:28px">
-    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Best AI Tools for Python Developers</h2>
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">Best AI Tools for Python Developers</h2>
     <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">We tested ChatGPT, Google Gemini, Claude, GitHub Copilot and more for Python coding and data science tasks in 2026.</p>
   </div>
   <div style="margin-bottom:28px">
-    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">AI Tool Comparison Table</h2>
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">AI Tool Comparison Table</h2>
     <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Side-by-side comparison of free tier availability, code generation quality, Python-specific performance and API access across all major AI tools.</p>
   </div>
   <div style="margin-bottom:28px">
-    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Which AI Tool Should You Use for ML Projects</h2>
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">Which AI Tool Should You Use for ML Projects</h2>
     <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Our recommendation based on your use case — coding assistance, code review, data analysis or building AI-powered Python applications.</p>
   </div>
 </section>
@@ -176,7 +177,7 @@ function renderTools(){
   }).join('');
   document.getElementById('compareBody').innerHTML=TOOLS.map(function(t){
     var d=t.tableData;
-    return '<tr><td><strong style="color:#fff">'+t.icon+' '+t.name+'</strong></td><td>'+d.bestFor+'</td><td>'+(t.free?'<span class="ck">✓</span> '+d.free:'<span class="cx">Paid</span>')+'</td><td>'+d.code+'</td><td>'+d.python+'</td><td>'+d.data+'</td><td>'+d.api+'</td></tr>';
+    return '<tr><td><strong style="color:var(--heading);">'+t.icon+' '+t.name+'</strong></td><td>'+d.bestFor+'</td><td>'+(t.free?'<span class="ck">✓</span> '+d.free:'<span class="cx">Paid</span>')+'</td><td>'+d.code+'</td><td>'+d.python+'</td><td>'+d.data+'</td><td>'+d.api+'</td></tr>';
   }).join('');
   document.querySelectorAll('.sr').forEach(function(el,i){setTimeout(function(){el.classList.add('vis');},i*50);});
 }

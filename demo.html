@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
+  <script>(function(){var t=localStorage.getItem("dm")||"dark";document.documentElement.setAttribute("data-theme",t);})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Book Free Demo Class — Python & AI Training Durgapur</title>
@@ -67,7 +68,7 @@
     <div class="row g-5 align-items-start">
       <div class="col-lg-7">
         <div class="card p-4" id="booking-form">
-          <h4 style="font-family:var(--fh);color:#fff;margin-bottom:6px">Choose Your Slot</h4>
+          <h4 style="font-family:var(--fh);color:var(--heading);margin-bottom:6px">Choose Your Slot</h4>
           <p style="font-size:.82rem;color:var(--muted);margin-bottom:18px">Select a time that works for you. We'll confirm via WhatsApp within 1 hour.</p>
 
           <div class="fi-label">Preferred Day & Time</div>
@@ -109,14 +110,14 @@
         </div>
         <div class="success-box" id="success-box">
           <div style="font-size:3rem;margin-bottom:14px">🎉</div>
-          <h3 style="font-family:var(--fh);color:#fff;margin-bottom:8px">Booking Sent!</h3>
+          <h3 style="font-family:var(--fh);color:var(--heading);margin-bottom:8px">Booking Sent!</h3>
           <p style="color:var(--muted);margin-bottom:20px">We have received your request on WhatsApp. Biswarup will confirm your slot within 1 hour.</p>
           <a href="index.html" class="btn"><i class="bi bi-house-fill"></i>Back to Home</a>
         </div>
       </div>
 
       <div class="col-lg-5">
-        <h4 style="font-family:var(--fh);color:#fff;margin-bottom:20px">What happens in the demo?</h4>
+        <h4 style="font-family:var(--fh);color:var(--heading);margin-bottom:20px">What happens in the demo?</h4>
         <div class="step-row sr"><div class="step-num">1</div><div><div style="font-family:var(--fh);font-size:.92rem;color:#fff;margin-bottom:3px">Introduction (5 min)</div><div style="font-size:.8rem;color:var(--muted)">We understand your background, goals and what you want to build.</div></div></div>
         <div class="step-row sr d1"><div class="step-num">2</div><div><div style="font-family:var(--fh);font-size:.92rem;color:#fff;margin-bottom:3px">Live Coding (25 min)</div><div style="font-size:.8rem;color:var(--muted)">You write real Python code. We don't do PowerPoint slides — we open VS Code and start coding together.</div></div></div>
         <div class="step-row sr d2"><div class="step-num">3</div><div><div style="font-family:var(--fh);font-size:.92rem;color:#fff;margin-bottom:3px">See a Live Project (10 min)</div><div style="font-size:.8rem;color:var(--muted)">We show you a real student project — live on the internet with a URL.</div></div></div>
@@ -137,15 +138,15 @@
 <!-- ══ SEO SEMANTIC CONTENT ══ -->
 <section style="max-width:900px;margin:0 auto;padding:40px 20px 0">
   <div style="margin-bottom:28px">
-    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">What Happens in the Free Demo Class</h2>
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">What Happens in the Free Demo Class</h2>
     <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Our 45-minute demo class is split into introduction, live coding and Q&A. You write real Python code on Day 1 — no slides, no theory only.</p>
   </div>
   <div style="margin-bottom:28px">
-    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Available Time Slots</h2>
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">Available Time Slots</h2>
     <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Choose from weekday evening slots and weekend morning or afternoon sessions. Online demo classes are also available via Google Meet and Zoom.</p>
   </div>
   <div style="margin-bottom:28px">
-    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Why Book a Demo Before Enrolling</h2>
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">Why Book a Demo Before Enrolling</h2>
     <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">A free demo helps you experience our teaching style and ask questions with no pressure. We respect your time and your decision.</p>
   </div>
 </section>
@@ -174,31 +175,38 @@ function submitDemo(){
   if(!name){alert('Please enter your name.');return;}
   if(!phone){alert('Please enter your WhatsApp number.');return;}
   if(!selSlotVal){alert('Please select a preferred time slot.');return;}
-  var msg = 'Hello Biswarup Sir! 📅
-
-'
-    + 'I would like to reserve a seat for the *Free Python & AI Demo Session*.
-
-'
-    + '👤 *Name:* ' + name + '
-'
-    + '📞 *Phone:* ' + phone + '
-'
-    + '🕐 *Preferred Slot:* ' + selSlotVal + '
-'
-    + (bg ? '🧑‍💻 *Background:* ' + bg + '
-' : '')
-    + (goal ? '🎯 *Goal:* ' + goal + '
-' : '')
-    + '📍 *Mode:* ' + (online ? 'Online (Google Meet/Zoom)' : 'In-Person (City Centre, Durgapur)') + '
-
-'
+  var msg = 'Hello Biswarup Sir! 📅\n\n'
+    + 'I would like to reserve a seat for the *Free Python & AI Demo Session*.\n\n'
+    + '👤 *Name:* ' + name + '\n'
+    + '📞 *Phone:* ' + phone + '\n'
+    + '🕐 *Preferred Slot:* ' + selSlotVal + '\n'
+    + (bg ? '🧑‍💻 *Background:* ' + bg + '\n' : '')
+    + (goal ? '🎯 *Goal:* ' + goal + '\n' : '')
+    + '📍 *Mode:* ' + (online ? 'Online (Google Meet/Zoom)' : 'In-Person (City Centre, Durgapur)') + '\n\n'
     + 'Please confirm my demo slot reservation. Looking forward to attending! 🚀';
-  document.getElementById('booking-form').style.display='none';
-  document.getElementById('success-box').style.display='block';
-  setTimeout(function(){
-    window.open('https://wa.me/917001186689?text='+encodeURIComponent(msg),'_blank');
-  },500);
+
+  // Persist lead locally as backup
+  try {
+    var leads = JSON.parse(localStorage.getItem('ai_demo_leads') || '[]');
+    leads.push({name: name, phone: phone, slot: selSlotVal, bg: bg, goal: goal, mode: online ? 'Online' : 'Offline', time: new Date().toISOString()});
+    localStorage.setItem('ai_demo_leads', JSON.stringify(leads));
+  } catch(e){}
+
+  document.getElementById('booking-form').style.display = 'none';
+  var sBox = document.getElementById('success-box');
+  sBox.style.display = 'block';
+  sBox.innerHTML = '<div style="font-size:3rem;margin-bottom:12px">🎉</div>'
+    + '<h3 style="color:#fff;margin-bottom:8px">Demo Slot Reserved!</h3>'
+    + '<p style="color:var(--muted);max-width:480px;margin:0 auto 20px;font-size:.9rem">Opening WhatsApp to connect with Biswarup Sir. If WhatsApp didn\'t open automatically, click the button below:</p>'
+    + '<a id="wa-confirm-btn" href="https://wa.me/917001186689?text=' + encodeURIComponent(msg) + '" target="_blank" class="btn btn-p" style="padding:12px 32px;font-size:1rem"><i class="bi bi-whatsapp me-2"></i>Send WhatsApp Confirmation</a>';
+
+  // Immediate window open on click gesture to prevent popup blocking
+  var waUrl = 'https://wa.me/917001186689?text=' + encodeURIComponent(msg);
+  var w = window.open(waUrl, '_blank');
+  if (!w) {
+    // Popup was blocked by browser, redirect current window or prompt user
+    window.location.href = waUrl;
+  }
 }
 document.querySelectorAll('.sr').forEach(function(el){
   new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.1}).observe(el);

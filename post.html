@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
+  <script>(function(){var t=localStorage.getItem("dm")||"dark";document.documentElement.setAttribute("data-theme",t);})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title id="pg-title">Python & AI Blog — Read Article | AI & Python Training</title>
@@ -118,25 +119,54 @@ a{text-decoration:none;color:inherit}
 /* SKELETON */
 .skel{background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:6px}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+/* ── LIGHT THEME FOR BLOG ── */
+[data-theme="light"] .b-card,
+[data-theme="light"] .featured-card,
+[data-theme="light"] .author-card,
+[data-theme="light"] .post-box,
+[data-theme="light"] .sb-widget {
+  background: #FFFFFF !important;
+  border-color: rgba(148, 163, 184, 0.25) !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+[data-theme="light"] .b-card h2,
+[data-theme="light"] .featured-card h2,
+[data-theme="light"] .post-title,
+[data-theme="light"] .sb-widget h3 {
+  color: #0F172A !important;
+}
+[data-theme="light"] .b-card p,
+[data-theme="light"] .featured-card p,
+[data-theme="light"] .post-content,
+[data-theme="light"] .sb-widget p {
+  color: #334155 !important;
+}
+[data-theme="light"] .search-input {
+  background: #FFFFFF !important;
+  border-color: rgba(148, 163, 184, 0.4) !important;
+  color: #0F172A !important;
+}
+[data-theme="light"] .cat-pill {
+  background: #F1F5F9 !important;
+  border-color: rgba(148, 163, 184, 0.3) !important;
+  color: #475569 !important;
+}
+[data-theme="light"] .cat-pill.active,
+[data-theme="light"] .cat-pill:hover {
+  background: var(--blue) !important;
+  color: #FFFFFF !important;
+}
+
 </style>
+  <link rel="stylesheet" href="assets/css/shared.css"/>
 </head>
-<body>
+<body data-page="post">
+  <script src="assets/js/nav.js"></script>
 <div id="read-progress"></div>
 
 <!-- NAV -->
-<nav id="nav">
-  <div class="container">
-    <div class="nav-in">
-      <a href="index.html" class="nav-brand"><div class="nav-icon">🐍</div><span>AI <span style="color:var(--blue2)">&</span> Python</span></a>
-      <div style="display:flex;align-items:center;gap:8px">
-        <a href="blog.html" style="font-size:.82rem;color:var(--muted);padding:7px 13px;border-radius:8px;transition:.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">← All Posts</a>
-        <a href="interview.html" style="font-size:.82rem;color:var(--muted);padding:7px 13px;border-radius:8px;transition:.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">⚔️ Arena</a>
-        <a href="sandbox.html" style="font-size:.82rem;color:var(--muted);padding:7px 13px;border-radius:8px;transition:.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">🖥️ Sandbox</a>
-        <a href="index.html#contact" style="background:var(--g1);color:#fff;border-radius:50px;padding:8px 18px;font-size:.82rem;font-weight:600">Enroll Now</a>
-      </div>
-    </div>
-  </div>
-</nav>
+
 
 <!-- POST CONTENT -->
 <div class="post-wrap">
@@ -187,7 +217,7 @@ a{text-decoration:none;color:inherit}
   </div>
   <div id="not-found" style="display:none;text-align:center;padding:60px 0">
     <div style="font-size:3rem;margin-bottom:16px">😕</div>
-    <h2 style="font-family:var(--fh);color:#fff;margin-bottom:8px">Post Not Found</h2>
+    <h2 style="font-family:var(--fh);color:var(--heading);margin-bottom:8px">Post Not Found</h2>
     <p style="color:var(--muted);margin-bottom:24px">This post doesn't exist or may have been moved.</p>
     <a href="blog.html" class="btn-p"><i class="bi bi-arrow-left"></i>Back to Blog</a>
   </div>
@@ -354,9 +384,9 @@ function copyLink(){navigator.clipboard.writeText(window.location.href).then(fun
 
 
 <section style="max-width:760px;margin:0 auto;padding:20px 20px 0">
-  <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">More Python & AI Articles</h2>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">More Python & AI Articles</h2>
   <p style="font-size:.88rem;color:#94A3B8;line-height:1.75">Browse our complete collection of Python tutorials, machine learning project guides and AI career tips for students in Durgapur and Asansol, West Bengal.</p>
-  <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin:20px 0 8px">About AI and Python Training Durgapur</h2>
+  <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin:20px 0 8px">About AI and Python Training Durgapur</h2>
   <p style="font-size:.88rem;color:#94A3B8;line-height:1.75">AI and Python Training is a project-based institute in Durgapur, West Bengal. We have trained 200+ students from Durgapur and Asansol in Python, Machine Learning, Deep Learning, NLP and live AI project deployment.</p>
 </section>
 <section style="max-width:760px;margin:24px auto;padding:0 20px">

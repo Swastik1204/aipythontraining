@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
+  <script>(function(){var t=localStorage.getItem("dm")||"dark";document.documentElement.setAttribute("data-theme",t);})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Free Python & AI Learning Roadmap Generator | Durgapur</title>
@@ -137,10 +138,10 @@
     <div id="rm-result" style="display:none">
       <div class="rm-result">
         <div class="rm-outcome sr" id="rm-summary"></div>
-        <h3 style="font-family:var(--fh);color:#fff;margin-bottom:20px;font-size:1.2rem" class="sr d1">📅 Your Week-by-Week Roadmap</h3>
+        <h3 style="font-family:var(--fh);color:var(--heading);margin-bottom:20px;font-size:1.2rem" class="sr d1">📅 Your Week-by-Week Roadmap</h3>
         <div id="rm-weeks"></div>
         <div class="card p-4 mt-4 text-center sr d2" style="background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(139,92,246,.1));border-color:var(--brd2)">
-          <h4 style="font-family:var(--fh);color:#fff;margin-bottom:8px">🎯 Learn this with us — in Durgapur</h4>
+          <h4 style="font-family:var(--fh);color:var(--heading);margin-bottom:8px">🎯 Learn this with us — in Durgapur</h4>
           <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px">This exact roadmap is what we teach in our batches. Project-based, live deployment, personal mentorship.</p>
           <div class="d-flex gap-3 justify-content-center flex-wrap">
             <a href="demo.html" class="btn"><i class="bi bi-calendar-check"></i>Book Free Demo Class</a>
@@ -156,15 +157,15 @@
 <!-- ══ SEO SEMANTIC CONTENT ══ -->
 <section style="max-width:900px;margin:0 auto;padding:40px 20px 0">
   <div style="margin-bottom:28px">
-    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">How the Roadmap Generator Works</h2>
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">How the Roadmap Generator Works</h2>
     <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Answer four simple questions about your goal, background, available time and area of interest. Our algorithm generates a personalised week-by-week Python and AI learning plan.</p>
   </div>
   <div style="margin-bottom:28px">
-    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Personalised Learning Paths</h2>
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">Personalised Learning Paths</h2>
     <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">We create different roadmaps for beginners, intermediate learners and working professionals. Each path adapts to your available hours per week.</p>
   </div>
   <div style="margin-bottom:28px">
-    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">From Python Basics to Live Deployment</h2>
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">From Python Basics to Live Deployment</h2>
     <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Every roadmap ends with real project deployment on Streamlit Cloud and GitHub — the skills that actually get you hired.</p>
   </div>
 </section>
@@ -242,7 +243,7 @@ function showResult(){
     +'<span class="tag tg-g">🎯 '+goalLabels[answers[1]]+'</span>'
     +'<span class="tag">📚 '+bgLabels[answers[2]]+'</span>'
     +'<span class="tag tg-o">⏱️ ~'+totalMonths+' months total</span></div>'
-    +'<h3 style="font-family:var(--fh);color:#fff;font-size:1.1rem;margin-bottom:6px">Your Personalised Roadmap is Ready</h3>'
+    +'<h3 style="font-family:var(--fh);color:var(--heading);font-size:1.1rem;margin-bottom:6px">Your Personalised Roadmap is Ready</h3>'
     +'<p style="color:var(--muted);font-size:.85rem;margin:0">Based on your answers, here is your optimal week-by-week learning path. Follow this sequence — each module builds on the previous one.</p>';
   var w=1;
   document.getElementById('rm-weeks').innerHTML=weeks.map(function(wk){

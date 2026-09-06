@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-IN">
 <head>
+  <script>(function(){var t=localStorage.getItem("dm")||"dark";document.documentElement.setAttribute("data-theme",t);})();</script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Python & AI Blog — Tutorials & Career Tips | Durgapur</title>
@@ -141,30 +142,53 @@ img{max-width:100%}
 .skel-line.w40{width:40%}
 
 @media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+
+/* ── LIGHT THEME FOR BLOG ── */
+[data-theme="light"] .b-card,
+[data-theme="light"] .featured-card,
+[data-theme="light"] .author-card,
+[data-theme="light"] .post-box,
+[data-theme="light"] .sb-widget {
+  background: #FFFFFF !important;
+  border-color: rgba(148, 163, 184, 0.25) !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+}
+[data-theme="light"] .b-card h2,
+[data-theme="light"] .featured-card h2,
+[data-theme="light"] .post-title,
+[data-theme="light"] .sb-widget h3 {
+  color: #0F172A !important;
+}
+[data-theme="light"] .b-card p,
+[data-theme="light"] .featured-card p,
+[data-theme="light"] .post-content,
+[data-theme="light"] .sb-widget p {
+  color: #334155 !important;
+}
+[data-theme="light"] .search-input {
+  background: #FFFFFF !important;
+  border-color: rgba(148, 163, 184, 0.4) !important;
+  color: #0F172A !important;
+}
+[data-theme="light"] .cat-pill {
+  background: #F1F5F9 !important;
+  border-color: rgba(148, 163, 184, 0.3) !important;
+  color: #475569 !important;
+}
+[data-theme="light"] .cat-pill.active,
+[data-theme="light"] .cat-pill:hover {
+  background: var(--blue) !important;
+  color: #FFFFFF !important;
+}
+
 </style>
+  <link rel="stylesheet" href="assets/css/shared.css"/>
 </head>
-<body>
+<body data-page="blog">
+  <script src="assets/js/nav.js"></script>
 
 <!-- NAV -->
-<nav id="nav">
-  <div class="container">
-    <div class="nav-in">
-      <a href="index.html" class="nav-brand">
-        <div class="nav-icon">🐍</div>
-        <span>AI <span style="color:var(--blue2)">&</span> Python</span>
-      </a>
-      <div class="nav-links">
-        <a href="index.html">← Home</a>
-        <a href="index.html#courses">Courses</a>
-        <a href="index.html#pricing">Pricing</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="interview.html" style="font-size:.82rem;color:var(--muted);padding:7px 13px;border-radius:8px;transition:.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">⚔️ Arena</a>
-        <a href="sandbox.html" style="font-size:.82rem;color:var(--muted);padding:7px 13px;border-radius:8px;transition:.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">🖥️ Sandbox</a>
-        <a href="index.html#contact" style="background:var(--g1);color:#fff;border-radius:50px;padding:8px 18px;font-weight:600">Enroll Now</a>
-      </div>
-    </div>
-  </div>
-</nav>
+
 
 <!-- HERO -->
 <div class="blog-hero">
@@ -206,15 +230,15 @@ img{max-width:100%}
 <!-- ══ SEO SEMANTIC CONTENT ══ -->
 <section style="max-width:900px;margin:0 auto;padding:40px 20px 0">
   <div style="margin-bottom:28px">
-    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Python & AI Tutorials for Beginners in Durgapur</h2>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">Python & AI Tutorials for Beginners in Durgapur</h2>
     <p style="font-size:.88rem;color:#94A3B8;line-height:1.75">Our blog covers Python fundamentals, data science projects and machine learning tutorials written for students in Durgapur, Asansol and across West Bengal. Every article includes working code examples.</p>
   </div>
   <div style="margin-bottom:28px">
-    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Machine Learning Project Walkthroughs</h2>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">Machine Learning Project Walkthroughs</h2>
     <p style="font-size:.88rem;color:#94A3B8;line-height:1.75">Read step-by-step breakdowns of real student projects — diabetes predictors, sentiment analysers and stock price forecasters built with Scikit-learn, TensorFlow and Streamlit.</p>
   </div>
   <div style="margin-bottom:28px">
-    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">AI Career Advice for Students in Durgapur & Asansol</h2>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--heading);margin-bottom:8px">AI Career Advice for Students in Durgapur & Asansol</h2>
     <p style="font-size:.88rem;color:#94A3B8;line-height:1.75">Career articles on AI salary ranges, job market trends for Python developers in India, which language to learn in 2026 and how to build a portfolio that gets you hired.</p>
   </div>
 </section>

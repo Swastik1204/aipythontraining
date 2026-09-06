@@ -45,7 +45,16 @@ ErrorDocument 404 /404.html
   ExpiresByType application/x-javascript "access plus 1 month"
 </IfModule>
 
-# 5. Protect sensitive files
-<FilesMatch "^(\.|admin\.html)">
-  # Protect dotfiles
+# 5. Protect sensitive files & admin endpoints
+<FilesMatch "^\.">
+  Order allow,deny
+  Deny from all
 </FilesMatch>
+
+# Prevent caching on dynamic admin and config
+<Files "admin.html">
+  Header set Cache-Control "no-cache, no-store, must-revalidate"
+  Header set Pragma "no-cache"
+  Header set Expires 0
+  Header set X-Robots-Tag "noindex, nofollow, noarchive"
+</Files>

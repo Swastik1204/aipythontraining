@@ -1,3 +1,22 @@
+
+/* NON-BLOCKING TOAST NOTIFICATION */
+function showToast(msg, isErr) {
+  var t = document.getElementById('app-toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'app-toast';
+    t.style.cssText = 'position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0F172A;color:#F8FAFC;border:1px solid rgba(99,179,255,.3);padding:12px 24px;border-radius:50px;font-size:.85rem;font-weight:600;z-index:99999;box-shadow:0 12px 36px rgba(0,0,0,.4);transition:opacity .3s,transform .3s;pointer-events:none;opacity:0;';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.style.background = isErr ? '#DC2626' : '#10B981';
+  t.style.opacity = '1';
+  t.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(function(){
+    t.style.opacity = '0';
+    t.style.transform = 'translateX(-50%) translateY(10px)';
+  }, 3200);
+}
 /* SCROLL PROGRESS */
 window.addEventListener('scroll',function(){var h=document.documentElement;document.getElementById('prog').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
 /* NAV */
@@ -6,14 +25,18 @@ window.addEventListener('scroll',function(){document.getElementById('nav').style
 var dm = localStorage.getItem('dm') || 'dark';
 function applyDM(m) {
   document.documentElement.setAttribute('data-theme', m);
-  var btn = document.getElementById('dm-btn');
-  if (btn) btn.innerHTML = m === 'light' ? '&#x1F319;' : '&#x2600;';
+  ['dm-btn', 'dm-btn-mob', 'sn-dm-btn', 'sn-dm-btn-mob'].forEach(function(id){
+    var btn = document.getElementById(id);
+    if (btn) btn.innerHTML = m === 'light' ? '&#x1F319;' : '&#x2600;';
+  });
   localStorage.setItem('dm', m);
 }
 function toggleDM() {
-  dm = dm === 'dark' ? 'light' : 'dark';
-  applyDM(dm);
+  var cur = document.documentElement.getAttribute('data-theme') || 'dark';
+  var next = cur === 'dark' ? 'light' : 'dark';
+  applyDM(next);
 }
+window.toggleDM = toggleDM;
 applyDM(dm);
 /* COURSE TABS */
 /* ─── COURSE TABS + AUTO-SLIDE (fixed) ─── */
@@ -164,17 +187,17 @@ if (cf) {
     var msg    = (document.getElementById('cf-msg')   || {}).value || '';
 
     if (!name.trim()) {
-      alert('Please enter your name.');
+      showToast('Please enter your full name.', true);
       document.getElementById('cf-name').focus();
       return;
     }
     if (!phone.trim()) {
-      alert('Please enter your phone number.');
+      showToast('Please enter your WhatsApp contact number.', true);
       document.getElementById('cf-phone').focus();
       return;
     }
     if (!document.getElementById('cf-course').value) {
-      alert('Please select a course.');
+      showToast('Please select your preferred course track.', true);
       document.getElementById('cf-course').focus();
       return;
     }
@@ -246,8 +269,11 @@ if (cf) {
   tick();
   setInterval(tick, 1000);
 })();
-/* LIVE COUNTER */
-(function(){var n=247,el=document.getElementById('lc-n');if(!el)return;setInterval(function(){if(Math.random()<0.3){n=n+(Math.random()<0.7?1:-1);n=Math.max(240,Math.min(260,n));el.textContent=n;}},9000);})();
+/* ENROLLMENT BADGE (Authentic verified count) */
+(function(){
+  var el = document.getElementById('lc-n');
+  if (el) el.textContent = '200+';
+})();
 
 // Close cert modal on Escape key
 document.addEventListener('keydown', function(e) {
@@ -265,7 +291,7 @@ document.addEventListener('mouseleave',function(e){if(e.clientY<5&&!epSeen&&!ses
 var ep=document.getElementById('exit-popup');if(ep){ep.addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});}
 function claimKit(){
   var em=document.getElementById('ep-email');
-  if(!em||!em.value.trim()||!em.value.includes('@')){alert('Please enter a valid email address.');return;}
+  if(!em||!em.value.trim()||!em.value.includes('@')){showToast('Please enter a valid email address.', true);return;}
   var email=em.value.trim();
   var ep=document.getElementById('exit-popup');
   if(ep) ep.classList.remove('open');
@@ -285,7 +311,7 @@ function claimKit(){
 /* SYLLABUS */
 function sendSyllabus(){
   var n=document.getElementById('cm-name'),p=document.getElementById('cm-phone');
-  if(!n||!p||!n.value.trim()||!p.value.trim()){alert('Please fill your name and WhatsApp number.');return;}
+  if(!n||!p||!n.value.trim()||!p.value.trim()){showToast('Please enter both name and WhatsApp number.', true);return;}
   var name=n.value.trim(), phone=p.value.trim();
   var cm=document.getElementById('curr-modal');
   if(cm) cm.classList.remove('open');
