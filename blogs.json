@@ -1,0 +1,59 @@
+[
+  {
+    "id": "1",
+    "slug": "python-basics-durgapur",
+    "title": "Python Basics: Getting Started with Variables, Lists & Loops",
+    "excerpt": "New to coding? This guide walks you through Python's core building blocks with simple examples you can run right now in your browser.",
+    "content": "<p>Python is the world's most beginner-friendly programming language — and also one of the most powerful. In this post, we'll cover the three most important concepts every Python beginner must master: <strong>variables, lists, and loops</strong>.</p>\n\n<h2>1. Variables — Storing Information</h2>\n<p>A variable is simply a named container for a value. Think of it like a labelled box.</p>\n<pre><code class=\"code-block\">name = \"Rahul\"\nage = 22\ncity = \"Durgapur\"\n\nprint(f\"Hello! I'm {name}, {age} years old from {city}.\")</code></pre>\n<p>Output: <code>Hello! I'm Rahul, 22 years old from Durgapur.</code></p>\n\n<h2>2. Lists — Storing Multiple Values</h2>\n<p>A list holds multiple values in a single variable. Lists are ordered, changeable, and allow duplicates.</p>\n<pre><code class=\"code-block\">courses = [\"Python\", \"Machine Learning\", \"Deep Learning\", \"NLP\"]\n\nprint(courses[0])    # Python\nprint(courses[-1])   # NLP\nprint(len(courses))  # 4</code></pre>\n\n<h2>3. Loops — Repeating Actions</h2>\n<p>Loops let you repeat a block of code without writing it multiple times.</p>\n<pre><code class=\"code-block\">for course in courses:\n    print(f\"Learning: {course}\")\n\n# Output:\n# Learning: Python\n# Learning: Machine Learning\n# Learning: Deep Learning\n# Learning: NLP</code></pre>\n\n<h2>Practice Exercise</h2>\n<p>Try this at home: create a list of 5 cities in West Bengal and print each one using a loop. This single exercise will cement your understanding of both lists and loops together.</p>\n\n<p>Ready to go deeper? Join our <strong>Python Fundamentals batch in Durgapur</strong> — we cover all of this and much more with live projects you actually build.</p>",
+    "category": "Python",
+    "tags": [
+      "Python",
+      "Beginners",
+      "Variables",
+      "Loops"
+    ],
+    "thumbnail": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80&auto=format&fit=crop",
+    "author": "Biswarup Mukherjee",
+    "date": "2025-12-01",
+    "read_time": "5 min read",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "slug": "machine-learning-diabetes-prediction",
+    "title": "How We Built a Live Diabetes Prediction App Using Machine Learning",
+    "excerpt": "A step-by-step breakdown of one of our most popular student projects — a real ML model trained on medical data, deployed live on Streamlit Cloud.",
+    "content": "<p>One of the first real projects our students build is a <strong>diabetes prediction application</strong>. It uses actual medical data, a trained machine learning model, and is deployed live on the internet for anyone to use. Here's how it works.</p>\n\n<h2>The Dataset</h2>\n<p>We use the Pima Indians Diabetes Dataset — a classic ML dataset with 768 samples and 8 features including glucose level, BMI, age, and insulin levels. The target is binary: diabetic or not.</p>\n\n<h2>The ML Pipeline</h2>\n<pre><code class=\"code-block\">import pandas as pd\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score\n\n# Load data\ndf = pd.read_csv('diabetes.csv')\nX = df.drop('Outcome', axis=1)\ny = df['Outcome']\n\n# Split and train\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\nmodel = RandomForestClassifier(n_estimators=100, random_state=42)\nmodel.fit(X_train, y_train)\n\n# Evaluate\nprint(f\"Accuracy: {accuracy_score(y_test, model.predict(X_test))*100:.1f}%\")</code></pre>\n\n<h2>Deploying with Streamlit</h2>\n<p>Once the model is trained, we wrap it in a Streamlit interface — sliders for each health parameter, a predict button, and an instant result. The whole UI takes about 30 lines of Python code.</p>\n\n<h2>See It Live</h2>\n<p>You can try our student's live app at <a href=\"https://diabetespredictor2026.streamlit.app\" target=\"_blank\">diabetespredictor2026.streamlit.app</a>. This is exactly the kind of project you build in our Full Program.</p>",
+    "category": "Machine Learning",
+    "tags": [
+      "ML",
+      "Scikit-learn",
+      "Streamlit",
+      "Projects"
+    ],
+    "thumbnail": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80&auto=format&fit=crop",
+    "author": "Biswarup Mukherjee",
+    "date": "2025-12-10",
+    "read_time": "7 min read",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "slug": "why-learn-python-durgapur",
+    "title": "Why Python Is the #1 Skill to Learn in Durgapur in 2026",
+    "excerpt": "The job market has shifted. Here's exactly why Python — specifically AI and ML skills — is the highest-ROI skill you can learn in the Asansol-Durgapur belt right now.",
+    "content": "<p>If you're a student or working professional in Durgapur or Asansol asking yourself <em>\"what skill should I learn in 2026?\"</em> — the answer is Python. Specifically Python for AI and data science. Here's why.</p>\n\n<h2>The Demand is Real and Local</h2>\n<p>Companies in Kolkata and beyond are actively hiring Python developers with AI skills. Many students from our Durgapur batches have secured data analyst and ML engineer roles within months of completing the course.</p>\n\n<h2>Python is Beginner Friendly</h2>\n<p>Unlike Java or C++, Python reads almost like English. Compare these two ways to print \"Hello World\":</p>\n<pre><code class=\"code-block\"># Java\nSystem.out.println(\"Hello World\");\n\n# Python\nprint(\"Hello World\")</code></pre>\n<p>Python's simplicity means you spend less time fighting syntax and more time solving real problems.</p>\n\n<h2>The AI Revolution is Here</h2>\n<p>ChatGPT, Gemini, image recognition systems, recommendation engines — all built with Python. Learning Python today means you're positioned to work with the technologies that are reshaping every industry.</p>\n\n<h2>The Salary Picture</h2>\n<p>Entry-level data analysts in India earn ₹3.5–6 LPA. ML engineers with deployment skills command ₹8–15 LPA within 2–3 years. That's the career trajectory our Full Program is designed to put you on.</p>\n\n<p><strong>Ready to start?</strong> Our next batch in Durgapur begins January 15. <a href=\"#contact\">Call us at +91 7001186689</a> to reserve your seat.</p>",
+    "category": "Career",
+    "tags": [
+      "Career",
+      "Python",
+      "Durgapur",
+      "Jobs"
+    ],
+    "thumbnail": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80&auto=format&fit=crop",
+    "author": "Biswarup Mukherjee",
+    "date": "2025-12-18",
+    "read_time": "4 min read",
+    "featured": false
+  }
+]

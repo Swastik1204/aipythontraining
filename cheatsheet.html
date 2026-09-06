@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Python & AI Cheat Sheet 2026 — Click to Copy</title>
+<meta name="description" content="Free Python, Pandas, NumPy, Scikit-learn, Streamlit and TensorFlow quick reference. Click any snippet to copy instantly. By AI & Python Training Durgapur."/>
+<meta name="keywords" content="Python cheat sheet 2026, Pandas reference, Scikit-learn cheat sheet, Streamlit reference, NumPy quick guide India"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.aipythontraining.in/cheatsheet.html"/>
+<link rel="sitemap" type="application/xml" href="https://www.aipythontraining.in/sitemap.xml"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="AI and Python Training"/>
+<meta property="og:title" content="Free Python & AI Cheat Sheet 2026 — Click to Copy"/>
+<meta property="og:description" content="Free Python, Pandas, NumPy, Scikit-learn, Streamlit and TensorFlow quick reference. Click any snippet to copy instantly. By AI & Python Training Durgapur."/>
+<meta property="og:url" content="https://www.aipythontraining.in/cheatsheet.html"/>
+<meta property="og:image" content="https://www.aipythontraining.in/og-cover.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="AI and Python Training Durgapur"/>
+<meta property="og:locale" content="en_IN"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Free Python & AI Cheat Sheet 2026 — Click to Copy"/>
+<meta name="twitter:description" content="Free Python, Pandas, NumPy, Scikit-learn, Streamlit and TensorFlow quick reference. Click any snippet to copy instantly. By AI & Python Training Durgapur."/>
+<meta name="twitter:image" content="https://www.aipythontraining.in/og-cover.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
+<link rel="dns-prefetch" href="https://wa.me"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Python AI Cheat Sheet Hub","description":"Free Python, Pandas, NumPy, Scikit-learn, Streamlit and TensorFlow quick reference. Click any snippet to copy instantly. By AI & Python Training Durgapur.","url":"https://www.aipythontraining.in/cheatsheet.html"}
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.cs-tabs{display:flex;gap:6px;flex-wrap:wrap;background:var(--card);border:1px solid var(--brd);border-radius:var(--r2);padding:5px;margin-bottom:32px}
+.cs-tab{padding:9px 18px;border-radius:var(--r);border:none;background:transparent;color:var(--muted);font-family:var(--fh);font-size:.82rem;font-weight:600;cursor:pointer;transition:var(--tr);white-space:nowrap}
+.cs-tab.active,.cs-tab:hover{background:var(--grad1);color:#fff}
+.cs-panel{display:none}.cs-panel.active{display:block}
+.cs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.cs-card{background:var(--card);border:1px solid var(--brd);border-radius:var(--r2);overflow:hidden}
+.cs-card-head{padding:12px 16px;border-bottom:1px solid var(--brd);display:flex;align-items:center;gap:8px}
+.cs-card-title{font-family:var(--fh);font-size:.88rem;font-weight:700;color:#fff}
+.cs-code{padding:14px 16px}
+.code{background:#0D1117;border-radius:var(--r);padding:10px 14px;font-family:var(--fm);font-size:.78rem;line-height:1.7;color:#E2E8F0;margin-bottom:6px;position:relative;cursor:pointer;transition:.15s}
+.code:hover{border:1px solid var(--brd2)}
+.code .cm{color:#6B7280}.code .kw{color:#C084FC}.code .fn{color:#60A5FA}.code .st{color:#86EFAC}.code .nm{color:#FCA5A5}.code .vr{color:#FDE68A}
+.copied-toast{position:fixed;bottom:90px;right:22px;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:var(--g2);padding:10px 18px;border-radius:var(--r);font-size:.8rem;font-weight:600;opacity:0;transition:opacity .3s;pointer-events:none;z-index:999}
+.copied-toast.show{opacity:1}
+.cs-desc{font-size:.72rem;color:var(--muted);margin-top:4px;padding:0 2px}
+</style>
+</head>
+<body data-page="cheatsheet">
+<div id="read-bar"></div>
+<div class="copied-toast" id="copiedToast">✅ Copied!</div>
+<a href="https://wa.me/917001186689" class="wa-fab" target="_blank"><i class="bi bi-whatsapp"></i></a>
+<script src="nav.js"></script>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="tag tg-c"><i class="bi bi-journals"></i>Free Resource</div>
+    <h1>Python &amp; AI<br/><span class="gt2">Quick Reference</span></h1>
+    <p>Your go-to cheat sheet for Python, Pandas, Scikit-learn and Streamlit. Click any code snippet to copy it instantly.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="cs-tabs">
+      <button class="cs-tab active" onclick="showCS('py',this)">🐍 Python</button>
+      <button class="cs-tab" onclick="showCS('pd',this)">📊 Pandas</button>
+      <button class="cs-tab" onclick="showCS('np',this)">🔢 NumPy</button>
+      <button class="cs-tab" onclick="showCS('sk',this)">🤖 Scikit-learn</button>
+      <button class="cs-tab" onclick="showCS('st',this)">🌐 Streamlit</button>
+      <button class="cs-tab" onclick="showCS('tf',this)">🧠 TensorFlow</button>
+    </div>
+
+    <!-- Python -->
+    <div class="cs-panel active" id="cs-py">
+      <div class="cs-grid">
+        <div class="cs-card"><div class="cs-card-head"><span>🔤</span><span class="cs-card-title">Variables & Data Types</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">name</span> = <span class="st">"Biswarup"</span><br/><span class="vr">age</span> = <span class="nm">30</span><br/><span class="vr">pi</span> = <span class="nm">3.14</span><br/><span class="vr">is_active</span> = <span class="kw">True</span></div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>📋</span><span class="cs-card-title">Lists</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">lst</span> = [<span class="nm">1</span>, <span class="nm">2</span>, <span class="nm">3</span>, <span class="nm">4</span>]<br/><span class="vr">lst</span>.<span class="fn">append</span>(<span class="nm">5</span>)&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># add item</span><br/><span class="vr">lst</span>.<span class="fn">remove</span>(<span class="nm">1</span>)&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># remove item</span><br/><span class="fn">len</span>(<span class="vr">lst</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># length</span><br/><span class="vr">lst</span>[<span class="nm">0</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># first item</span><br/><span class="vr">lst</span>[-<span class="nm">1</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># last item</span></div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>📖</span><span class="cs-card-title">Dictionaries</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">d</span> = {<span class="st">"name"</span>: <span class="st">"AI"</span>, <span class="st">"age"</span>: <span class="nm">2</span>}<br/><span class="vr">d</span>[<span class="st">"city"</span>] = <span class="st">"Durgapur"</span><br/><span class="fn">print</span>(<span class="vr">d</span>.<span class="fn">keys</span>())<br/><span class="fn">print</span>(<span class="vr">d</span>.<span class="fn">values</span>())<br/><span class="vr">d</span>.<span class="fn">get</span>(<span class="st">"name"</span>, <span class="st">"N/A"</span>)</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>🔄</span><span class="cs-card-title">Loops</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">for</span> <span class="vr">i</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="nm">5</span>):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="vr">i</span>)<br/><br/><span class="kw">for</span> <span class="vr">item</span> <span class="kw">in</span> <span class="vr">lst</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="vr">item</span>)<br/><br/><span class="vr">squares</span> = [<span class="vr">x</span>**<span class="nm">2</span> <span class="kw">for</span> <span class="vr">x</span> <span class="kw">in</span> <span class="fn">range</span>(<span class="nm">10</span>)]</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>⚙️</span><span class="cs-card-title">Functions</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">def</span> <span class="fn">greet</span>(<span class="vr">name</span>, <span class="vr">age</span>=<span class="nm">18</span>):<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span> <span class="st">f"Hi </span>{<span class="vr">name</span>}<span class="st">, you are </span>{<span class="vr">age</span>}<span class="st">"</span><br/><br/><span class="fn">greet</span>(<span class="st">"Rahul"</span>, <span class="nm">22</span>)<br/><br/><span class="cm"># Lambda</span><br/><span class="vr">square</span> = <span class="kw">lambda</span> <span class="vr">x</span>: <span class="vr">x</span> ** <span class="nm">2</span></div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>📁</span><span class="cs-card-title">File Handling</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="cm"># Read a file</span><br/><span class="kw">with</span> <span class="fn">open</span>(<span class="st">"data.txt"</span>, <span class="st">"r"</span>) <span class="kw">as</span> <span class="vr">f</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="vr">content</span> = <span class="vr">f</span>.<span class="fn">read</span>()<br/><br/><span class="cm"># Write a file</span><br/><span class="kw">with</span> <span class="fn">open</span>(<span class="st">"out.txt"</span>, <span class="st">"w"</span>) <span class="kw">as</span> <span class="vr">f</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="vr">f</span>.<span class="fn">write</span>(<span class="st">"Hello!"</span>)</div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- Pandas -->
+    <div class="cs-panel" id="cs-pd">
+      <div class="cs-grid">
+        <div class="cs-card"><div class="cs-card-head"><span>📥</span><span class="cs-card-title">Load & Inspect</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">import</span> <span class="fn">pandas</span> <span class="kw">as</span> <span class="vr">pd</span><br/><span class="vr">df</span> = pd.<span class="fn">read_csv</span>(<span class="st">"data.csv"</span>)<br/><span class="vr">df</span>.<span class="fn">head</span>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># first 5 rows</span><br/><span class="vr">df</span>.<span class="fn">shape</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># (rows, cols)</span><br/><span class="vr">df</span>.<span class="fn">info</span>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># data types</span><br/><span class="vr">df</span>.<span class="fn">describe</span>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># statistics</span></div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>🧹</span><span class="cs-card-title">Cleaning</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">df</span>.<span class="fn">isnull</span>().<span class="fn">sum</span>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># find nulls</span><br/><span class="vr">df</span>.<span class="fn">dropna</span>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># drop rows</span><br/><span class="vr">df</span>.<span class="fn">fillna</span>(<span class="nm">0</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># fill nulls</span><br/><span class="vr">df</span>.<span class="fn">drop_duplicates</span>()&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># rm dupes</span><br/><span class="vr">df</span>[<span class="st">"col"</span>].<span class="fn">astype</span>(<span class="fn">int</span>)&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># change type</span></div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>🔍</span><span class="cs-card-title">Select & Filter</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">df</span>[<span class="st">"col"</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># one col</span><br/><span class="vr">df</span>[[<span class="st">"c1"</span>, <span class="st">"c2"</span>]]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># multi col</span><br/><span class="vr">df</span>[<span class="vr">df</span>[<span class="st">"age"</span>] &gt; <span class="nm">25</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># filter</span><br/><span class="vr">df</span>.<span class="fn">iloc</span>[<span class="nm">0</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># row by index</span><br/><span class="vr">df</span>.<span class="fn">loc</span>[<span class="vr">df</span>[<span class="st">"city"</span>]==<span class="st">"Dgp"</span>]&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># by label</span></div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>📊</span><span class="cs-card-title">Groupby & Aggregation</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">df</span>.<span class="fn">groupby</span>(<span class="st">"city"</span>)[<span class="st">"salary"</span>].<span class="fn">mean</span>()<br/><span class="vr">df</span>.<span class="fn">groupby</span>(<span class="st">"dept"</span>).<span class="fn">agg</span>({<span class="st">"sal"</span>: <span class="st">"sum"</span>})<br/><span class="vr">df</span>.<span class="fn">value_counts</span>(<span class="st">"category"</span>)<br/><span class="vr">df</span>.<span class="fn">sort_values</span>(<span class="st">"score"</span>, <span class="vr">ascending</span>=<span class="kw">False</span>)</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>✏️</span><span class="cs-card-title">Add & Transform</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">df</span>[<span class="st">"new_col"</span>] = <span class="vr">df</span>[<span class="st">"a"</span>] + <span class="vr">df</span>[<span class="st">"b"</span>]<br/><span class="vr">df</span>[<span class="st">"upper"</span>] = <span class="vr">df</span>[<span class="st">"name"</span>].<span class="fn">str.upper</span>()<br/><span class="vr">df</span>[<span class="st">"grade"</span>] = <span class="vr">df</span>[<span class="st">"score"</span>].<span class="fn">apply</span>(<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">lambda</span> <span class="vr">x</span>: <span class="st">"A"</span> <span class="kw">if</span> <span class="vr">x</span>&gt;<span class="nm">90</span> <span class="kw">else</span> <span class="st">"B"</span>)</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>💾</span><span class="cs-card-title">Export</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">df</span>.<span class="fn">to_csv</span>(<span class="st">"out.csv"</span>, <span class="vr">index</span>=<span class="kw">False</span>)<br/><span class="vr">df</span>.<span class="fn">to_excel</span>(<span class="st">"out.xlsx"</span>)<br/><span class="vr">df</span>.<span class="fn">to_json</span>(<span class="st">"out.json"</span>)<br/><span class="vr">df</span>.<span class="fn">to_html</span>(<span class="st">"table.html"</span>)</div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- NumPy -->
+    <div class="cs-panel" id="cs-np">
+      <div class="cs-grid">
+        <div class="cs-card"><div class="cs-card-head"><span>🔢</span><span class="cs-card-title">Create Arrays</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">import</span> <span class="fn">numpy</span> <span class="kw">as</span> <span class="vr">np</span><br/><span class="vr">a</span> = np.<span class="fn">array</span>([<span class="nm">1</span>,<span class="nm">2</span>,<span class="nm">3</span>])<br/><span class="vr">z</span> = np.<span class="fn">zeros</span>((<span class="nm">3</span>,<span class="nm">4</span>))&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># 3x4 zeros</span><br/><span class="vr">o</span> = np.<span class="fn">ones</span>((<span class="nm">2</span>,<span class="nm">2</span>))&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># 2x2 ones</span><br/><span class="vr">r</span> = np.<span class="fn">arange</span>(<span class="nm">0</span>,<span class="nm">10</span>,<span class="nm">2</span>)<span class="cm"># [0,2,4,6,8]</span><br/><span class="vr">rnd</span> = np.random.<span class="fn">rand</span>(<span class="nm">3</span>,<span class="nm">3</span>)</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>📐</span><span class="cs-card-title">Shape & Reshape</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">a</span>.<span class="fn">shape</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># dimensions</span><br/><span class="vr">a</span>.<span class="fn">reshape</span>(<span class="nm">2</span>,<span class="nm">3</span>)<span class="cm"># change shape</span><br/><span class="vr">a</span>.<span class="fn">flatten</span>()&nbsp;&nbsp;&nbsp;<span class="cm"># 1D array</span><br/><span class="vr">a</span>.<span class="fn">T</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># transpose</span><br/><span class="vr">a</span>.<span class="fn">dtype</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># data type</span></div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>➕</span><span class="cs-card-title">Math Operations</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)">np.<span class="fn">mean</span>(<span class="vr">a</span>)<br/>np.<span class="fn">std</span>(<span class="vr">a</span>)<br/>np.<span class="fn">max</span>(<span class="vr">a</span>), np.<span class="fn">min</span>(<span class="vr">a</span>)<br/>np.<span class="fn">sum</span>(<span class="vr">a</span>, <span class="vr">axis</span>=<span class="nm">0</span>)<br/><span class="vr">a</span> + <span class="vr">b</span>, <span class="vr">a</span> * <span class="vr">b</span>&nbsp;&nbsp;&nbsp;<span class="cm"># element-wise</span><br/>np.<span class="fn">dot</span>(<span class="vr">a</span>, <span class="vr">b</span>)&nbsp;&nbsp;&nbsp;<span class="cm"># matrix mult</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- Scikit-learn -->
+    <div class="cs-panel" id="cs-sk">
+      <div class="cs-grid">
+        <div class="cs-card"><div class="cs-card-head"><span>✂️</span><span class="cs-card-title">Train-Test Split</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">from</span> <span class="fn">sklearn.model_selection</span> <span class="kw">import</span> <span class="fn">train_test_split</span><br/><br/><span class="vr">X_train</span>, <span class="vr">X_test</span>, <span class="vr">y_train</span>, <span class="vr">y_test</span> = \<br/>&nbsp;&nbsp;<span class="fn">train_test_split</span>(<span class="vr">X</span>, <span class="vr">y</span>, <span class="vr">test_size</span>=<span class="nm">0.2</span>, <span class="vr">random_state</span>=<span class="nm">42</span>)</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>🤖</span><span class="cs-card-title">Train a Model</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">from</span> <span class="fn">sklearn.ensemble</span> <span class="kw">import</span> <span class="fn">RandomForestClassifier</span><br/><br/><span class="vr">model</span> = <span class="fn">RandomForestClassifier</span>(<span class="vr">n_estimators</span>=<span class="nm">100</span>)<br/><span class="vr">model</span>.<span class="fn">fit</span>(<span class="vr">X_train</span>, <span class="vr">y_train</span>)<br/><span class="vr">preds</span> = <span class="vr">model</span>.<span class="fn">predict</span>(<span class="vr">X_test</span>)</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>📏</span><span class="cs-card-title">Evaluate Model</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">from</span> <span class="fn">sklearn.metrics</span> <span class="kw">import</span> <span class="fn">accuracy_score</span>, <span class="fn">classification_report</span><br/><br/><span class="fn">accuracy_score</span>(<span class="vr">y_test</span>, <span class="vr">preds</span>)<br/><span class="fn">print</span>(<span class="fn">classification_report</span>(<span class="vr">y_test</span>, <span class="vr">preds</span>))</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>⚙️</span><span class="cs-card-title">Preprocessing</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">from</span> <span class="fn">sklearn.preprocessing</span> <span class="kw">import</span> <span class="fn">StandardScaler</span>, <span class="fn">LabelEncoder</span><br/><br/><span class="vr">sc</span> = <span class="fn">StandardScaler</span>()<br/><span class="vr">X_train</span> = <span class="vr">sc</span>.<span class="fn">fit_transform</span>(<span class="vr">X_train</span>)<br/><span class="vr">X_test</span> = <span class="vr">sc</span>.<span class="fn">transform</span>(<span class="vr">X_test</span>)</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>💾</span><span class="cs-card-title">Save & Load Model</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">import</span> <span class="fn">pickle</span><br/><br/><span class="cm"># Save</span><br/><span class="kw">with</span> <span class="fn">open</span>(<span class="st">"model.pkl"</span>, <span class="st">"wb"</span>) <span class="kw">as</span> <span class="vr">f</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">pickle.dump</span>(<span class="vr">model</span>, <span class="vr">f</span>)<br/><br/><span class="cm"># Load</span><br/><span class="kw">with</span> <span class="fn">open</span>(<span class="st">"model.pkl"</span>, <span class="st">"rb"</span>) <span class="kw">as</span> <span class="vr">f</span>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;<span class="vr">model</span> = <span class="fn">pickle.load</span>(<span class="vr">f</span>)</div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- Streamlit -->
+    <div class="cs-panel" id="cs-st">
+      <div class="cs-grid">
+        <div class="cs-card"><div class="cs-card-head"><span>🖊️</span><span class="cs-card-title">Text Elements</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">import</span> <span class="fn">streamlit</span> <span class="kw">as</span> <span class="vr">st</span><br/><br/>st.<span class="fn">title</span>(<span class="st">"My App"</span>)<br/>st.<span class="fn">header</span>(<span class="st">"Section"</span>)<br/>st.<span class="fn">subheader</span>(<span class="st">"Sub"</span>)<br/>st.<span class="fn">write</span>(<span class="st">"Any text or data"</span>)<br/>st.<span class="fn">markdown</span>(<span class="st">"**bold** _italic_"</span>)</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>🎛️</span><span class="cs-card-title">Input Widgets</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">name</span> = st.<span class="fn">text_input</span>(<span class="st">"Your name"</span>)<br/><span class="vr">age</span> = st.<span class="fn">slider</span>(<span class="st">"Age"</span>, <span class="nm">18</span>, <span class="nm">60</span>)<br/><span class="vr">opt</span> = st.<span class="fn">selectbox</span>(<span class="st">"Choose"</span>, [<span class="st">"A"</span>,<span class="st">"B"</span>])<br/><span class="vr">btn</span> = st.<span class="fn">button</span>(<span class="st">"Predict"</span>)<br/><span class="vr">file</span> = st.<span class="fn">file_uploader</span>(<span class="st">"Upload CSV"</span>)</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>🚀</span><span class="cs-card-title">ML Model Deployment</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">import</span> <span class="fn">pickle</span><br/><span class="vr">model</span> = <span class="fn">pickle.load</span>(<span class="fn">open</span>(<span class="st">"model.pkl"</span>,<span class="st">"rb"</span>))<br/><br/><span class="vr">val</span> = st.<span class="fn">slider</span>(<span class="st">"Glucose"</span>, <span class="nm">0</span>, <span class="nm">200</span>)<br/><span class="kw">if</span> st.<span class="fn">button</span>(<span class="st">"Predict"</span>):<br/>&nbsp;&nbsp;<span class="vr">result</span> = <span class="vr">model</span>.<span class="fn">predict</span>([[<span class="vr">val</span>]])<br/>&nbsp;&nbsp;st.<span class="fn">success</span>(<span class="st">f"Result: </span>{<span class="vr">result</span>[<span class="nm">0</span>]}<span class="st">"</span>)</div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- TensorFlow -->
+    <div class="cs-panel" id="cs-tf">
+      <div class="cs-grid">
+        <div class="cs-card"><div class="cs-card-head"><span>🏗️</span><span class="cs-card-title">Build a Model</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="kw">import</span> <span class="fn">tensorflow</span> <span class="kw">as</span> <span class="vr">tf</span><br/><span class="kw">from</span> <span class="fn">tensorflow.keras</span> <span class="kw">import</span> <span class="fn">Sequential</span><br/><span class="kw">from</span> <span class="fn">tensorflow.keras.layers</span> <span class="kw">import</span> <span class="fn">Dense</span>, <span class="fn">Dropout</span><br/><br/><span class="vr">model</span> = <span class="fn">Sequential</span>([<br/>&nbsp;&nbsp;<span class="fn">Dense</span>(<span class="nm">64</span>, <span class="vr">activation</span>=<span class="st">"relu"</span>, <span class="vr">input_shape</span>=(<span class="nm">8</span>,)),<br/>&nbsp;&nbsp;<span class="fn">Dropout</span>(<span class="nm">0.3</span>),<br/>&nbsp;&nbsp;<span class="fn">Dense</span>(<span class="nm">32</span>, <span class="vr">activation</span>=<span class="st">"relu"</span>),<br/>&nbsp;&nbsp;<span class="fn">Dense</span>(<span class="nm">1</span>, <span class="vr">activation</span>=<span class="st">"sigmoid"</span>)<br/>])</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>🏋️</span><span class="cs-card-title">Compile & Train</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">model</span>.<span class="fn">compile</span>(<br/>&nbsp;&nbsp;<span class="vr">optimizer</span>=<span class="st">"adam"</span>,<br/>&nbsp;&nbsp;<span class="vr">loss</span>=<span class="st">"binary_crossentropy"</span>,<br/>&nbsp;&nbsp;<span class="vr">metrics</span>=[<span class="st">"accuracy"</span>]<br/>)<br/><span class="vr">model</span>.<span class="fn">fit</span>(<span class="vr">X_train</span>, <span class="vr">y_train</span>, <span class="vr">epochs</span>=<span class="nm">50</span>, <span class="vr">batch_size</span>=<span class="nm">32</span>)</div>
+        </div></div>
+        <div class="cs-card"><div class="cs-card-head"><span>📏</span><span class="cs-card-title">Evaluate & Save</span></div><div class="cs-code">
+          <div class="code" onclick="cp(this)"><span class="vr">loss</span>, <span class="vr">acc</span> = <span class="vr">model</span>.<span class="fn">evaluate</span>(<span class="vr">X_test</span>, <span class="vr">y_test</span>)<br/><span class="fn">print</span>(<span class="st">f"Accuracy: </span>{<span class="vr">acc</span>*<span class="nm">100</span>:.1f}<span class="st">%"</span>)<br/><br/><span class="vr">model</span>.<span class="fn">save</span>(<span class="st">"model.h5"</span>)<br/><span class="vr">loaded</span> = tf.keras.<span class="fn">models.load_model</span>(<span class="st">"model.h5"</span>)</div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="card p-4 text-center mt-5 sr" style="background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(139,92,246,.08));border-color:var(--brd2)">
+      <h4 style="font-family:var(--fh);color:#fff;margin-bottom:8px">🎓 Learn All This With Real Projects</h4>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px">These aren't just snippets — in our course you use every one of these in real, deployed AI applications.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="demo.html" class="btn"><i class="bi bi-calendar-check"></i>Book Free Demo</a>
+        <a href="roadmap.html" class="btn-o"><i class="bi bi-map"></i>Get Your Roadmap</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ SEO SEMANTIC CONTENT ══ -->
+<section style="max-width:900px;margin:0 auto;padding:40px 20px 0">
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Python Quick Reference</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Essential Python syntax — variables, lists, dictionaries, loops, functions and file handling. Click any code block to copy it instantly.</p>
+  </div>
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Pandas and NumPy Reference</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">The most-used Pandas DataFrame operations and NumPy array functions. Load, clean, filter, group and export data with one-click copy.</p>
+  </div>
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Machine Learning and Deployment Code</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Scikit-learn model training pipeline, TensorFlow Keras model building and Streamlit deployment snippets — ready to paste into your projects.</p>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="sf-inner">
+      <div class="sf-brand"><span>🐍</span>AI &amp; Python Training</div>
+      <div class="sf-links"><a href="index.html">Home</a><a href="cheatsheet.html">Cheat Sheet</a><a href="roadmap.html">Roadmap</a><a href="blog.html">Blog</a></div>
+    </div>
+    <div class="sf-copy">© 2026 AI &amp; Python Training · Durgapur · +91 7001186689</div>
+  </div>
+</footer>
+
+<script>
+function showCS(id,btn){
+  document.querySelectorAll('.cs-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.cs-tab').forEach(function(b){b.classList.remove('active');});
+  document.getElementById('cs-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+function cp(el){
+  var text=el.innerText;
+  navigator.clipboard.writeText(text).catch(function(){});
+  var t=document.getElementById('copiedToast');
+  t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},1800);
+}
+document.querySelectorAll('.sr').forEach(function(el){
+  new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.08}).observe(el);
+});
+window.addEventListener('scroll',function(){var h=document.documentElement;document.getElementById('read-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+</script>
+</body></html>

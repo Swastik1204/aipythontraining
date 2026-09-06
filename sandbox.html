@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Python Sandbox — Run Python in Browser | Durgapur</title>
+<meta name="description" content="Run real Python in your browser — no install needed. 10 recipes, 8 auto-graded challenges, Pandas, NumPy and Scikit-learn built in. By AI & Python Training."/>
+<meta name="keywords" content="run Python online free, Python sandbox browser India, learn Python online Durgapur, Python code runner no install"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.aipythontraining.in/sandbox.html"/>
+<link rel="sitemap" type="application/xml" href="https://www.aipythontraining.in/sitemap.xml"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="AI and Python Training"/>
+<meta property="og:title" content="Free Python Sandbox — Run Python in Browser | Durgapur"/>
+<meta property="og:description" content="Run real Python in your browser — no install needed. 10 recipes, 8 auto-graded challenges, Pandas, NumPy and Scikit-learn built in. By AI & Python Training."/>
+<meta property="og:url" content="https://www.aipythontraining.in/sandbox.html"/>
+<meta property="og:image" content="https://www.aipythontraining.in/og-cover.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="AI and Python Training Durgapur"/>
+<meta property="og:locale" content="en_IN"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Free Python Sandbox — Run Python in Browser | Durgapur"/>
+<meta name="twitter:description" content="Run real Python in your browser — no install needed. 10 recipes, 8 auto-graded challenges, Pandas, NumPy and Scikit-learn built in. By AI & Python Training."/>
+<meta name="twitter:image" content="https://www.aipythontraining.in/og-cover.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
+<link rel="dns-prefetch" href="https://wa.me"/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net/pyodide" crossorigin/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Free Python Code Sandbox","description":"Run real Python in your browser — no install needed. 10 recipes, 8 auto-graded challenges, Pandas, NumPy and Scikit-learn built in. By AI & Python Training.","url":"https://www.aipythontraining.in/sandbox.html","applicationCategory":"EducationalApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}}
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── LAYOUT ── */
+.sandbox-wrap{display:grid;grid-template-columns:260px 1fr;gap:0;border:1px solid var(--brd);border-radius:var(--r2);overflow:hidden;background:var(--card);min-height:600px}
+@media(max-width:900px){.sandbox-wrap{grid-template-columns:1fr}}
+/* SIDEBAR */
+.sb-side{background:var(--bg2);border-right:1px solid var(--brd);display:flex;flex-direction:column;overflow-y:auto}
+.sb-tabs{display:flex;border-bottom:1px solid var(--brd)}
+.sb-tab{flex:1;padding:11px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;color:var(--muted);border:none;background:transparent;border-bottom:2px solid transparent;transition:.2s}
+.sb-tab.active{color:var(--b2);border-bottom-color:var(--blue)}
+.sb-content{flex:1;overflow-y:auto;padding:10px}
+.recipe-card{padding:10px 12px;border-radius:var(--r);cursor:pointer;margin-bottom:6px;border:1px solid var(--brd);transition:.15s;background:transparent}
+.recipe-card:hover{border-color:var(--brd2);background:rgba(59,130,246,.06)}
+.recipe-card.active{border-color:var(--blue);background:rgba(59,130,246,.08)}
+.rc-icon{font-size:1.1rem;margin-bottom:4px}
+.rc-title{font-family:var(--fh);font-size:.8rem;font-weight:700;color:#fff;margin-bottom:2px}
+.rc-sub{font-size:.68rem;color:var(--muted);line-height:1.4}
+.challenge-card{padding:12px;border-radius:var(--r);cursor:pointer;margin-bottom:8px;border:1px solid var(--brd);transition:.15s}
+.challenge-card:hover{border-color:var(--blue)}
+.challenge-card.active{border-color:var(--blue);background:rgba(59,130,246,.06)}
+.ch-diff{font-size:.62rem;font-weight:700;padding:2px 7px;border-radius:50px;margin-bottom:5px;display:inline-block}
+.ch-easy{background:rgba(16,185,129,.15);color:var(--g2)}
+.ch-med{background:rgba(245,158,11,.15);color:var(--o2)}
+.ch-hard{background:rgba(239,68,68,.15);color:var(--r2)}
+.ch-title{font-family:var(--fh);font-size:.82rem;font-weight:700;color:#fff;margin-bottom:3px}
+.ch-desc{font-size:.7rem;color:var(--muted);line-height:1.4}
+.ch-pts{font-size:.65rem;color:var(--p2)}
+/* EDITOR AREA */
+.sb-main{display:flex;flex-direction:column}
+.editor-toolbar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--brd);flex-wrap:wrap;background:var(--bg2)}
+.et-dots{display:flex;gap:5px}
+.et-dot{width:11px;height:11px;border-radius:50%}
+.et-title{font-family:var(--fh);font-size:.8rem;font-weight:700;color:#fff;flex:1}
+.et-btn{padding:6px 14px;border-radius:8px;border:1px solid var(--brd);background:transparent;color:var(--muted);font-size:.75rem;font-weight:600;cursor:pointer;transition:.15s;display:flex;align-items:center;gap:5px;font-family:var(--fn)}
+.et-btn:hover{border-color:var(--brd2);color:#fff}
+.et-btn.run{background:var(--grad1);border-color:transparent;color:#fff;font-family:var(--fh);font-weight:700}
+.et-btn.run:hover{opacity:.9}
+.et-btn.run:disabled{opacity:.5;cursor:not-allowed}
+.editor-area{flex:1;position:relative;min-height:260px}
+#code-editor{width:100%;height:100%;min-height:260px;background:#0D1117;border:none;outline:none;resize:none;color:#E2E8F0;font-family:var(--fm);font-size:.85rem;line-height:1.7;padding:16px;tab-size:4}
+.line-nums{position:absolute;left:0;top:0;bottom:0;width:40px;background:#0a0f1a;border-right:1px solid var(--brd);padding:16px 8px;font-family:var(--fm);font-size:.85rem;line-height:1.7;color:var(--dim);text-align:right;pointer-events:none;overflow:hidden}
+/* OUTPUT */
+.output-area{border-top:1px solid var(--brd);min-height:160px;max-height:260px;display:flex;flex-direction:column}
+.oa-header{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;border-bottom:1px solid var(--brd);background:var(--bg2);flex-shrink:0}
+.oa-title{font-family:var(--fh);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.oa-status{font-size:.72rem;font-weight:600;display:flex;align-items:center;gap:5px}
+.oa-status.ok{color:var(--g2)}.oa-status.err{color:var(--r2)}.oa-status.running{color:var(--b2)}
+#output{flex:1;background:#060B14;padding:14px 16px;font-family:var(--fm);font-size:.82rem;line-height:1.7;overflow-y:auto;white-space:pre-wrap;word-break:break-word;color:#E2E8F0}
+.out-ok{color:#86EFAC}.out-err{color:#F87171}.out-system{color:#60A5FA}
+/* CHALLENGE RESULT */
+.ch-result{padding:14px 16px;border-top:1px solid var(--brd);display:none}
+.ch-result.pass{background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.2)}
+.ch-result.fail{background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.15)}
+.cr-title{font-family:var(--fh);font-size:.88rem;font-weight:700;margin-bottom:5px}
+.cr-tests{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.ct{font-size:.7rem;padding:3px 10px;border-radius:50px;font-weight:600}
+.ct-pass{background:rgba(16,185,129,.15);color:var(--g2)}.ct-fail{background:rgba(239,68,68,.12);color:var(--r2)}
+/* PYODIDE LOADER */
+.py-loader{position:fixed;inset:0;background:rgba(6,11,24,.92);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;backdrop-filter:blur(8px)}
+.py-loader.hidden{display:none}
+.py-spinner{width:48px;height:48px;border:3px solid rgba(59,130,246,.2);border-top-color:var(--blue);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.py-progress{width:240px;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden}
+.py-prog-fill{height:100%;background:var(--grad1);border-radius:2px;transition:width .3s}
+/* CHALLENGE TIMER */
+.ch-timer{display:flex;align-items:center;gap:6px;font-family:var(--fh);font-size:.85rem;font-weight:700}
+.ch-timer.warning{color:var(--o2)}.ch-timer.danger{color:var(--r2)}
+</style>
+</head>
+<body data-page="sandbox">
+<div id="read-bar"></div>
+<a href="https://wa.me/917001186689" class="wa-fab" target="_blank"><i class="bi bi-whatsapp"></i></a>
+<script src="nav.js"></script>
+
+<!-- PYODIDE LOADER -->
+<div class="py-loader" id="py-loader">
+  <div class="py-spinner"></div>
+  <div style="font-family:var(--fh);font-size:1rem;color:#fff;font-weight:600">Loading Python Engine…</div>
+  <div class="py-progress"><div class="py-prog-fill" id="py-prog" style="width:0%"></div></div>
+  <div style="font-size:.78rem;color:var(--muted)" id="py-status">Downloading Pyodide (~10MB) — one time only</div>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="tag tg-c"><i class="bi bi-terminal-fill"></i>Live Python Sandbox</div>
+    <h1>Run Python<br/><span class="gt2">Right in Your Browser</span></h1>
+    <p>No installation, no account. Real Python running in your browser via WebAssembly. Try recipes, solve challenges and test your code instantly.</p>
+  </div>
+</div>
+
+<div class="section" style="padding-top:32px">
+  <div class="container">
+    <!-- Stats bar -->
+    <div class="d-flex gap-3 mb-3 flex-wrap">
+      <div style="background:var(--card);border:1px solid var(--brd);border-radius:var(--r);padding:8px 16px;font-size:.78rem;display:flex;align-items:center;gap:6px"><i class="bi bi-cpu" style="color:var(--b2)"></i><span style="color:var(--muted)">Engine:</span><strong style="color:#fff">Python 3.11 (Pyodide)</strong></div>
+      <div style="background:var(--card);border:1px solid var(--brd);border-radius:var(--r);padding:8px 16px;font-size:.78rem;display:flex;align-items:center;gap:6px"><i class="bi bi-cloud-slash" style="color:var(--g2)"></i><strong style="color:var(--g2)">100% in-browser</strong><span style="color:var(--muted)">— no server</span></div>
+      <div style="background:var(--card);border:1px solid var(--brd);border-radius:var(--r);padding:8px 16px;font-size:.78rem;display:flex;align-items:center;gap:6px"><i class="bi bi-box" style="color:var(--p2)"></i><span style="color:var(--muted)">Built-in:</span><strong style="color:#fff">NumPy · Pandas · Matplotlib · Scikit-learn</strong></div>
+    </div>
+
+    <div class="sandbox-wrap">
+      <!-- SIDEBAR -->
+      <div class="sb-side">
+        <div class="sb-tabs">
+          <button class="sb-tab active" onclick="showPanel('recipes',this)">Recipes</button>
+          <button class="sb-tab" onclick="showPanel('challenges',this)">Challenges</button>
+        </div>
+        <div class="sb-content" id="panel-recipes">
+          <!-- Recipes filled by JS -->
+        </div>
+        <div class="sb-content" id="panel-challenges" style="display:none">
+          <!-- Challenges filled by JS -->
+        </div>
+      </div>
+
+      <!-- EDITOR -->
+      <div class="sb-main">
+        <div class="editor-toolbar">
+          <div class="et-dots">
+            <div class="et-dot" style="background:#FF5F57"></div>
+            <div class="et-dot" style="background:#FFBD2E"></div>
+            <div class="et-dot" style="background:#28C840"></div>
+          </div>
+          <div class="et-title" id="et-title">Free Editor</div>
+          <div id="ch-timer-wrap" style="display:none" class="ch-timer" id="ch-timer">⏱ <span id="ch-time">300</span>s</div>
+          <button class="et-btn" onclick="clearEditor()"><i class="bi bi-trash3"></i>Clear</button>
+          <button class="et-btn" onclick="copyCode()"><i class="bi bi-clipboard"></i>Copy</button>
+          <button class="et-btn run" id="run-btn" onclick="runCode()" disabled><i class="bi bi-play-fill"></i>Run Python</button>
+        </div>
+        <div class="editor-area">
+          <div class="line-nums" id="line-nums">1</div>
+          <textarea id="code-editor" spellcheck="false" autocorrect="off" autocapitalize="off"
+            placeholder="# Python is loading... please wait&#10;# Once ready, click Run Python to execute your code"
+            style="padding-left:52px"></textarea>
+        </div>
+        <div class="output-area">
+          <div class="oa-header">
+            <span class="oa-title">Output</span>
+            <span class="oa-status" id="oa-status"></span>
+            <button class="et-btn" style="padding:4px 10px;font-size:.68rem" onclick="clearOutput()"><i class="bi bi-x"></i>Clear</button>
+          </div>
+          <div id="output"><span class="out-system">⏳ Python engine loading… this takes about 5–10 seconds the first time.</span></div>
+        </div>
+        <div class="ch-result" id="ch-result">
+          <div class="cr-title" id="cr-title"></div>
+          <div id="cr-msg" style="font-size:.82rem;color:var(--muted);margin-bottom:8px"></div>
+          <div class="cr-tests" id="cr-tests"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="card p-4 text-center mt-4 sr" style="background:linear-gradient(135deg,rgba(6,182,212,.07),rgba(59,130,246,.07));border-color:var(--brd2)">
+      <h4 style="font-family:var(--fh);color:#fff;margin-bottom:8px">🎓 Learn to write Python like this — with real mentorship</h4>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px">This sandbox shows what Python can do. In our course you go from basics to deploying live AI apps — with Biswarup guiding you every step.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="demo.html" class="btn"><i class="bi bi-calendar-check"></i>Book Free Demo Class</a>
+        <a href="roadmap.html" class="btn-o"><i class="bi bi-map"></i>Get Your Roadmap</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ SEO SEMANTIC CONTENT ══ -->
+<section style="max-width:900px;margin:0 auto;padding:40px 20px 0">
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Run Python Code Directly in Your Browser</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">No installation required. Our sandbox uses Pyodide — a real Python 3.11 runtime compiled to WebAssembly. NumPy, Pandas and Scikit-learn are built in.</p>
+  </div>
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Python Code Recipes and Templates</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Ten ready-to-run Python code recipes — from Hello World to a full machine learning model training and evaluation pipeline using the Iris dataset.</p>
+  </div>
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Auto-Graded Python Coding Challenges</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Eight timed coding challenges with automatic test-case validation. Solve problems from Sum of a List to generating Fibonacci sequences using Python generators.</p>
+  </div>
+</section>
+<section style="max-width:900px;margin:32px auto;padding:0 20px">
+  <p style="font-size:.88rem;color:#94A3B8;line-height:1.8">Our Python code sandbox runs a real Python 3.11 interpreter directly in your web browser using Pyodide — a version of CPython compiled to WebAssembly. This means you can execute genuine Python code with access to NumPy, Pandas and Scikit-learn without installing anything on your computer. The sandbox includes ten pre-built code recipes covering Python basics, list comprehensions, dictionary operations, NumPy array mathematics, Pandas DataFrame analysis, machine learning with the Iris dataset, data visualisation with Matplotlib, string processing as a foundation for NLP, and statistical analysis. There are also eight auto-graded coding challenges ranging from easy tasks like counting vowels and reversing strings to medium challenges like FizzBuzz and finding duplicate elements, and hard challenges including Fibonacci generators and flattening nested lists. Each challenge has a countdown timer and automatic test case validation.</p>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="sf-inner">
+      <div class="sf-brand"><span>🐍</span>AI &amp; Python Training</div>
+      <div class="sf-links"><a href="index.html">Home</a><a href="interview.html">Interview Arena</a><a href="cheatsheet.html">Cheat Sheet</a><a href="demo.html">Book Demo</a></div>
+    </div>
+    <div class="sf-copy">© 2026 AI &amp; Python Training · Durgapur · +91 7001186689</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.0/full/pyodide.js"></script>
+<script>
+/* ════════════════════════════════
+   RECIPES
+════════════════════════════════ */
+var RECIPES = [
+  {icon:'🐍',title:'Hello World',sub:'Your first Python program',code:'# Your first Python program!\nname = "AI Student"\nprint(f"Hello, {name}!")\nprint(f"Welcome to AI & Python Training, Durgapur 🎓")\n\n# Try changing the name above and run again'},
+  {icon:'📋',title:'List & Loops',sub:'Iterate and filter data',code:'# Lists and loops\ncourses = ["Python", "Machine Learning", "Deep Learning", "NLP", "Gen AI"]\n\nprint("All Courses:")\nfor i, course in enumerate(courses, 1):\n    print(f"  {i}. {course}")\n\n# List comprehension\nlong_names = [c for c in courses if len(c) > 6]\nprint(f"\\nCourses with >6 chars: {long_names}")'},
+  {icon:'📖',title:'Dictionaries',sub:'Key-value data structures',code:'# Student record using dictionary\nstudent = {\n    "name": "Rahul Sharma",\n    "city": "Durgapur",\n    "course": "ML & AI",\n    "score": 92\n}\n\n# Access and update\nprint(f"Student: {student[\'name\']} from {student[\'city\']}")\nstudent["grade"] = "A" if student["score"] >= 90 else "B"\nprint(f"Grade: {student[\'grade\']}")\n\n# Iterate\nfor key, val in student.items():\n    print(f"  {key}: {val}")'},
+  {icon:'⚙️',title:'Functions',sub:'Reusable code blocks',code:'# Function examples\ndef calculate_bmi(weight_kg, height_m):\n    """Calculate Body Mass Index"""\n    bmi = weight_kg / (height_m ** 2)\n    if bmi < 18.5:\n        category = "Underweight"\n    elif bmi < 25:\n        category = "Normal"\n    elif bmi < 30:\n        category = "Overweight"\n    else:\n        category = "Obese"\n    return bmi, category\n\nbmi, cat = calculate_bmi(70, 1.75)\nprint(f"BMI: {bmi:.1f} — {cat}")\n\n# Lambda function\nsquare = lambda x: x ** 2\nprint(f"Squares: {[square(i) for i in range(1, 6)]}")'},
+  {icon:'🔢',title:'NumPy Basics',sub:'Fast array operations',code:'import numpy as np\n\n# Create arrays\narr = np.array([10, 20, 30, 40, 50])\nprint(f"Array: {arr}")\nprint(f"Mean: {arr.mean():.1f}")\nprint(f"Std Dev: {arr.std():.1f}")\nprint(f"Max: {arr.max()}, Min: {arr.min()}")\n\n# 2D array (matrix)\nmatrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\nprint(f"\\n2D Matrix shape: {matrix.shape}")\nprint(f"Column means: {matrix.mean(axis=0)}")\nprint(f"Row sums: {matrix.sum(axis=1)}")'},
+  {icon:'📊',title:'Pandas DataFrame',sub:'Load and analyse data',code:'import pandas as pd\n\n# Create a sample dataset\ndata = {\n    "Name": ["Alice", "Bob", "Carol", "Dave", "Eve"],\n    "City": ["Durgapur", "Asansol", "Durgapur", "Kolkata", "Asansol"],\n    "Course": ["ML", "Python", "ML", "NLP", "Python"],\n    "Score": [92, 78, 88, 95, 71]\n}\ndf = pd.DataFrame(data)\n\nprint("Dataset:")\nprint(df.to_string(index=False))\nprint(f"\\nShape: {df.shape}")\nprint(f"\\nAverage score: {df[\'Score\'].mean():.1f}")\nprint(f"\\nScores by city:")\nprint(df.groupby("City")["Score"].mean().round(1))'},
+  {icon:'🤖',title:'ML: Iris Classifier',sub:'Train a real ML model',code:'from sklearn.datasets import load_iris\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score\n\n# Load dataset\niris = load_iris()\nX, y = iris.data, iris.target\n\n# Split data\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)\n\n# Train model\nmodel = RandomForestClassifier(n_estimators=50, random_state=42)\nmodel.fit(X_train, y_train)\n\n# Evaluate\npreds = model.predict(X_test)\nacc = accuracy_score(y_test, preds)\nprint(f"✅ Model trained on {len(X_train)} samples")\nprint(f"📊 Test accuracy: {acc*100:.1f}%")\nprint(f"🎯 Classes: {iris.target_names.tolist()}")\nprint(f"\\nPredicting first 5 test samples:")\nfor i in range(5):\n    print(f"  Predicted: {iris.target_names[preds[i]]}, Actual: {iris.target_names[y_test[i]]}")'},
+  {icon:'📈',title:'Data Visualisation',sub:'Matplotlib charts',code:'import matplotlib\nmatplotlib.use("Agg")  # Required for browser\nimport matplotlib.pyplot as plt\nimport io, base64\n\n# Sample data\ncourses = ["Python", "ML", "Deep Learning", "NLP", "Gen AI"]\nstudents = [45, 38, 22, 18, 30]\n\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))\nfig.patch.set_facecolor("#0D1526")\n\n# Bar chart\ncolors = ["#3B82F6", "#8B5CF6", "#EF4444", "#F59E0B", "#10B981"]\nax1.bar(courses, students, color=colors)\nax1.set_facecolor("#0D1526")\nax1.set_title("Enrollment by Course", color="white")\nax1.tick_params(colors="white")\nax1.set_ylabel("Students", color="white")\nplt.setp(ax1.get_xticklabels(), rotation=30, ha="right")\n\n# Pie chart\nax2.pie(students, labels=courses, colors=colors, autopct="%1.0f%%", textprops={"color":"white"})\nax2.set_facecolor("#0D1526")\nax2.set_title("Course Distribution", color="white")\n\nplt.tight_layout()\nbuf = io.BytesIO()\nplt.savefig(buf, format="png", bbox_inches="tight", facecolor="#0D1526")\nbuf.seek(0)\nb64 = base64.b64encode(buf.read()).decode()\nprint(f\'<img src="data:image/png;base64,{b64}" style="max-width:100%;border-radius:8px" alt="Python code sandbox illustration"/>\')'},
+  {icon:'🔡',title:'String Processing',sub:'Text manipulation & NLP basics',code:'# String operations — foundation of NLP\ntext = "Python is the best language for AI and Machine Learning in 2026!"\n\nprint(f"Original: {text}")\nprint(f"Upper: {text.upper()}")\nprint(f"Word count: {len(text.split())}")\nprint(f"Contains \'Python\': {\'Python\' in text}")\n\n# Tokenise and filter\nwords = text.lower().split()\nstop_words = {"is", "the", "for", "and", "in"}\nfiltered = [w.strip("!.,") for w in words if w not in stop_words]\nprint(f"\\nFiltered words: {filtered}")\n\n# Count word frequency\nfrom collections import Counter\nfreq = Counter(filtered)\nprint(f"\\nTop words: {freq.most_common(3)}")'},
+  {icon:'🎲',title:'Statistics & Probability',sub:'Core math for data science',code:'import statistics\nimport random\n\n# Generate sample data\nrandom.seed(42)\ntest_scores = [random.gauss(75, 15) for _ in range(50)]\ntest_scores = [max(0, min(100, s)) for s in test_scores]  # clip to 0-100\n\nprint("📊 Test Score Analysis")\nprint(f"  Count:    {len(test_scores)}")\nprint(f"  Mean:     {statistics.mean(test_scores):.1f}")\nprint(f"  Median:   {statistics.median(test_scores):.1f}")\nprint(f"  Std Dev:  {statistics.stdev(test_scores):.1f}")\nprint(f"  Min/Max:  {min(test_scores):.1f} / {max(test_scores):.1f}")\n\n# Grade distribution\ngrades = {"A (90+)": 0, "B (75-89)": 0, "C (60-74)": 0, "F (<60)": 0}\nfor s in test_scores:\n    if s >= 90: grades["A (90+)"] += 1\n    elif s >= 75: grades["B (75-89)"] += 1\n    elif s >= 60: grades["C (60-74)"] += 1\n    else: grades["F (<60)"] += 1\nprint("\\nGrade Distribution:")\nfor g, n in grades.items():\n    bar = "█" * n\n    print(f"  {g}: {n:2d} {bar}")'},
+];
+
+/* ════════════════════════════════
+   CHALLENGES
+════════════════════════════════ */
+var CHALLENGES = [
+  {diff:'easy',pts:50,time:300,title:'Sum of List',desc:'Write a function `total(lst)` that returns the sum of all numbers in a list.',template:'def total(lst):\n    # Your code here\n    pass\n\n# Test your solution\nprint(total([1, 2, 3, 4, 5]))   # Should print: 15\nprint(total([10, 20, 30]))       # Should print: 60',
+   tests:[{inp:'[1,2,3,4,5]',exp:'15'},{inp:'[10,20,30]',exp:'60'},{inp:'[]',exp:'0'},{inp:'[-1,1,-2,2]',exp:'0'}],
+   testCode:'print(total([1,2,3,4,5]))\nprint(total([10,20,30]))\nprint(total([]))\nprint(total([-1,1,-2,2]))'},
+  {diff:'easy',pts:50,time:300,title:'Count Vowels',desc:'Write a function `count_vowels(s)` that returns the number of vowels (a,e,i,o,u) in a string.',template:'def count_vowels(s):\n    # Your code here\n    pass\n\nprint(count_vowels("hello"))    # 2\nprint(count_vowels("Python"))   # 1\nprint(count_vowels("aeiou"))    # 5',
+   tests:[{inp:'"hello"',exp:'2'},{inp:'"Python"',exp:'1'},{inp:'"aeiou"',exp:'5'},{inp:'"xyz"',exp:'0'}],
+   testCode:'print(count_vowels("hello"))\nprint(count_vowels("Python"))\nprint(count_vowels("aeiou"))\nprint(count_vowels("xyz"))'},
+  {diff:'easy',pts:50,time:300,title:'Reverse a String',desc:'Write a function `reverse_str(s)` that returns the string reversed.',template:'def reverse_str(s):\n    # Your code here\n    pass\n\nprint(reverse_str("hello"))     # olleh\nprint(reverse_str("Python"))    # nohtyP\nprint(reverse_str("12345"))     # 54321',
+   tests:[{inp:'"hello"',exp:'olleh'},{inp:'"Python"',exp:'nohtyP'},{inp:'"12345"',exp:'54321'}],
+   testCode:'print(reverse_str("hello"))\nprint(reverse_str("Python"))\nprint(reverse_str("12345"))'},
+  {diff:'medium',pts:100,time:420,title:'FizzBuzz',desc:'Write a function `fizzbuzz(n)` that returns a list where multiples of 3 are "Fizz", multiples of 5 are "Buzz", and multiples of both are "FizzBuzz".',template:'def fizzbuzz(n):\n    result = []\n    for i in range(1, n+1):\n        # Your code here\n        pass\n    return result\n\nprint(fizzbuzz(15))',
+   tests:[{inp:'15 (check last 3)',exp:'FizzBuzz, 14, FizzBuzz at positions 3,5,15'}],
+   testCode:'out = fizzbuzz(15)\nprint(out[2])   # Fizz\nprint(out[4])   # Buzz\nprint(out[14])  # FizzBuzz'},
+  {diff:'medium',pts:100,time:420,title:'Find Duplicates',desc:'Write a function `find_duplicates(lst)` that returns a list of elements that appear more than once.',template:'def find_duplicates(lst):\n    # Your code here\n    pass\n\nprint(find_duplicates([1,2,3,2,4,3,5]))  # [2, 3]\nprint(find_duplicates([1,2,3]))           # []',
+   tests:[{inp:'[1,2,3,2,4,3,5]',exp:'[2, 3]'},{inp:'[1,2,3]',exp:'[]'}],
+   testCode:'print(sorted(find_duplicates([1,2,3,2,4,3,5])))\nprint(find_duplicates([1,2,3]))'},
+  {diff:'medium',pts:100,time:420,title:'Palindrome Check',desc:'Write a function `is_palindrome(s)` that returns True if the string reads the same forwards and backwards (ignore case and spaces).',template:'def is_palindrome(s):\n    # Your code here\n    pass\n\nprint(is_palindrome("racecar"))       # True\nprint(is_palindrome("A man a plan a canal Panama"))  # True\nprint(is_palindrome("hello"))         # False',
+   tests:[{inp:'"racecar"',exp:'True'},{inp:'"hello"',exp:'False'},{inp:'"A man a plan a canal Panama"',exp:'True'}],
+   testCode:'print(is_palindrome("racecar"))\nprint(is_palindrome("hello"))\nprint(is_palindrome("A man a plan a canal Panama"))'},
+  {diff:'hard',pts:150,time:600,title:'Fibonacci Generator',desc:'Write a generator function `fibonacci(n)` that yields the first n Fibonacci numbers.',template:'def fibonacci(n):\n    # Use yield — this should be a generator\n    pass\n\n# Print first 10 Fibonacci numbers\nfor num in fibonacci(10):\n    print(num, end=" ")',
+   tests:[{inp:'10 numbers',exp:'0 1 1 2 3 5 8 13 21 34'}],
+   testCode:'result = list(fibonacci(10))\nprint(" ".join(map(str, result)))'},
+  {diff:'hard',pts:150,time:600,title:'Flatten Nested List',desc:'Write a function `flatten(lst)` that converts a nested list of any depth into a flat list.',template:'def flatten(lst):\n    result = []\n    # Your code here\n    return result\n\nprint(flatten([1, [2, 3], [4, [5, 6]]]))       # [1,2,3,4,5,6]\nprint(flatten([1, [2, [3, [4, [5]]]]]))          # [1,2,3,4,5]',
+   tests:[{inp:'[1,[2,3],[4,[5,6]]]',exp:'[1, 2, 3, 4, 5, 6]'},{inp:'[1,[2,[3,[4,[5]]]]]',exp:'[1, 2, 3, 4, 5]'}],
+   testCode:'print(flatten([1,[2,3],[4,[5,6]]]))\nprint(flatten([1,[2,[3,[4,[5]]]]]))'},
+];
+
+/* ════════════════════════════════
+   STATE
+════════════════════════════════ */
+var pyodide = null, pyLoaded = false;
+var currentChallenge = null, chTimerInt = null;
+var solvedChallenges = JSON.parse(localStorage.getItem('sb_solved')||'{}');
+
+/* ════════════════════════════════
+   RENDER SIDEBAR
+════════════════════════════════ */
+function renderSidebar(){
+  // Recipes
+  document.getElementById('panel-recipes').innerHTML = RECIPES.map(function(r,i){
+    return '<div class="recipe-card'+(i===0?' active':'')+'" onclick="loadRecipe('+i+',this)">'
+      +'<div class="rc-icon">'+r.icon+'</div>'
+      +'<div class="rc-title">'+r.title+'</div>'
+      +'<div class="rc-sub">'+r.sub+'</div>'
+      +'</div>';
+  }).join('');
+
+  // Challenges
+  document.getElementById('panel-challenges').innerHTML = CHALLENGES.map(function(c,i){
+    var solved = solvedChallenges[i];
+    var dc = {easy:'ch-easy',medium:'ch-med',hard:'ch-hard'}[c.diff];
+    return '<div class="challenge-card" onclick="loadChallenge('+i+',this)">'
+      +'<span class="ch-diff '+dc+'">'+c.diff.toUpperCase()+'</span>'
+      +(solved?'<span class="ch-diff ch-easy" style="margin-left:4px">✅ SOLVED</span>':'')
+      +'<div class="ch-title">'+c.title+'</div>'
+      +'<div class="ch-desc">'+c.desc+'</div>'
+      +'<div class="ch-pts">🏆 '+c.pts+' points · ⏱ '+(c.time/60)+'min</div>'
+      +'</div>';
+  }).join('');
+
+  // Load first recipe by default
+  loadRecipe(0, document.querySelector('.recipe-card'));
+}
+
+function showPanel(id, btn){
+  document.querySelectorAll('.sb-tab').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById('panel-recipes').style.display = id==='recipes'?'block':'none';
+  document.getElementById('panel-challenges').style.display = id==='challenges'?'block':'none';
+  if(id==='challenges'&&currentChallenge===null){
+    // Load first challenge
+  }
+}
+
+function loadRecipe(i, el){
+  clearChallenge();
+  document.querySelectorAll('.recipe-card').forEach(function(c){c.classList.remove('active');});
+  if(el) el.classList.add('active');
+  var r = RECIPES[i];
+  document.getElementById('code-editor').value = r.code;
+  document.getElementById('et-title').textContent = r.icon+' '+r.title;
+  document.getElementById('ch-timer-wrap').style.display='none';
+  clearOutput();
+  updateLineNums();
+}
+
+function loadChallenge(i, el){
+  document.querySelectorAll('.challenge-card').forEach(function(c){c.classList.remove('active');});
+  if(el) el.classList.add('active');
+  var c = CHALLENGES[i];
+  currentChallenge = i;
+  document.getElementById('code-editor').value = c.template;
+  document.getElementById('et-title').textContent = '🎯 '+c.title;
+  clearOutput();
+  resetChTimer(c.time);
+  document.getElementById('ch-result').style.display='none';
+  updateLineNums();
+}
+
+function clearChallenge(){
+  currentChallenge=null;
+  clearInterval(chTimerInt);
+  document.getElementById('ch-timer-wrap').style.display='none';
+  document.getElementById('ch-result').style.display='none';
+}
+
+function resetChTimer(secs){
+  clearInterval(chTimerInt);
+  var t = secs;
+  var tw = document.getElementById('ch-timer-wrap');
+  var ts = document.getElementById('ch-time');
+  tw.style.display='flex';
+  ts.textContent=t;
+  var el = document.getElementById('ch-timer-wrap');
+  chTimerInt = setInterval(function(){
+    t--;
+    ts.textContent=t;
+    el.className='ch-timer'+(t<60?' danger':t<120?' warning':'');
+    if(t<=0){clearInterval(chTimerInt);ts.textContent='⏰ Time Up!';}
+  },1000);
+}
+
+/* ════════════════════════════════
+   EDITOR
+════════════════════════════════ */
+var editorEl = null;
+document.addEventListener('DOMContentLoaded',function(){
+  editorEl = document.getElementById('code-editor');
+  editorEl.addEventListener('input', updateLineNums);
+  editorEl.addEventListener('keydown', function(e){
+    if(e.key==='Tab'){e.preventDefault();var s=this.selectionStart,en=this.selectionEnd;this.value=this.value.substring(0,s)+'    '+this.value.substring(en);this.selectionStart=this.selectionEnd=s+4;updateLineNums();}
+    if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();runCode();}
+  });
+  renderSidebar();
+});
+
+function updateLineNums(){
+  var lines = (editorEl.value.match(/\n/g)||[]).length+1;
+  document.getElementById('line-nums').innerHTML=Array.from({length:lines},function(_,i){return i+1;}).join('<br/>');
+}
+
+function clearEditor(){editorEl.value='';updateLineNums();clearOutput();}
+function clearOutput(){document.getElementById('output').innerHTML='';setStatus('');}
+function copyCode(){navigator.clipboard.writeText(editorEl.value).then(function(){showToastMsg('Code copied!');});}
+
+/* ════════════════════════════════
+   PYODIDE LOADING
+════════════════════════════════ */
+async function initPyodide(){
+  var prog = document.getElementById('py-prog');
+  var stat = document.getElementById('py-status');
+  try {
+    // Fake progress while loading
+    var fakeP = 0;
+    var fakeInt = setInterval(function(){
+      fakeP = Math.min(fakeP+2, 85);
+      prog.style.width = fakeP+'%';
+    }, 200);
+
+    stat.textContent = 'Downloading Python runtime (~10MB)…';
+    pyodide = await loadPyodide({
+      indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.27.0/full/'
+    });
+
+    clearInterval(fakeInt);
+    prog.style.width='90%';
+    stat.textContent = 'Loading data science packages…';
+
+    // Load commonly used packages
+    await pyodide.loadPackagesFromImports('import numpy as np\nimport pandas as pd');
+    prog.style.width='100%';
+
+    // Setup stdout capture
+    pyodide.runPython(`
+import sys, io
+class HTMLOutput(io.StringIO):
+    def __init__(self): super().__init__(); self.html_parts = []
+    def write(self, s):
+        super().write(s)
+        self.html_parts.append(s)
+        return len(s)
+_stdout = HTMLOutput()
+sys.stdout = _stdout
+sys.stderr = _stdout
+`);
+
+    pyLoaded = true;
+    document.getElementById('py-loader').classList.add('hidden');
+    document.getElementById('run-btn').disabled = false;
+    document.getElementById('output').innerHTML = '<span class="out-system">✅ Python 3.11 ready. Press Ctrl+Enter or click Run.</span>';
+    setStatus('Ready','ok');
+  } catch(e){
+    document.getElementById('py-loader').classList.add('hidden');
+    document.getElementById('output').innerHTML = '<span class="out-err">❌ Failed to load Python engine: '+e.message+'</span>';
+    setStatus('Error loading Python','err');
+  }
+}
+initPyodide();
+
+/* ════════════════════════════════
+   RUN CODE
+════════════════════════════════ */
+async function runCode(){
+  if(!pyLoaded){alert('Python engine still loading. Please wait.');return;}
+  var code = editorEl.value.trim();
+  if(!code) return;
+  var btn = document.getElementById('run-btn');
+  btn.disabled=true;btn.innerHTML='<i class="bi bi-hourglass-split"></i> Running…';
+  setStatus('Running…','running');
+
+  try {
+    // Reset stdout
+    pyodide.runPython(`_stdout.html_parts = []; _stdout.truncate(0); _stdout.seek(0)`);
+
+    // Wrap in timeout using JS
+    var result = await Promise.race([
+      (async()=>{
+        try{ pyodide.runPython(code); } catch(e){ pyodide.runPython('print("❌ Error:", repr(sys.exc_info()[1]))'); }
+        return pyodide.runPython('_stdout.getvalue()');
+      })(),
+      new Promise((_,rej)=>setTimeout(()=>rej(new Error('Execution timeout (5s)')),5000))
+    ]);
+
+    displayOutput(result);
+    setStatus('Done','ok');
+
+    // Grade challenge if active
+    if(currentChallenge!==null) gradeChallenge(result);
+
+  } catch(e){
+    displayOutput('❌ '+e.message, true);
+    setStatus('Error','err');
+  }
+  btn.disabled=false;btn.innerHTML='<i class="bi bi-play-fill"></i>Run Python';
+}
+
+function displayOutput(text, isErr){
+  var out = document.getElementById('output');
+  if(!text.trim()){out.innerHTML='<span class="out-system">(no output)</span>';return;}
+  // Handle img tags (matplotlib)
+  if(text.includes('<img ')){
+    out.innerHTML = text;
+    return;
+  }
+  var lines = text.split('\n');
+  out.innerHTML = lines.map(function(line){
+    if(line.startsWith('❌')||isErr) return '<span class="out-err" alt="Python code sandbox illustration"/>'+escHtml(line)+'</span>';
+    if(line.startsWith('✅')) return '<span class="out-ok">'+escHtml(line)+'</span>';
+    return escHtml(line);
+  }).join('\n');
+}
+
+async function gradeChallenge(output){
+  var c = CHALLENGES[currentChallenge];
+  // Run grader code
+  var code = editorEl.value + '\n' + c.testCode;
+  try {
+    pyodide.runPython('_stdout.html_parts = []; _stdout.truncate(0); _stdout.seek(0)');
+    pyodide.runPython(code);
+    var gradeOutput = pyodide.runPython('_stdout.getvalue()').trim();
+    var lines = gradeOutput.split('\n').map(function(l){return l.trim();});
+    var testLines = c.testCode.split('\n').filter(function(l){return l.trim();});
+    var passed=0, results=[];
+    testLines.forEach(function(tl,i){
+      var out_line = lines[i]||'';
+      var exp = c.tests[Math.min(i,c.tests.length-1)].exp;
+      var pass = out_line !== '' && !out_line.startsWith('❌');
+      if(pass) passed++;
+      results.push({pass:pass, line:'Test '+(i+1)+': '+out_line.substring(0,40)});
+    });
+    var allPass = passed === testLines.length;
+    var cr = document.getElementById('ch-result');
+    cr.style.display='block';
+    cr.className='ch-result '+(allPass?'pass':'fail');
+    document.getElementById('cr-title').textContent = allPass?'🎉 All Tests Passed! +'+c.pts+' pts':'⚠️ Some Tests Failed';
+    document.getElementById('cr-title').style.color = allPass?'var(--g2)':'var(--o2)';
+    document.getElementById('cr-msg').textContent = allPass?'Excellent! Challenge solved. Try a harder one!':'Check your output against the expected values and try again.';
+    document.getElementById('cr-tests').innerHTML = results.map(function(r){
+      return '<span class="ct '+(r.pass?'ct-pass':'ct-fail')+'">'+(r.pass?'✓':'✗')+' '+r.line+'</span>';
+    }).join('');
+    if(allPass){
+      solvedChallenges[currentChallenge]=true;
+      localStorage.setItem('sb_solved', JSON.stringify(solvedChallenges));
+      clearInterval(chTimerInt);
+    }
+  } catch(e){}
+}
+
+function setStatus(msg, type){
+  var el = document.getElementById('oa-status');
+  el.textContent = msg;
+  el.className = 'oa-status'+(type?' '+type:'');
+}
+
+function escHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function showToastMsg(m){ /* simple feedback */ }
+
+document.querySelectorAll('.sr').forEach(function(el){
+  new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.08}).observe(el);
+});
+window.addEventListener('scroll',function(){var h=document.documentElement;document.getElementById('read-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+</script>
+</body>
+</html>

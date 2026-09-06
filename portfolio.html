@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Student Portfolio Wall — Live AI Projects | Durgapur</title>
+<meta name="description" content="See real AI projects built and deployed by our students — diabetes predictors, NLP tools, dashboards and automation scripts. Proof of what you will build."/>
+<meta name="keywords" content="AI student projects Durgapur, Python ML portfolio, Streamlit AI apps India, data science projects West Bengal"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.aipythontraining.in/portfolio.html"/>
+<link rel="sitemap" type="application/xml" href="https://www.aipythontraining.in/sitemap.xml"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="AI and Python Training"/>
+<meta property="og:title" content="Student Portfolio Wall — Live AI Projects | Durgapur"/>
+<meta property="og:description" content="See real AI projects built and deployed by our students — diabetes predictors, NLP tools, dashboards and automation scripts. Proof of what you will build."/>
+<meta property="og:url" content="https://www.aipythontraining.in/portfolio.html"/>
+<meta property="og:image" content="https://www.aipythontraining.in/og-cover.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="AI and Python Training Durgapur"/>
+<meta property="og:locale" content="en_IN"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Student Portfolio Wall — Live AI Projects | Durgapur"/>
+<meta name="twitter:description" content="See real AI projects built and deployed by our students — diabetes predictors, NLP tools, dashboards and automation scripts. Proof of what you will build."/>
+<meta name="twitter:image" content="https://www.aipythontraining.in/og-cover.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
+<link rel="dns-prefetch" href="https://wa.me"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CollectionPage","name":"Student Portfolio Wall — AI Python Training Durgapur","description":"See real AI projects built and deployed by our students — diabetes predictors, NLP tools, dashboards and automation scripts. Proof of what you will build.","url":"https://www.aipythontraining.in/portfolio.html"}
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:28px 0 0}
+.fp{padding:7px 18px;border-radius:50px;border:1.5px solid var(--brd);color:var(--muted);background:transparent;font-size:.78rem;font-weight:600;cursor:pointer;transition:var(--tr)}
+.fp:hover,.fp.active{background:var(--grad1);border-color:transparent;color:#fff}
+.port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin-top:40px}
+.pc{background:var(--card);border:1px solid var(--brd);border-radius:var(--r2);overflow:hidden;transition:var(--tr)}
+.pc:hover{border-color:var(--brd2);transform:translateY(-4px);box-shadow:var(--glow)}
+.pc-img{height:170px;overflow:hidden;position:relative}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.pc:hover .pc-img img{transform:scale(1.06)}
+.pc-img-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3rem}
+.pc-body{padding:18px 20px}
+.pc-title{font-family:var(--fh);font-size:.96rem;font-weight:700;color:#fff;margin-bottom:5px}
+.pc-student{font-size:.75rem;color:var(--b2);font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.pc-desc{font-size:.8rem;color:var(--muted);line-height:1.65;margin-bottom:12px}
+.pc-stack{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.ps{font-size:.65rem;font-weight:600;padding:3px 9px;border-radius:50px}
+.ps-py{background:rgba(59,130,246,.15);color:var(--b2)}
+.ps-ml{background:rgba(139,92,246,.15);color:var(--p2)}
+.ps-st{background:rgba(16,185,129,.15);color:var(--g2)}
+.ps-ai{background:rgba(6,182,212,.15);color:var(--c2)}
+.ps-dl{background:rgba(239,68,68,.15);color:var(--r2)}
+.pc-links{display:flex;gap:8px}
+.pc-link{flex:1;text-align:center;padding:8px;border-radius:var(--r);font-size:.75rem;font-weight:600;transition:var(--tr);border:1px solid}
+.pc-link.live{background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.3);color:var(--g2)}
+.pc-link.live:hover{background:rgba(16,185,129,.22)}
+.pc-link.code{background:rgba(255,255,255,.05);border-color:var(--brd);color:var(--muted)}
+.pc-link.code:hover{border-color:var(--brd2);color:#fff}
+.pc-batch{font-size:.62rem;color:var(--dim);margin-top:10px;display:flex;align-items:center;gap:4px}
+.submit-box{background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(139,92,246,.08));border:1px solid var(--brd2);border-radius:var(--r2);padding:clamp(28px,4vw,48px);text-align:center;margin-top:60px}
+.cta-wrap{margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+</style>
+</head>
+<body data-page="portfolio">
+<div id="read-bar"></div>
+<a href="https://wa.me/917001186689" class="wa-fab" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+<script src="nav.js"></script>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="tag tg-g"><i class="bi bi-trophy-fill"></i>Student Portfolio Wall</div>
+    <h1>Real Projects Built by<br/><span class="gt">Real Students</span></h1>
+    <p>Every project here was built from scratch and deployed live on the internet by our students. This is your future portfolio.</p>
+    <div class="filter-bar">
+      <button class="fp active" onclick="filterPort('all',this)">All Projects</button>
+      <button class="fp" onclick="filterPort('ml',this)">🤖 Machine Learning</button>
+      <button class="fp" onclick="filterPort('dl',this)">🧠 Deep Learning</button>
+      <button class="fp" onclick="filterPort('nlp',this)">💬 NLP</button>
+      <button class="fp" onclick="filterPort('auto',this)">⚙️ Automation</button>
+      <button class="fp" onclick="filterPort('data',this)">📊 Data Analysis</button>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <div class="port-grid" id="portGrid"></div>
+    <div class="submit-box sr">
+      <div style="font-size:2.5rem;margin-bottom:12px">🚀</div>
+      <h3 style="font-family:var(--fh);font-size:1.4rem;color:#fff;margin-bottom:8px">Are You One of Our Students?</h3>
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:0;max-width:480px;margin:0 auto 4px">Built a project you're proud of? Send us your project link on WhatsApp and we'll feature it here.</p>
+      <div class="cta-wrap">
+        <a href="https://wa.me/917001186689?text=Hi!+I+want+to+submit+my+project+for+the+Portfolio+Wall" target="_blank" class="btn"><i class="bi bi-whatsapp"></i>Submit Your Project</a>
+        <a href="demo.html" class="btn-o"><i class="bi bi-calendar-check"></i>Book Free Demo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ SEO SEMANTIC CONTENT ══ -->
+<section style="max-width:900px;margin:0 auto;padding:40px 20px 0">
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Student Projects Gallery</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Browse live AI and Python projects built and deployed by our students from Durgapur and Asansol. Every project is accessible via a real URL on the internet.</p>
+  </div>
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Filter by Technology</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Filter projects by category — Machine Learning, Deep Learning, NLP, Automation and Data Analysis. Each project includes a description and live demo link.</p>
+  </div>
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Submit Your Project</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Are you one of our students? Submit your completed AI project to be featured on this portfolio wall and showcase your skills to employers.</p>
+  </div>
+</section>
+<section style="max-width:900px;margin:32px auto;padding:0 20px">
+  <p style="font-size:.88rem;color:#94A3B8;line-height:1.8">Every project on this portfolio wall was built from scratch by a student of AI and Python Training Durgapur. Students begin with data loading and exploratory analysis, then build predictive ML models using Scikit-learn or TensorFlow, connect them to a Streamlit web interface and deploy the final application live on Streamlit Cloud or GitHub Pages. The result is a real, working application accessible via a public URL — something tangible you can show any employer or client. Projects include a diabetes risk prediction tool trained on medical data, a real-time facial emotion detector using a convolutional neural network, a Bengali-English chatbot built with NLTK, an IPL cricket analytics dashboard with Plotly and a WhatsApp bulk message automation script. Filter by technology to find projects relevant to your learning goals.</p>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="sf-inner">
+      <div class="sf-brand"><span>🐍</span>AI &amp; Python Training</div>
+      <div class="sf-links">
+        <a href="index.html">Home</a><a href="portfolio.html">Portfolio</a>
+        <a href="demo.html">Book Demo</a><a href="blog.html">Blog</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+    <div class="sf-copy">© 2026 AI &amp; Python Training · Durgapur &amp; Asansol · +91 7001186689</div>
+  </div>
+</footer>
+
+<script>
+var projects=[
+  {cat:'ml',title:'Diabetes Risk Predictor',student:'Rahul Sharma',batch:'Oct 2025 Batch',desc:'ML model trained on 768 medical records. Predicts diabetes risk with 91% accuracy. Deployed as interactive web app with patient-friendly UI.',stack:['Python','Scikit-learn','Streamlit','Pandas'],emoji:'🩺',live:'https://diabetespredictor2026.streamlit.app/',code:'https://github.com'},
+  {cat:'ml',title:'Income Tax Regime Optimizer',student:'Sneha Roy',batch:'Oct 2025 Batch',desc:'Smart tool that analyses your income and deductions to recommend the optimal Old vs New tax regime. Saves hours of manual calculation.',stack:['Python','Streamlit','Pandas'],emoji:'💰',live:'https://dna-tax-optimizer.streamlit.app/',code:''},
+  {cat:'ml',title:'Stock Price Forecasting',student:'Arnab Dey',batch:'Sep 2025 Batch',desc:'Time series ML model using historical OHLCV data to forecast stock price trends. Includes confidence intervals and trend indicators.',stack:['Python','ML','NumPy'],emoji:'📈',live:'',code:'https://colab.research.google.com/drive/1AIX0ZTQVHCgBSeZtOvwBlxfvioDkSv1T'},
+  {cat:'dl',title:'Real-Time Emotion Detector',student:'Priya Mondal',batch:'Sep 2025 Batch',desc:'Deep Learning CNN that detects 7 human emotions from facial expressions in real time using webcam input. Trained on 35,000+ images.',stack:['TensorFlow','OpenCV','Deep Learning'],emoji:'😊',live:'',code:'https://colab.research.google.com/drive/1JudLnsaKu1r6V338WIHIH3JD5ZNvW665'},
+  {cat:'nlp',title:'Product Review Sentiment Analyzer',student:'Vikram Ghosh',batch:'Aug 2025 Batch',desc:'NLP model that classifies Amazon product reviews as positive, negative or neutral. Includes word cloud visualisation and confidence scores.',stack:['NLTK','Scikit-learn','Streamlit'],emoji:'💬',live:'',code:''},
+  {cat:'auto',title:'WhatsApp Bulk Message Automation',student:'Debangi Das',batch:'Aug 2025 Batch',desc:'Python automation that sends personalised WhatsApp messages to a contact list from an Excel file. Includes scheduling and delivery tracking.',stack:['Python','Automation','Pandas'],emoji:'📱',live:'',code:''},
+  {cat:'data',title:'IPL Data Analytics Dashboard',student:'Sourav Bose',batch:'Jul 2025 Batch',desc:'Interactive dashboard analysing 15 years of IPL data. Batting averages, bowling economy, win rates by venue — fully interactive charts.',stack:['Pandas','Plotly','Streamlit'],emoji:'🏏',live:'',code:''},
+  {cat:'ml',title:'House Price Predictor',student:'Ananya Sen',batch:'Jul 2025 Batch',desc:'Regression model predicting Durgapur-Asansol area house prices based on location, area, rooms and amenities. 87% accuracy.',stack:['Scikit-learn','Python','Streamlit'],emoji:'🏠',live:'',code:''},
+  {cat:'nlp',title:'Bengali-English Chatbot',student:'Rahul Mahato',batch:'Jun 2025 Batch',desc:'Rule-based chatbot that understands Bengali and English queries about Python programming. Helps beginners get instant answers.',stack:['NLTK','Python','Flask'],emoji:'🤖',live:'',code:''},
+  {cat:'data',title:'COVID-19 India Data Visualiser',student:'Tina Ghosh',batch:'Jun 2025 Batch',desc:'Interactive maps and charts tracking COVID-19 spread across Indian states. State-wise comparisons, vaccination rates, recovery trends.',stack:['Pandas','Plotly','Streamlit'],emoji:'📊',live:'',code:''},
+  {cat:'dl',title:'Handwritten Digit Classifier',student:'Manish Kumar',batch:'May 2025 Batch',desc:'CNN trained on MNIST dataset achieving 99.2% accuracy. Draw a digit in the web app and the model identifies it instantly.',stack:['TensorFlow','Keras','Streamlit'],emoji:'✏️',live:'',code:''},
+  {cat:'auto',title:'Automated Email Report Sender',student:'Ritu Sharma',batch:'May 2025 Batch',desc:'Python script that generates weekly performance reports from CSV data and emails them automatically to a list of recipients.',stack:['Python','SMTP','Pandas'],emoji:'📧',live:'',code:''},
+];
+var grads=['linear-gradient(135deg,#1D4ED8,#7C3AED)','linear-gradient(135deg,#065F46,#0D9488)','linear-gradient(135deg,#92400E,#B45309)','linear-gradient(135deg,#4C1D95,#6D28D9)','linear-gradient(135deg,#164E63,#0E7490)','linear-gradient(135deg,#7F1D1D,#B91C1C)'];
+var stackClass={'Python':'ps-py','Scikit-learn':'ps-ml','ML':'ps-ml','Streamlit':'ps-st','Pandas':'ps-py','TensorFlow':'ps-dl','Deep Learning':'ps-dl','Keras':'ps-dl','OpenCV':'ps-dl','NLTK':'ps-ai','NLP':'ps-ai','Flask':'ps-ai','Plotly':'ps-st','NumPy':'ps-py','Automation':'ps-st','SMTP':'ps-py'};
+var curCat='all';
+function filterPort(cat,btn){
+  curCat=cat;
+  document.querySelectorAll('.fp').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  renderPort();
+}
+function renderPort(){
+  var list=curCat==='all'?projects:projects.filter(function(p){return p.cat===curCat;});
+  document.getElementById('portGrid').innerHTML=list.map(function(p,i){
+    var bg=grads[i%grads.length];
+    var stacks=p.stack.map(function(s){return '<span class="ps '+(stackClass[s]||'ps-py')+'">'+s+'</span>';}).join('');
+    var links='';
+    if(p.live) links+='<a href="'+p.live+'" target="_blank" class="pc-link live"><i class="bi bi-box-arrow-up-right"></i> Live App</a>';
+    if(p.code) links+='<a href="'+p.code+'" target="_blank" class="pc-link code"><i class="bi bi-github"></i> View Code</a>';
+    if(!p.live&&!p.code) links+='<span style="font-size:.72rem;color:var(--dim);padding:8px 0;display:block">Private project</span>';
+    return '<div class="pc">'
+      +'<div class="pc-img" style="background:'+bg+'"><div class="pc-img-ph">'+p.emoji+'</div></div>'
+      +'<div class="pc-body">'
+      +'<div class="pc-title">'+p.title+'</div>'
+      +'<div class="pc-student"><i class="bi bi-person-fill"></i>'+p.student+'</div>'
+      +'<div class="pc-desc">'+p.desc+'</div>'
+      +'<div class="pc-stack">'+stacks+'</div>'
+      +'<div class="pc-links">'+links+'</div>'
+      +'<div class="pc-batch"><i class="bi bi-calendar3"></i>'+p.batch+'</div>'
+      +'</div></div>';
+  }).join('');
+  // Scroll reveal
+  setTimeout(function(){document.querySelectorAll('.pc').forEach(function(el){el.classList.add('sr');setTimeout(function(){el.classList.add('vis');},50);});},50);
+}
+renderPort();
+// Shared SR
+document.querySelectorAll('.sr').forEach(function(el){
+  new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');}});},{threshold:.1}).observe(el);
+});
+window.addEventListener('scroll',function(){var h=document.documentElement;document.getElementById('read-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+</script>
+</body></html>

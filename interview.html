@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Python Interview Arena — AI & ML Mock Questions 2026</title>
+<meta name="description" content="Practice Python, ML and Deep Learning interview questions with timer, difficulty levels and expert feedback. 60 questions, 4 game modes. Free tool Durgapur."/>
+<meta name="keywords" content="Python interview questions 2026, ML interview practice India, AI interview mock test, Python quiz Durgapur"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.aipythontraining.in/interview.html"/>
+<link rel="sitemap" type="application/xml" href="https://www.aipythontraining.in/sitemap.xml"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="AI and Python Training"/>
+<meta property="og:title" content="Python Interview Arena — AI & ML Mock Questions 2026"/>
+<meta property="og:description" content="Practice Python, ML and Deep Learning interview questions with timer, difficulty levels and expert feedback. 60 questions, 4 game modes. Free tool Durgapur."/>
+<meta property="og:url" content="https://www.aipythontraining.in/interview.html"/>
+<meta property="og:image" content="https://www.aipythontraining.in/og-cover.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="AI and Python Training Durgapur"/>
+<meta property="og:locale" content="en_IN"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Python Interview Arena — AI & ML Mock Questions 2026"/>
+<meta name="twitter:description" content="Practice Python, ML and Deep Learning interview questions with timer, difficulty levels and expert feedback. 60 questions, 4 game modes. Free tool Durgapur."/>
+<meta name="twitter:image" content="https://www.aipythontraining.in/og-cover.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
+<link rel="dns-prefetch" href="https://wa.me"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Python Interview Battle Arena","description":"Practice Python, ML and Deep Learning interview questions with timer, difficulty levels and expert feedback. 60 questions, 4 game modes. Free tool Durgapur.","url":"https://www.aipythontraining.in/interview.html","applicationCategory":"EducationalApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}}
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ── LOBBY ── */
+.lobby{max-width:780px;margin:0 auto}
+.mode-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:24px 0}
+.mode-card{background:var(--card);border:1.5px solid var(--brd);border-radius:var(--r2);padding:22px 18px;cursor:pointer;transition:var(--tr);text-align:center}
+.mode-card:hover,.mode-card.sel{border-color:var(--blue);background:rgba(59,130,246,.08);transform:translateY(-3px)}
+.mode-card .mc-icon{font-size:2.2rem;margin-bottom:10px}
+.mode-card .mc-title{font-family:var(--fh);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:4px}
+.mode-card .mc-sub{font-size:.75rem;color:var(--muted)}
+.diff-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 20px}
+.diff-btn{padding:8px 20px;border-radius:50px;border:1.5px solid var(--brd);color:var(--muted);font-size:.8rem;font-weight:600;cursor:pointer;transition:var(--tr);background:transparent}
+.diff-btn:hover,.diff-btn.sel{background:var(--grad1);border-color:transparent;color:#fff}
+/* ── ARENA ── */
+.arena{max-width:840px;margin:0 auto;display:none}
+.arena-header{display:flex;align-items:center;justify-content:space-between;background:var(--card2);border:1px solid var(--brd);border-radius:var(--r2);padding:14px 20px;margin-bottom:20px;flex-wrap:wrap;gap:10px}
+.ah-stat{text-align:center}
+.ah-num{font-family:var(--fh);font-size:1.3rem;font-weight:700;color:#fff}
+.ah-lbl{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.timer-ring{position:relative;width:64px;height:64px}
+.timer-ring svg{transform:rotate(-90deg)}
+.timer-ring .tr-bg{fill:none;stroke:rgba(255,255,255,.08);stroke-width:4}
+.timer-ring .tr-fill{fill:none;stroke-width:4;stroke-linecap:round;transition:stroke-dashoffset .9s linear,stroke .3s}
+.timer-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:1rem;font-weight:700;color:#fff}
+/* Question card */
+.q-card{background:var(--card);border:1px solid var(--brd);border-radius:var(--r2);padding:28px;margin-bottom:16px}
+.q-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.q-badge{font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:50px}
+.qb-easy{background:rgba(16,185,129,.15);color:var(--g2)}
+.qb-med{background:rgba(245,158,11,.15);color:var(--o2)}
+.qb-hard{background:rgba(239,68,68,.15);color:var(--r2)}
+.qb-cat{background:rgba(59,130,246,.12);color:var(--b2)}
+.qb-pts{background:rgba(139,92,246,.15);color:var(--p2)}
+.q-text{font-family:var(--fh);font-size:1.05rem;font-weight:600;color:#fff;line-height:1.5;margin-bottom:20px}
+.q-code{background:#0D1117;border:1px solid var(--brd2);border-radius:var(--r);padding:16px;font-family:var(--fm);font-size:.82rem;line-height:1.7;color:#E2E8F0;margin-bottom:20px;overflow-x:auto}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{background:rgba(255,255,255,.04);border:1.5px solid var(--brd);border-radius:var(--r);padding:14px 18px;cursor:pointer;text-align:left;color:var(--text);font-family:var(--fn);font-size:.9rem;transition:var(--tr);display:flex;align-items:center;gap:12px;width:100%}
+.opt:hover:not(:disabled){border-color:var(--blue);background:rgba(59,130,246,.08);color:#fff}
+.opt.correct{border-color:var(--green)!important;background:rgba(16,185,129,.12)!important;color:var(--g2)!important}
+.opt.wrong{border-color:var(--red)!important;background:rgba(239,68,68,.08)!important;color:var(--r2)!important}
+.opt.reveal{border-color:var(--green)!important;background:rgba(16,185,129,.06)!important}
+.opt-letter{width:28px;height:28px;border-radius:8px;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:.78rem;font-weight:700;flex-shrink:0}
+/* Explanation */
+.explain-box{border-radius:var(--r2);padding:20px 22px;margin-top:16px;display:none}
+.explain-box.correct-bg{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25)}
+.explain-box.wrong-bg{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2)}
+.explain-title{font-family:var(--fh);font-size:.88rem;font-weight:700;margin-bottom:8px}
+.explain-text{font-size:.85rem;color:var(--muted);line-height:1.75}
+.explain-code{background:#0D1117;border-radius:var(--r);padding:12px 14px;font-family:var(--fm);font-size:.78rem;line-height:1.65;color:#E2E8F0;margin-top:10px}
+/* Navigation */
+.q-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.streak-bar{display:flex;gap:4px;align-items:center}
+.streak-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.1);transition:.3s}
+.streak-dot.hit{background:var(--g2)}
+.streak-dot.miss{background:var(--r2)}
+/* Results */
+.results{display:none;max-width:640px;margin:0 auto;text-align:center}
+.result-ring{width:140px;height:140px;margin:0 auto 20px;position:relative}
+.result-score{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.result-pct{font-family:var(--fh);font-size:2rem;font-weight:800;color:#fff}
+.result-lbl{font-size:.7rem;color:var(--muted)}
+.grade-badge{font-family:var(--fh);font-size:1.8rem;font-weight:800;margin:12px 0}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:20px 0}
+.stat-box{background:var(--card);border:1px solid var(--brd);border-radius:var(--r2);padding:16px}
+.sb-n{font-family:var(--fh);font-size:1.6rem;font-weight:700;color:#fff}
+.sb-l{font-size:.72rem;color:var(--muted)}
+/* Progress dots */
+.q-dots{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:14px}
+.q-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.1);transition:.3s}
+.q-dot.done-c{background:var(--g2)}.q-dot.done-w{background:var(--r2)}.q-dot.curr{background:var(--blue);transform:scale(1.3)}
+/* Lifelines */
+.lifeline-row{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.ll-btn{padding:7px 14px;border-radius:50px;border:1px solid var(--brd);background:transparent;color:var(--muted);font-size:.75rem;font-weight:600;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:5px}
+.ll-btn:hover:not(:disabled){border-color:var(--blue);color:var(--b2)}
+.ll-btn:disabled{opacity:.3;cursor:not-allowed}
+</style>
+</head>
+<body data-page="interview">
+<div id="read-bar"></div>
+<a href="https://wa.me/917001186689" class="wa-fab" target="_blank"><i class="bi bi-whatsapp"></i></a>
+<script src="nav.js"></script>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="tag tg-p"><i class="bi bi-trophy-fill"></i>Interview Battle Arena</div>
+    <h1>Python &amp; AI/ML<br/><span class="gt3">Interview Simulator</span></h1>
+    <p>Mock interviews with real questions, countdown timer and instant expert feedback. 60+ questions across Python, ML, Deep Learning and NLP.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+
+    <!-- LOBBY -->
+    <div id="lobby" class="lobby">
+      <div class="sec-title">Choose Your Battle Mode</div>
+      <div class="mode-grid">
+        <div class="mode-card sel" onclick="selMode(this,'quick')">
+          <div class="mc-icon">⚡</div>
+          <div class="mc-title">Quick Fire</div>
+          <div class="mc-sub">10 questions · 20s each</div>
+        </div>
+        <div class="mode-card" onclick="selMode(this,'standard')">
+          <div class="mc-icon">🎯</div>
+          <div class="mc-title">Standard</div>
+          <div class="mc-sub">20 questions · 30s each</div>
+        </div>
+        <div class="mode-card" onclick="selMode(this,'marathon')">
+          <div class="mc-icon">🏃</div>
+          <div class="mc-title">Marathon</div>
+          <div class="mc-sub">All questions · 45s each</div>
+        </div>
+        <div class="mode-card" onclick="selMode(this,'survival')">
+          <div class="mc-icon">💀</div>
+          <div class="mc-title">Survival</div>
+          <div class="mc-sub">3 wrong = game over</div>
+        </div>
+      </div>
+
+      <div class="fi-label" style="margin-bottom:8px">Difficulty Level</div>
+      <div class="diff-row">
+        <button class="diff-btn sel" onclick="selDiff(this,'all')">All Levels</button>
+        <button class="diff-btn" onclick="selDiff(this,'easy')">🟢 Easy</button>
+        <button class="diff-btn" onclick="selDiff(this,'medium')">🟡 Medium</button>
+        <button class="diff-btn" onclick="selDiff(this,'hard')">🔴 Hard</button>
+      </div>
+
+      <div class="fi-label" style="margin-bottom:8px">Topic Focus</div>
+      <div class="diff-row">
+        <button class="diff-btn sel" onclick="selTopic(this,'all')">All Topics</button>
+        <button class="diff-btn" onclick="selTopic(this,'python')">🐍 Python</button>
+        <button class="diff-btn" onclick="selTopic(this,'ml')">🤖 Machine Learning</button>
+        <button class="diff-btn" onclick="selTopic(this,'dl')">🧠 Deep Learning</button>
+        <button class="diff-btn" onclick="selTopic(this,'nlp')">💬 NLP</button>
+        <button class="diff-btn" onclick="selTopic(this,'ds')">📊 Data Science</button>
+      </div>
+
+      <button class="btn mt-3" style="padding:14px 36px;font-size:1rem" onclick="startArena()">
+        <i class="bi bi-play-fill"></i>Start Battle
+      </button>
+    </div>
+
+    <!-- ARENA -->
+    <div id="arena" class="arena">
+      <div class="arena-header">
+        <div class="ah-stat"><div class="ah-num" id="ah-q">1/10</div><div class="ah-lbl">Question</div></div>
+        <div class="ah-stat"><div class="ah-num" id="ah-score" style="color:var(--g2)">0</div><div class="ah-lbl">Score</div></div>
+        <div class="timer-ring">
+          <svg width="64" height="64" viewBox="0 0 64 64">
+            <circle class="tr-bg" cx="32" cy="32" r="28"/>
+            <circle class="tr-fill" id="timer-circle" cx="32" cy="32" r="28" stroke="var(--blue)" style="stroke-dasharray:175.9;stroke-dashoffset:0"/>
+          </svg>
+          <div class="timer-num" id="timer-num">30</div>
+        </div>
+        <div class="ah-stat"><div class="ah-num" id="ah-streak" style="color:var(--o2)">0🔥</div><div class="ah-lbl">Streak</div></div>
+        <div class="ah-stat"><div class="ah-num" id="ah-lives" style="color:var(--r2)">❤️❤️❤️</div><div class="ah-lbl">Lives</div></div>
+      </div>
+
+      <!-- Progress dots -->
+      <div class="q-dots" id="q-dots"></div>
+
+      <!-- Lifelines -->
+      <div class="lifeline-row">
+        <button class="ll-btn" id="ll-fifty" onclick="useFifty()"><i class="bi bi-slash-circle"></i>50:50</button>
+        <button class="ll-btn" id="ll-time" onclick="useExtraTime()"><i class="bi bi-clock-history"></i>+15s</button>
+        <button class="ll-btn" id="ll-skip" onclick="useSkip()"><i class="bi bi-skip-forward-fill"></i>Skip</button>
+      </div>
+
+      <!-- Streak bar -->
+      <div class="d-flex align-items-center gap-2 mb-3">
+        <span style="font-size:.72rem;color:var(--dim)">Streak:</span>
+        <div class="streak-bar" id="streak-bar"></div>
+      </div>
+
+      <div class="q-card" id="q-card">
+        <div class="q-meta" id="q-meta"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="q-code" id="q-code" style="display:none"></div>
+        <div class="opts" id="opts"></div>
+      </div>
+
+      <div class="explain-box" id="explain-box">
+        <div class="explain-title" id="explain-title"></div>
+        <div class="explain-text" id="explain-text"></div>
+        <div class="explain-code" id="explain-code" style="display:none"></div>
+      </div>
+
+      <div class="q-nav">
+        <button class="btn-o" onclick="quitArena()"><i class="bi bi-x-circle"></i>Quit</button>
+        <button class="btn" id="next-btn" style="display:none" onclick="nextQ()"><i class="bi bi-arrow-right"></i>Next Question</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="results" class="results">
+      <div class="result-ring">
+        <svg width="140" height="140" viewBox="0 0 140 140">
+          <circle fill="none" stroke="rgba(255,255,255,.08)" stroke-width="8" cx="70" cy="70" r="60"/>
+          <circle fill="none" id="result-circle" stroke-width="8" cx="70" cy="70" r="60" stroke-linecap="round" transform="rotate(-90 70 70)" style="stroke-dasharray:376.99;transition:stroke-dashoffset 1.2s ease"/>
+        </svg>
+        <div class="result-score"><div class="result-pct" id="result-pct">0%</div><div class="result-lbl">Score</div></div>
+      </div>
+      <div class="grade-badge" id="grade-badge"></div>
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:20px" id="result-msg"></p>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="sb-n" id="rs-correct" style="color:var(--g2)">0</div><div class="sb-l">Correct</div></div>
+        <div class="stat-box"><div class="sb-n" id="rs-wrong" style="color:var(--r2)">0</div><div class="sb-l">Wrong / Timed Out</div></div>
+        <div class="stat-box"><div class="sb-n" id="rs-score">0</div><div class="sb-l">Total Points</div></div>
+        <div class="stat-box"><div class="sb-n" id="rs-best-streak" style="color:var(--o2)">0🔥</div><div class="sb-l">Best Streak</div></div>
+      </div>
+      <div class="d-flex gap-3 justify-content-center flex-wrap mt-3">
+        <button class="btn" onclick="restartArena()"><i class="bi bi-arrow-counterclockwise"></i>Play Again</button>
+        <a href="demo.html" class="btn-o"><i class="bi bi-calendar-check"></i>Book Demo Class</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ══ SEO SEMANTIC CONTENT ══ -->
+<section style="max-width:900px;margin:0 auto;padding:40px 20px 0">
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Python Interview Questions with Answers</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Practice real Python interview questions with instant feedback. Questions cover variables, loops, functions, OOP, list comprehensions and file handling.</p>
+  </div>
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Machine Learning Interview Questions</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">ML interview questions on supervised learning, overfitting, cross-validation, Random Forest, model evaluation metrics and Scikit-learn pipelines.</p>
+  </div>
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:var(--fh),'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Deep Learning and NLP Mock Interview</h2>
+    <p style="font-size:.88rem;color:var(--muted,#94A3B8);line-height:1.75">Deep learning questions on neural networks, backpropagation, CNNs, RNNs and LSTMs. NLP questions on tokenisation, TF-IDF, sentiment analysis and Transformers.</p>
+  </div>
+</section>
+<section style="max-width:900px;margin:32px auto;padding:0 20px">
+  <p style="font-size:.88rem;color:#94A3B8;line-height:1.8">Our Python and AI interview arena covers the most frequently asked interview questions at data analyst, data scientist, machine learning engineer and AI developer roles in India in 2026. Questions are divided across five categories — Python programming fundamentals, machine learning concepts and algorithms, deep learning with neural networks, natural language processing and data science and statistics. Each question comes with a countdown timer, four answer options and a detailed explanation with code examples. You can practice in Quick Fire mode with ten questions and twenty seconds each, Standard mode with twenty questions, Marathon mode covering all questions, or Survival mode where three wrong answers ends the game. Use the 50:50 lifeline, the extra time lifeline or the skip lifeline strategically. Your score, accuracy percentage and best streak are shown at the end.</p>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="sf-inner">
+      <div class="sf-brand"><span>🐍</span>AI &amp; Python Training</div>
+      <div class="sf-links"><a href="index.html">Home</a><a href="sandbox.html">Code Sandbox</a><a href="portfolio.html">Portfolio</a><a href="demo.html">Book Demo</a></div>
+    </div>
+    <div class="sf-copy">© 2026 AI &amp; Python Training · Durgapur · +91 7001186689</div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════
+   QUESTION BANK — 60 questions
+════════════════════════════════════════ */
+var QB = [
+  // ── PYTHON EASY ──
+  {cat:'python',diff:'easy',pts:10,time:20,q:'What is the output of: `print(type([]))`?',opts:["<class 'list'>","<class 'array'>","<class 'tuple'>","<class 'dict'>"],ans:0,explain:'`[]` creates an empty list. `type()` returns the type of the object. In Python, lists are the `list` class.',code:null,explainCode:null},
+  {cat:'python',diff:'easy',pts:10,time:20,q:'Which keyword is used to define a function in Python?',opts:['function','def','define','fun'],ans:1,explain:'In Python, `def` is the keyword to define a function. It stands for "define".',code:null,explainCode:'def greet(name):\n    return f"Hello, {name}!"'},
+  {cat:'python',diff:'easy',pts:10,time:20,q:'What does `len([1, 2, 3, 4, 5])` return?',opts:['4','5','6','Error'],ans:1,explain:'`len()` returns the number of items in an object. The list has 5 elements.',code:null,explainCode:null},
+  {cat:'python',diff:'easy',pts:10,time:20,q:'What is the output of: `print(10 // 3)`?',opts:['3.33','3','4','2'],ans:1,explain:'`//` is the floor division operator — it divides and rounds DOWN to the nearest integer. 10 ÷ 3 = 3.33... → 3',code:null,explainCode:null},
+  {cat:'python',diff:'easy',pts:10,time:20,q:'Which of these creates a dictionary in Python?',opts:['d = []','d = ()','d = {}','d = <>'],ans:2,explain:'Curly braces `{}` create an empty dictionary (or a set if you add elements without key-value pairs). `[]` = list, `()` = tuple.',code:null,explainCode:'d = {"name": "Biswarup", "city": "Durgapur"}'},
+  {cat:'python',diff:'easy',pts:10,time:20,q:'What does this return: `"hello".upper()`?',opts:['hello','Hello','HELLO','Error'],ans:2,explain:'`.upper()` is a string method that converts all characters to uppercase.',code:null,explainCode:null},
+  {cat:'python',diff:'easy',pts:10,time:20,q:'How do you add an item to the end of a list `lst`?',opts:['lst.add(item)','lst.insert(item)','lst.append(item)','lst.push(item)'],ans:2,explain:'`.append()` adds a single item to the END of a list. `.insert(index, item)` adds at a specific position.',code:null,explainCode:'lst = [1, 2, 3]\nlst.append(4)\nprint(lst)  # [1, 2, 3, 4]'},
+  {cat:'python',diff:'easy',pts:10,time:20,q:'What is a list comprehension?',opts:['A way to comment lists','A compact way to create lists using a loop','A method to sort lists','A way to delete list items'],ans:1,explain:'List comprehensions provide a concise way to create lists based on existing lists or other iterables.',code:null,explainCode:'squares = [x**2 for x in range(5)]\n# [0, 1, 4, 9, 16]'},
+  // ── PYTHON MEDIUM ──
+  {cat:'python',diff:'medium',pts:20,time:30,q:'What will this print?\n\nd = {"a": 1, "b": 2}\nprint(d.get("c", 99))',opts:['None','Error','0','99'],ans:3,explain:'`dict.get(key, default)` returns the value if key exists, otherwise returns the default. Since "c" is not in the dict, it returns 99.',code:'d = {"a": 1, "b": 2}\nprint(d.get("c", 99))',explainCode:null},
+  {cat:'python',diff:'medium',pts:20,time:30,q:'What is the difference between `is` and `==` in Python?',opts:['They are identical','`is` checks identity (same object), `==` checks equality (same value)','`==` checks identity, `is` checks equality','`is` works only on strings'],ans:1,explain:'`is` checks if two variables point to the SAME object in memory. `==` checks if their VALUES are equal. Small integers are cached so `a = 1; b = 1; a is b` may be True, but for lists it will be False.',code:null,explainCode:'a = [1, 2]\nb = [1, 2]\nprint(a == b)   # True (same value)\nprint(a is b)   # False (different objects)'},
+  {cat:'python',diff:'medium',pts:20,time:30,q:'What does `*args` do in a function definition?',opts:['Multiplies arguments','Allows passing a variable number of positional arguments','Makes arguments required','Creates keyword arguments only'],ans:1,explain:'`*args` collects any extra positional arguments into a tuple. This lets you call a function with any number of arguments.',code:null,explainCode:'def add(*args):\n    return sum(args)\n\nprint(add(1, 2, 3, 4))  # 10'},
+  {cat:'python',diff:'medium',pts:20,time:30,q:'What is the output?',opts:['[0,1,2]','[0,2,4]','[0,1,2,3,4]','[2,4]'],ans:1,explain:'`range(0, 5, 2)` creates numbers from 0 to 4 stepping by 2. The list comprehension collects them.',code:'print([x for x in range(0,5,2)])',explainCode:null},
+  {cat:'python',diff:'medium',pts:20,time:30,q:'Which data structure guarantees unique elements?',opts:['list','tuple','set','dict'],ans:2,explain:'A `set` automatically removes duplicates and only stores unique elements. Sets are unordered and mutable.',code:null,explainCode:'s = {1, 2, 2, 3, 3, 3}\nprint(s)  # {1, 2, 3}'},
+  {cat:'python',diff:'medium',pts:20,time:30,q:'What does `zip()` do?',opts:['Compresses files','Combines two or more iterables element-by-element into tuples','Sorts two lists together','Merges dictionaries'],ans:1,explain:'`zip()` takes multiple iterables and pairs their elements together. It stops at the shortest iterable.',code:null,explainCode:'names = ["Alice", "Bob"]\nscores = [90, 85]\nfor n, s in zip(names, scores):\n    print(f"{n}: {s}")'},
+  {cat:'python',diff:'medium',pts:20,time:30,q:'What is a lambda function?',opts:['A class method','A built-in function','A small anonymous function defined with the lambda keyword','A recursive function'],ans:2,explain:'Lambda functions are small, anonymous functions. They can take multiple arguments but can only have ONE expression.',code:null,explainCode:'square = lambda x: x ** 2\nprint(square(5))  # 25\n\n# Same as:\ndef square(x): return x**2'},
+  // ── PYTHON HARD ──
+  {cat:'python',diff:'hard',pts:30,time:40,q:'What is the output?',opts:['5','[5]','error','None'],ans:0,explain:'`a[-1]` accesses the LAST element of the list. Python allows negative indexing — `-1` is last, `-2` is second-to-last, etc.',code:'a = [1, 2, 3, 4, 5]\nprint(a[-1])',explainCode:null},
+  {cat:'python',diff:'hard',pts:30,time:40,q:'What does `@staticmethod` do in Python?',opts:['Makes a method private','Defines a method that does not receive self or cls as first argument','Makes a method run at startup','Caches method results'],ans:1,explain:'A static method belongs to the class but does not receive the instance (`self`) or class (`cls`) as the first argument. It behaves like a plain function but lives in the class namespace.',code:null,explainCode:'class MathHelper:\n    @staticmethod\n    def add(a, b):\n        return a + b\n\nMathHelper.add(3, 5)  # 8 — no instance needed'},
+  {cat:'python',diff:'hard',pts:30,time:40,q:'What is a generator in Python?',opts:['A class for creating lists','A function that returns an iterator using `yield`','A way to generate random numbers','A decorator for functions'],ans:1,explain:'Generators use `yield` to produce values one at a time, pausing execution between each yield. They are memory-efficient for large datasets.',code:null,explainCode:'def squares(n):\n    for i in range(n):\n        yield i ** 2\n\nfor s in squares(5):\n    print(s)  # 0, 1, 4, 9, 16 (one at a time)'},
+  {cat:'python',diff:'hard',pts:30,time:40,q:'What is the output?',opts:['1\n2\n3','[1,2,3]','1 2 3','1,2,3'],ans:0,explain:'`enumerate()` returns (index, value) pairs. We only unpack the value `v` and print each on a new line. `_` is a convention for unused variables.',code:'for _, v in enumerate([1,2,3]):\n    print(v)',explainCode:null},
+  // ── MACHINE LEARNING ──
+  {cat:'ml',diff:'easy',pts:10,time:25,q:'What does "supervised learning" mean?',opts:['The model learns without any data','The model learns from labelled training data','The model learns by trial and error','The model learns from unlabelled data only'],ans:1,explain:'In supervised learning, we provide the model with input-output pairs (labelled data). The model learns to predict the output for new inputs. Examples: predicting house prices, classifying emails as spam.',code:null,explainCode:null},
+  {cat:'ml',diff:'easy',pts:10,time:25,q:'What is overfitting in machine learning?',opts:['Model performs well on training and test data','Model performs poorly on training data','Model learns training data too well and fails on new data','Model runs too slowly'],ans:2,explain:'Overfitting happens when a model memorises training data instead of learning general patterns. It performs great on training data but poorly on unseen test data. Solutions: more data, regularisation, cross-validation.',code:null,explainCode:null},
+  {cat:'ml',diff:'easy',pts:10,time:25,q:'In Scikit-learn, which method trains a model?',opts:['.train()','fit()','run()','execute()'],ans:1,explain:'In Scikit-learn, `.fit(X_train, y_train)` trains the model on the training data. Then `.predict(X_test)` makes predictions.',code:null,explainCode:'from sklearn.linear_model import LinearRegression\nmodel = LinearRegression()\nmodel.fit(X_train, y_train)\npredictions = model.predict(X_test)'},
+  {cat:'ml',diff:'medium',pts:20,time:30,q:'What is the purpose of train-test split?',opts:['To make training faster','To evaluate model performance on data it has never seen','To remove outliers','To normalise the data'],ans:1,explain:'We split data into training and test sets to simulate real-world performance. The model learns from training data and is evaluated on test data — data it has NEVER seen. This gives an unbiased performance estimate.',code:null,explainCode:'from sklearn.model_selection import train_test_split\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)'},
+  {cat:'ml',diff:'medium',pts:20,time:30,q:'What does a confusion matrix show?',opts:['Model training speed','The relationship between features','True positives, false positives, true negatives and false negatives','The loss function value'],ans:2,explain:'A confusion matrix is a table showing the 4 outcomes of a classification model: True Positives (correctly predicted positive), False Positives (wrongly predicted positive), True Negatives and False Negatives.',code:null,explainCode:null},
+  {cat:'ml',diff:'medium',pts:20,time:30,q:'What is the difference between classification and regression?',opts:['No difference','Classification predicts categories; regression predicts continuous values','Regression predicts categories; classification predicts numbers','Classification is faster'],ans:1,explain:'Classification predicts DISCRETE categories (spam/not spam, disease/healthy). Regression predicts CONTINUOUS numerical values (house price, temperature). Both are supervised learning.',code:null,explainCode:null},
+  {cat:'ml',diff:'medium',pts:20,time:30,q:'What does Random Forest do that a single Decision Tree does not?',opts:['It runs faster','It combines many trees and averages their predictions to reduce overfitting','It only uses one feature','It is always more accurate'],ans:1,explain:'Random Forest builds MANY decision trees on random subsets of data and features, then averages (or votes on) their predictions. This "ensemble" approach dramatically reduces overfitting compared to a single tree.',code:null,explainCode:null},
+  {cat:'ml',diff:'hard',pts:30,time:40,q:'What is L2 regularisation (Ridge) and why is it used?',opts:['It removes features with low importance','It adds the sum of SQUARED weights to the loss function to prevent overfitting','It normalises the input data','It increases model complexity'],ans:1,explain:'L2/Ridge regularisation adds a penalty term (λ × sum of squared weights) to the loss function. This discourages large weight values, keeping the model simpler and reducing overfitting.',code:null,explainCode:'from sklearn.linear_model import Ridge\nmodel = Ridge(alpha=1.0)  # alpha = regularisation strength\nmodel.fit(X_train, y_train)'},
+  {cat:'ml',diff:'hard',pts:30,time:40,q:'What is cross-validation and why is it better than a single train-test split?',opts:['It is slower but no more accurate','It trains on all data simultaneously','It splits data into k folds and trains/evaluates k times giving more reliable accuracy estimate','It only works for classification'],ans:2,explain:'k-Fold Cross-Validation splits data into k parts. It trains k times, each time using a different fold as test data. The final accuracy is the AVERAGE across all k folds — much more reliable than one random split.',code:null,explainCode:'from sklearn.model_selection import cross_val_score\nscores = cross_val_score(model, X, y, cv=5)\nprint(scores.mean())  # average accuracy'},
+  // ── DEEP LEARNING ──
+  {cat:'dl',diff:'easy',pts:10,time:25,q:'What is a neural network?',opts:['A computer network for AI labs','A system of interconnected nodes (neurons) inspired by the human brain that learns from data','A type of database','A programming language'],ans:1,explain:'Neural networks are computing systems inspired by biological neurons. They consist of layers of nodes — input layer, hidden layers, and output layer — that transform data to produce predictions.',code:null,explainCode:null},
+  {cat:'dl',diff:'easy',pts:10,time:25,q:'What does an activation function do in a neural network?',opts:['It activates the GPU','It introduces non-linearity, allowing the network to learn complex patterns','It speeds up training','It reduces the number of layers'],ans:1,explain:'Without activation functions, a neural network is just a linear function. Activation functions like ReLU, Sigmoid and Tanh introduce non-linearity, enabling the network to model complex real-world patterns.',code:null,explainCode:'# Common activation functions:\n# ReLU: max(0, x) — most popular hidden layer activation\n# Sigmoid: 1/(1+e^-x) — binary classification output\n# Softmax — multi-class classification output'},
+  {cat:'dl',diff:'medium',pts:20,time:30,q:'What is backpropagation?',opts:['Moving data backward through the network','The algorithm that calculates gradients and updates weights to minimise loss','A way to add more layers','Removing neurons from the network'],ans:1,explain:'Backpropagation computes the gradient of the loss with respect to each weight using the chain rule, then updates weights using gradient descent. It is how neural networks LEARN.',code:null,explainCode:null},
+  {cat:'dl',diff:'medium',pts:20,time:30,q:'What is the purpose of Dropout in neural networks?',opts:['To speed up inference','To randomly deactivate neurons during training to prevent overfitting','To increase model accuracy always','To remove layers from the network'],ans:1,explain:'Dropout randomly sets a fraction of neurons to zero during each training step. This forces the network to learn redundant representations and prevents it from relying too heavily on specific neurons — reducing overfitting.',code:null,explainCode:'from tensorflow.keras.layers import Dropout\nmodel.add(Dense(128, activation="relu"))\nmodel.add(Dropout(0.3))  # 30% of neurons randomly dropped'},
+  {cat:'dl',diff:'medium',pts:20,time:30,q:'What is a CNN best used for?',opts:['Time-series data','Natural language text','Image and visual data recognition','Tabular data'],ans:2,explain:'Convolutional Neural Networks (CNNs) use convolutional filters to detect local spatial patterns in images — edges, textures, shapes. They are the backbone of all modern computer vision systems.',code:null,explainCode:null},
+  {cat:'dl',diff:'hard',pts:30,time:40,q:'What is the vanishing gradient problem in RNNs?',opts:['Gradients explode to infinity','Gradients become extremely small during backpropagation through many time steps, making it impossible for early layers to learn','The model uses too much memory','Predictions become random'],ans:1,explain:'In standard RNNs, gradients are multiplied many times during backpropagation through time. If weights are small, gradients shrink exponentially → early time steps get almost zero gradient → the model cannot learn long-term dependencies. LSTM solves this with gates.',code:null,explainCode:null},
+  {cat:'dl',diff:'hard',pts:30,time:40,q:'What is transfer learning?',opts:['Moving a model to another server','Using a pre-trained model trained on a large dataset and fine-tuning it for a different task','Training multiple models simultaneously','Copying weights between identical models'],ans:1,explain:'Transfer learning reuses a model pre-trained on a large dataset (like ImageNet with millions of images) for a new, related task. You freeze the early layers and only fine-tune later layers — saving enormous compute and data.',code:null,explainCode:'from tensorflow.keras.applications import MobileNetV2\nbase = MobileNetV2(weights="imagenet", include_top=False)\nbase.trainable = False  # freeze pretrained weights'},
+  // ── NLP ──
+  {cat:'nlp',diff:'easy',pts:10,time:25,q:'What is tokenisation in NLP?',opts:['Converting words to numbers','Splitting text into individual words or subwords called tokens','Removing punctuation only','Translating text'],ans:1,explain:'Tokenisation is the process of splitting text into smaller units called tokens — usually words, subwords or characters. It is the first step in almost every NLP pipeline.',code:null,explainCode:'from nltk.tokenize import word_tokenize\ntext = "I love Python in Durgapur!"\ntokens = word_tokenize(text)\n# ["I","love","Python","in","Durgapur","!"]'},
+  {cat:'nlp',diff:'easy',pts:10,time:25,q:'What are stop words?',opts:['Words that stop the program','Common words like "the", "is", "and" that are often removed as they carry little meaning','Offensive words in text','Keywords in the model'],ans:1,explain:'Stop words are high-frequency, low-information words (the, is, at, which, on). Removing them reduces noise and dimensionality in NLP tasks like classification and information retrieval.',code:null,explainCode:'from nltk.corpus import stopwords\nstop = set(stopwords.words("english"))\nfiltered = [w for w in tokens if w not in stop]'},
+  {cat:'nlp',diff:'medium',pts:20,time:30,q:'What is TF-IDF?',opts:['A type of neural network','Term Frequency-Inverse Document Frequency — a way to measure how important a word is to a document relative to a collection','A tokenisation method','A sentiment score'],ans:1,explain:'TF-IDF scores words by how often they appear in a document (TF) vs how rare they are across all documents (IDF). Common words like "the" get low scores. Unique, informative words get high scores.',code:null,explainCode:'from sklearn.feature_extraction.text import TfidfVectorizer\nvec = TfidfVectorizer()\nX = vec.fit_transform(corpus)'},
+  {cat:'nlp',diff:'medium',pts:20,time:30,q:'What is sentiment analysis?',opts:['Analysing code sentiment','Classifying text as positive, negative or neutral based on the writer\'s emotion','Translating text between languages','Counting word frequencies'],ans:1,explain:'Sentiment analysis is a classification task that determines the emotional tone of text. Common applications: product review analysis, social media monitoring, customer feedback classification.',code:null,explainCode:null},
+  {cat:'nlp',diff:'hard',pts:30,time:40,q:'What is the key innovation of the Transformer architecture?',opts:['It uses RNNs more efficiently','Self-attention — allowing every token to attend to every other token in parallel, capturing long-range dependencies better than RNNs','It uses more layers than previous models','It requires less training data'],ans:1,explain:'Transformers replaced RNNs with self-attention mechanisms. Unlike RNNs that process sequences step-by-step, attention allows all tokens to relate to all others simultaneously — enabling parallelisation and much better long-range dependency capture. GPT and BERT are Transformer-based.',code:null,explainCode:null},
+  // ── DATA SCIENCE ──
+  {cat:'ds',diff:'easy',pts:10,time:25,q:'What does `df.shape` return in Pandas?',opts:['The shape of the table (pretty print)','A tuple (rows, columns)','The column names','The data types'],ans:1,explain:'`df.shape` returns a tuple (number_of_rows, number_of_columns). It is one of the first things you check when loading a new dataset.',code:null,explainCode:'df = pd.read_csv("data.csv")\nprint(df.shape)  # e.g. (768, 9)'},
+  {cat:'ds',diff:'easy',pts:10,time:25,q:'What is a box plot used for?',opts:['Showing correlation between two variables','Visualising the distribution of a variable showing median, quartiles and outliers','Plotting time series data','Showing category proportions'],ans:1,explain:'Box plots show the distribution of numerical data: the box shows the 25th to 75th percentile (IQR), the line shows the median, and dots beyond the whiskers are outliers.',code:null,explainCode:null},
+  {cat:'ds',diff:'medium',pts:20,time:30,q:'What is the purpose of `df.groupby()` in Pandas?',opts:['To sort the DataFrame','To group rows by a column\'s values and apply aggregation functions','To filter specific rows','To join two DataFrames'],ans:1,explain:'`groupby()` splits the data into groups based on a column, then you apply an aggregation function (mean, sum, count) to each group. Like SQL\'s GROUP BY.',code:null,explainCode:'avg_salary_by_city = df.groupby("city")["salary"].mean()\nprint(avg_salary_by_city)'},
+  {cat:'ds',diff:'medium',pts:20,time:30,q:'What is a correlation coefficient?',opts:['The number of rows in a dataset','A measure of the linear relationship between two variables, ranging from -1 to +1','The mean of a variable','The standard deviation'],ans:1,explain:'Correlation measures how strongly two variables move together. +1 = perfect positive correlation, -1 = perfect negative correlation, 0 = no linear relationship. Used in feature selection to find redundant features.',code:null,explainCode:'# Correlation heatmap\nimport seaborn as sns\nsns.heatmap(df.corr(), annot=True)'},
+  {cat:'ds',diff:'hard',pts:30,time:40,q:'What is the Central Limit Theorem and why does it matter for ML?',opts:['It says all distributions are normal','It states that sample means from ANY distribution approach a normal distribution as sample size increases','It limits the size of datasets','It is specific to neural networks'],ans:1,explain:'The CLT states that if you take large enough random samples from any distribution, the distribution of sample means will approximate a normal distribution. This is why many ML algorithms assume normally distributed errors and why statistical tests work on real-world data.',code:null,explainCode:null},
+];
+
+/* ════════════════════════════════════════
+   GAME STATE
+════════════════════════════════════════ */
+var MODE='quick', DIFF='all', TOPIC='all';
+var MODE_CONFIG={quick:{n:10,time:20},standard:{n:20,time:30},marathon:{n:999,time:45},survival:{n:999,time:30,lives:3}};
+var questions=[], cur=0, score=0, correct=0, wrong=0;
+var streak=0, bestStreak=0, lives=3;
+var timerInterval=null, timeLeft=0, maxTime=30;
+var answered=false;
+var lifelines={fifty:true,time:true,skip:true};
+
+function selMode(el,mode){document.querySelectorAll('.mode-card').forEach(function(c){c.classList.remove('sel');});el.classList.add('sel');MODE=mode;}
+function selDiff(el,d){document.querySelectorAll('.diff-btn').forEach(function(b){if(b.textContent.includes('Easy')||b.textContent.includes('Medium')||b.textContent.includes('Hard')||b.textContent==='All Levels')b.classList.remove('sel');});el.classList.add('sel');DIFF=d;}
+function selTopic(el,t){document.querySelectorAll('.diff-btn').forEach(function(b){if(['All Topics','🐍 Python','🤖 Machine Learning','🧠 Deep Learning','💬 NLP','📊 Data Science'].some(function(l){return b.textContent.trim()===l;}))b.classList.remove('sel');});el.classList.add('sel');TOPIC=t;}
+
+function startArena(){
+  // Filter questions
+  var pool=QB.filter(function(q){
+    var dc=DIFF==='all'||q.diff===DIFF;
+    var tc=TOPIC==='all'||q.cat===TOPIC;
+    return dc&&tc;
+  });
+  // Shuffle
+  pool=pool.sort(function(){return Math.random()-.5;});
+  var cfg=MODE_CONFIG[MODE];
+  questions=pool.slice(0,Math.min(cfg.n,pool.length));
+  if(questions.length===0){alert('No questions match your filters. Try broadening your selection.');return;}
+  cur=0;score=0;correct=0;wrong=0;streak=0;bestStreak=0;
+  lives=cfg.lives||99;
+  lifelines={fifty:true,time:true,skip:true};
+  document.getElementById('lobby').style.display='none';
+  document.getElementById('arena').style.display='block';
+  document.getElementById('results').style.display='none';
+  buildDots();
+  showQ();
+}
+
+function buildDots(){
+  var d=document.getElementById('q-dots');
+  d.innerHTML=questions.map(function(_,i){return '<div class="q-dot'+(i===0?' curr':'')+'" id="dot-'+i+'"></div>';}).join('');
+}
+
+function showQ(){
+  if(cur>=questions.length){endArena();return;}
+  var q=questions[cur];
+  answered=false;
+  // Reset lifeline buttons
+  document.getElementById('ll-fifty').disabled=!lifelines.fifty;
+  document.getElementById('ll-time').disabled=!lifelines.time;
+  document.getElementById('ll-skip').disabled=!lifelines.skip;
+  // Header
+  document.getElementById('ah-q').textContent=(cur+1)+'/'+questions.length;
+  // Dots
+  document.querySelectorAll('.q-dot').forEach(function(d,i){d.classList.toggle('curr',i===cur);});
+  // Lives
+  if(MODE==='survival'){
+    document.getElementById('ah-lives').textContent='❤️'.repeat(Math.max(0,lives));
+  } else {
+    document.getElementById('ah-lives').textContent='—';
+  }
+  // Meta
+  var diffClass={easy:'qb-easy',medium:'qb-med',hard:'qb-hard'}[q.diff];
+  document.getElementById('q-meta').innerHTML=
+    '<span class="q-badge '+diffClass+'">'+q.diff.toUpperCase()+'</span>'
+    +'<span class="q-badge qb-cat">'+q.cat.toUpperCase()+'</span>'
+    +'<span class="q-badge qb-pts">+'+q.pts+' pts</span>';
+  document.getElementById('q-text').textContent=q.q;
+  // Code
+  var codeEl=document.getElementById('q-code');
+  if(q.code){codeEl.style.display='block';codeEl.textContent=q.code;}
+  else codeEl.style.display='none';
+  // Options
+  var letters=['A','B','C','D'];
+  document.getElementById('opts').innerHTML=q.opts.map(function(o,i){
+    return '<button class="opt" onclick="pickAns('+i+')" id="opt-'+i+'">'
+      +'<span class="opt-letter">'+letters[i]+'</span>'+o+'</button>';
+  }).join('');
+  // Explain reset
+  var eb=document.getElementById('explain-box');
+  eb.style.display='none';eb.className='explain-box';
+  document.getElementById('next-btn').style.display='none';
+  // Streak bar
+  var sb=document.getElementById('streak-bar');
+  sb.innerHTML=Array.from({length:5},function(_,i){
+    return '<div class="streak-dot'+(i<streak?' hit':'')+'" id="sb-'+i+'"></div>';
+  }).join('');
+  // Timer
+  maxTime=q.time||(MODE_CONFIG[MODE].time||30);
+  startTimer();
+}
+
+function startTimer(){
+  clearInterval(timerInterval);
+  timeLeft=maxTime;
+  updTimer();
+  timerInterval=setInterval(function(){
+    timeLeft--;updTimer();
+    if(timeLeft<=0){clearInterval(timerInterval);timeOut();}
+  },1000);
+}
+
+function updTimer(){
+  var pct=timeLeft/maxTime;
+  var circ=175.9;
+  var offset=circ*(1-pct);
+  var c=document.getElementById('timer-circle');
+  var n=document.getElementById('timer-num');
+  c.style.strokeDashoffset=offset;
+  c.style.stroke=pct>.5?'var(--blue)':pct>.25?'var(--orange)':'var(--red)';
+  n.textContent=timeLeft;
+  n.style.color=pct>.5?'#fff':pct>.25?'var(--orange)':'var(--r2)';
+}
+
+function timeOut(){
+  if(answered)return;
+  answered=true;
+  wrong++;streak=0;
+  if(MODE==='survival'){lives--;if(lives<=0){setTimeout(endArena,1000);return;}}
+  revealCorrect();
+  showExplain(false);
+}
+
+function pickAns(idx){
+  if(answered)return;
+  answered=true;
+  clearInterval(timerInterval);
+  var q=questions[cur];
+  var isCorrect=idx===q.ans;
+  var btn=document.getElementById('opt-'+idx);
+  if(isCorrect){
+    btn.classList.add('correct');
+    score+=q.pts+(streak>=3?5:0);// streak bonus
+    correct++;streak++;bestStreak=Math.max(bestStreak,streak);
+    document.getElementById('ah-score').textContent=score;
+    document.getElementById('ah-streak').textContent=streak+'🔥';
+    document.getElementById('dot-'+cur).classList.add('done-c');
+    // Streak bar
+    for(var i=0;i<Math.min(streak,5);i++){
+      var d=document.getElementById('sb-'+i);
+      if(d) d.classList.add('hit');
+    }
+  } else {
+    btn.classList.add('wrong');
+    wrong++;streak=0;
+    document.getElementById('ah-streak').textContent='0🔥';
+    document.getElementById('dot-'+cur).classList.add('done-w');
+    if(MODE==='survival'){lives--;document.getElementById('ah-lives').textContent='❤️'.repeat(Math.max(0,lives));if(lives<=0){setTimeout(endArena,1200);return;}}
+    revealCorrect();
+  }
+  showExplain(isCorrect);
+  document.querySelectorAll('.opt').forEach(function(b){b.disabled=true;});
+  document.getElementById('next-btn').style.display='inline-flex';
+}
+
+function revealCorrect(){
+  var q=questions[cur];
+  document.getElementById('opt-'+q.ans).classList.add('reveal');
+}
+
+function showExplain(correct){
+  var q=questions[cur];
+  var eb=document.getElementById('explain-box');
+  eb.style.display='block';
+  eb.className='explain-box '+(correct?'correct-bg':'wrong-bg');
+  document.getElementById('explain-title').textContent=correct?'✅ Correct!':'❌ Not quite — here\'s why:';
+  document.getElementById('explain-title').style.color=correct?'var(--g2)':'var(--r2)';
+  document.getElementById('explain-text').textContent=q.explain;
+  var ec=document.getElementById('explain-code');
+  if(q.explainCode){ec.style.display='block';ec.textContent=q.explainCode;}
+  else ec.style.display='none';
+}
+
+function nextQ(){cur++;showQ();}
+function quitArena(){if(confirm('Quit and see results?'))endArena();}
+
+function endArena(){
+  clearInterval(timerInterval);
+  document.getElementById('arena').style.display='none';
+  document.getElementById('results').style.display='block';
+  var total=questions.length;
+  var pct=total>0?Math.round(correct/total*100):0;
+  document.getElementById('result-pct').textContent=pct+'%';
+  var grade,msg,color;
+  if(pct>=90){grade='🏆 Expert';msg='Outstanding! You\'re interview-ready. Book a demo and let us help you land that AI job.';color='#F59E0B';}
+  else if(pct>=75){grade='⭐ Strong';msg='Great performance! A few more practice sessions and you\'ll be ready for top companies.';color='var(--g2)';}
+  else if(pct>=50){grade='📈 Good';msg='Solid foundation. Focus on the topics you missed and you\'ll improve quickly.';color='var(--b2)';}
+  else if(pct>=25){grade='📚 Keep Going';msg='Good start! Every question you review teaches you something. Try again!';color='var(--o2)';}
+  else{grade='🌱 Beginner';msg='No worries — everyone starts somewhere. Book a free demo to learn with guidance.';color='var(--r2)';}
+  document.getElementById('grade-badge').textContent=grade;
+  document.getElementById('grade-badge').style.color=color;
+  document.getElementById('result-msg').textContent=msg;
+  document.getElementById('rs-correct').textContent=correct;
+  document.getElementById('rs-wrong').textContent=wrong;
+  document.getElementById('rs-score').textContent=score;
+  document.getElementById('rs-best-streak').textContent=bestStreak+'🔥';
+  // Animate ring
+  var circ=376.99;
+  var rc=document.getElementById('result-circle');
+  rc.style.stroke=color;
+  setTimeout(function(){rc.style.strokeDashoffset=circ*(1-pct/100);},100);
+}
+
+function restartArena(){
+  document.getElementById('results').style.display='none';
+  document.getElementById('lobby').style.display='block';
+}
+
+/* Lifelines */
+function useFifty(){
+  if(!lifelines.fifty||answered)return;
+  lifelines.fifty=false;
+  document.getElementById('ll-fifty').disabled=true;
+  var q=questions[cur];
+  var wrong_opts=[0,1,2,3].filter(function(i){return i!==q.ans;});
+  wrong_opts.sort(function(){return Math.random()-.5;}).slice(0,2).forEach(function(i){
+    var b=document.getElementById('opt-'+i);
+    if(b){b.style.opacity='.2';b.disabled=true;}
+  });
+}
+function useExtraTime(){
+  if(!lifelines.time||answered)return;
+  lifelines.time=false;
+  document.getElementById('ll-time').disabled=true;
+  timeLeft=Math.min(timeLeft+15,maxTime+15);
+  maxTime=timeLeft;
+  updTimer();
+}
+function useSkip(){
+  if(!lifelines.skip||answered)return;
+  lifelines.skip=false;
+  document.getElementById('ll-skip').disabled=true;
+  answered=true;
+  clearInterval(timerInterval);
+  document.getElementById('dot-'+cur).classList.add('done-w');
+  setTimeout(function(){cur++;showQ();},300);
+}
+
+window.addEventListener('scroll',function(){var h=document.documentElement;document.getElementById('read-bar').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';},{passive:true});
+</script>
+</body>
+</html>

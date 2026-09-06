@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blog Admin — AI & Python Training</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#060B18;--bg2:#0A1020;--card:#0D1526;--card2:#111D35;--brd:rgba(99,179,255,.12);--brd2:rgba(99,179,255,.25);--blue:#3B82F6;--blue2:#60A5FA;--purple:#8B5CF6;--green:#10B981;--green2:#34D399;--orange:#F59E0B;--red:#EF4444;--white:#fff;--text:#E2E8F0;--muted:#94A3B8;--dim:#475569;--g1:linear-gradient(135deg,#3B82F6,#8B5CF6);--r:10px;--r2:16px;--fn:'Inter',sans-serif;--fh:'Space Grotesk',sans-serif;--fm:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--fn);background:var(--bg);color:var(--text);min-height:100vh}
+/* LOGIN SCREEN */
+#login-screen{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:9999}
+.login-box{background:var(--card2);border:1px solid var(--brd2);border-radius:20px;padding:40px;width:100%;max-width:380px;text-align:center}
+.login-box h2{font-family:var(--fh);font-size:1.6rem;color:#fff;margin-bottom:6px}
+.login-box p{color:var(--muted);font-size:.85rem;margin-bottom:28px}
+.login-field{width:100%;background:rgba(255,255,255,.05);border:1.5px solid var(--brd);border-radius:var(--r);padding:12px 16px;color:#fff;font-size:.9rem;margin-bottom:12px;font-family:var(--fn);transition:border-color .2s}
+.login-field:focus{outline:none;border-color:var(--blue)}
+.login-btn{width:100%;background:var(--g1);border:none;border-radius:50px;padding:13px;color:#fff;font-family:var(--fh);font-size:.92rem;font-weight:700;cursor:pointer;margin-top:4px;transition:.2s}
+.login-btn:hover{opacity:.9}
+.login-err{color:var(--red);font-size:.8rem;margin-top:8px;display:none}
+/* ADMIN LAYOUT */
+#admin-panel{display:none}
+.admin-header{background:var(--card2);border-bottom:1px solid var(--brd);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.admin-brand{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:8px}
+.admin-nav{display:flex;gap:6px}
+.anav-btn{padding:7px 16px;border-radius:50px;border:1px solid var(--brd);background:transparent;color:var(--muted);font-size:.8rem;font-weight:600;cursor:pointer;transition:.2s}
+.anav-btn:hover,.anav-btn.active{background:var(--g1);border-color:transparent;color:#fff}
+.admin-body{display:flex;min-height:calc(100vh - 57px)}
+.sidebar{width:240px;background:var(--bg2);border-right:1px solid var(--brd);padding:20px 14px;flex-shrink:0}
+.sidebar-item{display:flex;align-items:center;gap:9px;padding:10px 13px;border-radius:var(--r);font-size:.85rem;font-weight:500;color:var(--muted);cursor:pointer;transition:.2s;margin-bottom:4px}
+.sidebar-item:hover,.sidebar-item.active{background:rgba(59,130,246,.1);color:var(--blue2)}
+.sidebar-item i{font-size:1rem}
+.content-area{flex:1;padding:28px;overflow-y:auto}
+/* FORM */
+.section-title{font-family:var(--fh);font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.field-group{margin-bottom:18px}
+.field-label{display:block;font-size:.78rem;font-weight:600;color:var(--text);margin-bottom:6px;letter-spacing:.03em}
+.field-label .req{color:var(--red)}
+.field-input{width:100%;background:rgba(255,255,255,.04);border:1.5px solid var(--brd);border-radius:var(--r);padding:11px 14px;color:#fff;font-size:.88rem;font-family:var(--fn);transition:border-color .2s;resize:none}
+.field-input:focus{outline:none;border-color:var(--blue);background:rgba(59,130,246,.04)}
+.field-input::placeholder{color:var(--dim)}
+select.field-input option{background:var(--bg2)}
+.field-hint{font-size:.72rem;color:var(--dim);margin-top:5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+/* CONTENT EDITOR */
+.editor-toolbar{display:flex;gap:5px;flex-wrap:wrap;background:var(--bg2);border:1.5px solid var(--brd);border-bottom:1px solid var(--brd);border-radius:var(--r) var(--r) 0 0;padding:8px 10px}
+.tb-btn{padding:5px 10px;border-radius:6px;border:1px solid var(--brd);background:transparent;color:var(--muted);font-size:.78rem;cursor:pointer;transition:.15s;font-family:var(--fm)}
+.tb-btn:hover{background:rgba(59,130,246,.15);color:var(--blue2);border-color:var(--blue)}
+.field-input.editor{border-radius:0 0 var(--r) var(--r);border-top:none;min-height:260px;font-family:var(--fm);font-size:.82rem;line-height:1.7}
+/* PREVIEW */
+.preview-box{background:var(--card);border:1px solid var(--brd);border-radius:var(--r2);padding:22px;margin-top:20px;max-height:340px;overflow-y:auto}
+.preview-box h4{font-family:var(--fh);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--blue2);margin-bottom:12px}
+/* OUTPUT */
+.output-box{background:#0D1117;border:1px solid var(--brd2);border-radius:var(--r);padding:18px;margin-top:20px;font-family:var(--fm);font-size:.78rem;line-height:1.65;color:#E2E8F0;white-space:pre-wrap;max-height:320px;overflow-y:auto;word-break:break-all}
+/* BUTTONS */
+.btn-gen{background:var(--g1);border:none;border-radius:50px;padding:12px 28px;color:#fff;font-family:var(--fh);font-size:.9rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.2s}
+.btn-gen:hover{opacity:.9;transform:translateY(-1px)}
+.btn-copy{background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);border-radius:50px;padding:9px 20px;color:var(--green2);font-family:var(--fh);font-size:.82rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.2s;margin-left:10px}
+.btn-copy:hover{background:rgba(16,185,129,.2)}
+.btn-clear{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.25);border-radius:50px;padding:9px 20px;color:#F87171;font-family:var(--fh);font-size:.82rem;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.2s;margin-left:10px}
+/* POST LIST */
+.post-list-item{background:var(--card);border:1px solid var(--brd);border-radius:var(--r2);padding:16px 20px;margin-bottom:10px;display:flex;align-items:center;gap:14px;transition:.2s}
+.post-list-item:hover{border-color:var(--brd2)}
+.pli-thumb{width:56px;height:42px;border-radius:8px;object-fit:cover;flex-shrink:0;background:var(--card2)}
+.pli-title{font-family:var(--fh);font-size:.92rem;font-weight:600;color:#fff;margin-bottom:3px}
+.pli-meta{font-size:.72rem;color:var(--dim)}
+.pli-cat{font-size:.65rem;font-weight:700;padding:2px 9px;border-radius:50px;background:rgba(59,130,246,.15);color:var(--blue2);margin-left:8px}
+.pli-actions{margin-left:auto;display:flex;gap:7px;flex-shrink:0}
+.pli-btn{padding:6px 13px;border-radius:50px;font-size:.72rem;font-weight:600;cursor:pointer;border:1px solid;transition:.15s}
+.pli-btn.del{border-color:rgba(239,68,68,.3);color:#F87171;background:rgba(239,68,68,.06)}
+.pli-btn.del:hover{background:rgba(239,68,68,.15)}
+.pli-btn.view{border-color:var(--brd);color:var(--muted);background:transparent}
+.pli-btn.view:hover{border-color:var(--blue);color:var(--blue2)}
+/* INSTRUCTIONS */
+.instr-card{background:linear-gradient(135deg,rgba(59,130,246,.08),rgba(139,92,246,.08));border:1px solid var(--brd2);border-radius:var(--r2);padding:22px;margin-bottom:24px}
+.instr-title{font-family:var(--fh);font-size:.9rem;font-weight:700;color:#fff;margin-bottom:12px}
+.instr-step{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:.83rem;color:var(--muted)}
+.instr-num{width:22px;height:22px;border-radius:50%;background:var(--g1);color:#fff;font-size:.68rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.badge-green{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.25);color:var(--green2);font-size:.68rem;font-weight:700;padding:2px 9px;border-radius:50px}
+.badge-orange{background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.25);color:var(--orange);font-size:.68rem;font-weight:700;padding:2px 9px;border-radius:50px}
+/* SUCCESS TOAST */
+.toast{position:fixed;bottom:24px;right:24px;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:var(--green2);padding:14px 20px;border-radius:var(--r);font-weight:600;font-size:.85rem;z-index:9999;display:none;align-items:center;gap:8px;backdrop-filter:blur(10px)}
+.toast.show{display:flex;animation:slideUp .3s ease}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="bi bi-check-circle-fill"></i><span id="toast-msg">Done!</span></div>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div style="font-size:2.5rem;margin-bottom:12px">🔐</div>
+    <h2>Admin Panel</h2>
+    <p>AI &amp; Python Training — Blog Manager</p>
+    <input type="text" class="login-field" id="l-user" placeholder="Username" autocomplete="off"/>
+    <input type="password" class="login-field" id="l-pass" placeholder="Password"/>
+    <button class="login-btn" onclick="doLogin()"><i class="bi bi-box-arrow-in-right"></i> Sign In</button>
+    <div class="login-err" id="l-err">❌ Wrong credentials. Try again.</div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="admin-panel">
+  <div class="admin-header">
+    <div class="admin-brand"><span style="font-size:1.1rem">🐍</span>Blog Admin</div>
+    <div class="admin-nav">
+      <button class="anav-btn active" onclick="showTab('new-post')"><i class="bi bi-plus-circle"></i> New Post</button>
+      <button class="anav-btn" onclick="showTab('all-posts')"><i class="bi bi-list-ul"></i> All Posts</button>
+      <button class="anav-btn" onclick="showTab('instructions')"><i class="bi bi-info-circle"></i> How To</button>
+      <button class="anav-btn" style="margin-left:8px;border-color:rgba(239,68,68,.3);color:#F87171" onclick="logout()"><i class="bi bi-box-arrow-right"></i> Logout</button>
+    </div>
+  </div>
+
+  <!-- TAB: NEW POST -->
+  <div id="tab-new-post" class="content-area" style="max-width:900px;margin:0 auto">
+    <div class="section-title"><i class="bi bi-pencil-square" style="color:var(--blue2)"></i>Create New Blog Post</div>
+
+    <div class="instr-card" style="margin-bottom:24px">
+      <div class="instr-title">📋 Quick Guide</div>
+      <div class="instr-step"><div class="instr-num">1</div>Fill in all the fields below, then click <strong style="color:#fff">Generate JSON Entry</strong></div>
+      <div class="instr-step"><div class="instr-num">2</div>Copy the generated code and open <code style="color:var(--blue2)">blogs.json</code> in a text editor</div>
+      <div class="instr-step"><div class="instr-num">3</div>Paste it inside the <code style="color:var(--blue2)">[ ]</code> array (add a comma after the last existing entry first)</div>
+      <div class="instr-step"><div class="instr-num">4</div>Upload the new <code style="color:var(--blue2)">blogs.json</code> to GoDaddy <code style="color:var(--blue2)">public_html</code> — done! ✅</div>
+    </div>
+
+    <div class="two-col">
+      <div class="field-group">
+        <label class="field-label">Post Title <span class="req">*</span></label>
+        <input type="text" class="field-input" id="f-title" placeholder="e.g. How to Build a Chatbot with Python"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Category <span class="req">*</span></label>
+        <select class="field-input" id="f-cat">
+          <option value="">Select category</option>
+          <option>Python</option><option>Machine Learning</option><option>Deep Learning</option>
+          <option>NLP</option><option>Gen AI</option><option>Career</option><option>Projects</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label">Excerpt / Short Description <span class="req">*</span></label>
+      <textarea class="field-input" id="f-excerpt" rows="2" placeholder="2-3 sentence summary shown on the blog card and in Google search results..."></textarea>
+      <div class="field-hint">Keep it 120–160 characters for best SEO results. <span id="exc-count" style="color:var(--blue2)">0</span>/160</div>
+    </div>
+
+    <div class="two-col">
+      <div class="field-group">
+        <label class="field-label">Thumbnail Image Path <span class="req">*</span></label>
+        <input type="text" class="field-input" id="f-thumb" placeholder="blog-images/my-post-image.jpg"/>
+        <div class="field-hint">Upload the image to your GoDaddy <code>public_html/blog-images/</code> folder, then type the filename here. Supports .jpg .png .webp</div>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Tags (comma separated)</label>
+        <input type="text" class="field-input" id="f-tags" placeholder="Python, ML, Beginners, Durgapur"/>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="field-group">
+        <label class="field-label">Publish Date</label>
+        <input type="date" class="field-input" id="f-date"/>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Read Time</label>
+        <select class="field-input" id="f-read">
+          <option>3 min read</option><option>4 min read</option><option>5 min read</option>
+          <option>6 min read</option><option>7 min read</option><option>8 min read</option><option>10 min read</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label class="field-label" style="display:flex;align-items:center;gap:8px">
+        Full Article Content <span class="req">*</span>
+        <span class="badge-green">Supports HTML</span>
+      </label>
+      <div class="editor-toolbar">
+        <button class="tb-btn" onclick="ins('<h2>','</h2>')">H2</button>
+        <button class="tb-btn" onclick="ins('<h3>','</h3>')">H3</button>
+        <button class="tb-btn" onclick="ins('<strong>','</strong>')"><b>B</b></button>
+        <button class="tb-btn" onclick="ins('<em>','</em>')"><i>I</i></button>
+        <button class="tb-btn" onclick="ins('<p>','</p>')">¶</button>
+        <button class="tb-btn" onclick="ins('<ul>\n  <li>','</li>\n  <li>item</li>\n</ul>')">List</button>
+        <button class="tb-btn" onclick="ins('<a href=\"\" target=\"_blank\">','</a>')">Link</button>
+        <button class="tb-btn" onclick="ins('<pre><code class=\"code-block\">','</code></pre>')">Code</button>
+        <button class="tb-btn" onclick="ins('<img src=\"blog-images/\" alt=\"\"  style=\"width:100%;border-radius:12px;margin:16px 0\" />')">Img</button>
+        <button class="tb-btn" onclick="ins('<blockquote>','</blockquote>')">Quote</button>
+      </div>
+      <textarea class="field-input editor" id="f-content" placeholder="Write your full article here in HTML...&#10;&#10;Example:&#10;<p>Your intro paragraph...</p>&#10;<h2>Section Title</h2>&#10;<p>Section content...</p>&#10;<pre><code class=&quot;code-block&quot;>your_python_code_here()</code></pre>&#10;<p>More content...</p>"></textarea>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:8px;flex-wrap:wrap">
+      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.85rem;color:var(--muted)">
+        <input type="checkbox" id="f-featured" style="accent-color:var(--orange)"/>
+        <span>⭐ Mark as Featured Post</span>
+      </label>
+    </div>
+
+    <div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:8px">
+      <button class="btn-gen" onclick="generateJSON()"><i class="bi bi-code-slash"></i>Generate JSON Entry</button>
+      <button class="btn-clear" onclick="clearForm()"><i class="bi bi-trash3"></i>Clear Form</button>
+    </div>
+
+    <!-- OUTPUT -->
+    <div id="output-section" style="display:none;margin-top:28px">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <span style="font-family:var(--fh);font-weight:700;color:#fff;font-size:.95rem"><i class="bi bi-check-circle-fill" style="color:var(--green2)"></i> JSON Entry Generated</span>
+        <span class="badge-orange">Copy everything below</span>
+        <button class="btn-copy" onclick="copyOutput()"><i class="bi bi-clipboard"></i>Copy to Clipboard</button>
+      </div>
+      <div class="output-box" id="output-box"></div>
+      <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:var(--r);padding:14px 16px;margin-top:14px;font-size:.82rem;color:rgba(252,211,77,.85)">
+        <strong>⚡ Next step:</strong> Open <code>blogs.json</code> → find the last <code>}</code> before the closing <code>]</code> → add a comma → paste this entry → save → upload to GoDaddy.
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: ALL POSTS -->
+  <div id="tab-all-posts" class="content-area" style="display:none;max-width:900px;margin:0 auto">
+    <div class="section-title"><i class="bi bi-list-ul" style="color:var(--blue2)"></i>All Posts <span id="post-count" style="font-size:.8rem;font-weight:400;color:var(--muted);margin-left:8px"></span></div>
+    <div id="posts-list">
+      <div style="color:var(--muted);padding:20px 0">Loading posts...</div>
+    </div>
+  </div>
+
+  <!-- TAB: INSTRUCTIONS -->
+  <div id="tab-instructions" class="content-area" style="display:none;max-width:760px;margin:0 auto">
+    <div class="section-title"><i class="bi bi-book" style="color:var(--blue2)"></i>How to Manage Your Blog</div>
+
+    <div class="instr-card" style="margin-bottom:20px">
+      <div class="instr-title">🚀 Adding a New Blog Post (Full Workflow)</div>
+      <div class="instr-step"><div class="instr-num">1</div>Upload your thumbnail image to <code style="color:var(--blue2)">public_html/blog-images/</code> on GoDaddy (e.g. <code>my-post.jpg</code>)</div>
+      <div class="instr-step"><div class="instr-num">2</div>Come to this admin panel → New Post tab → fill all the fields</div>
+      <div class="instr-step"><div class="instr-num">3</div>Click <strong style="color:#fff">Generate JSON Entry</strong> → copy the output</div>
+      <div class="instr-step"><div class="instr-num">4</div>Download <code style="color:var(--blue2)">blogs.json</code> from your GoDaddy server</div>
+      <div class="instr-step"><div class="instr-num">5</div>Open it in Notepad → find the last <code>{"{"}</code> closing brace → add a comma after it → paste your new entry</div>
+      <div class="instr-step"><div class="instr-num">6</div>Save and re-upload <code style="color:var(--blue2)">blogs.json</code> to GoDaddy → your post is live instantly! ✅</div>
+    </div>
+
+    <div class="instr-card" style="margin-bottom:20px">
+      <div class="instr-title">🖼️ Image Guidelines for Best Results</div>
+      <div class="instr-step"><div class="instr-num">1</div>Recommended thumbnail size: <strong style="color:#fff">1200 × 630px</strong> (same as Facebook/WhatsApp share size)</div>
+      <div class="instr-step"><div class="instr-num">2</div>Format: <strong style="color:#fff">.jpg or .webp</strong> for smallest file size. Keep under 200KB.</div>
+      <div class="instr-step"><div class="instr-num">3</div>Name your files clearly: <code style="color:var(--blue2)">python-basics-durgapur.jpg</code> (no spaces, lowercase)</div>
+      <div class="instr-step"><div class="instr-num">4</div>Upload to <code style="color:var(--blue2)">public_html/blog-images/</code> folder. If that folder doesn't exist, create it.</div>
+      <div class="instr-step"><div class="instr-num">5</div>In the form, type: <code style="color:var(--blue2)">blog-images/your-image.jpg</code></div>
+    </div>
+
+    <div class="instr-card">
+      <div class="instr-title">✍️ Writing Good Content (HTML Tips)</div>
+      <div style="background:#0D1117;border-radius:var(--r);padding:16px;margin-top:8px;font-family:var(--fm);font-size:.78rem;line-height:1.8;color:#E2E8F0">
+&lt;p&gt;Your paragraph text here.&lt;/p&gt;<br/><br/>
+&lt;h2&gt;Section Heading&lt;/h2&gt;<br/><br/>
+&lt;pre&gt;&lt;code class="code-block"&gt;<br/>
+import pandas as pd<br/>
+df = pd.read_csv('data.csv')<br/>
+&lt;/code&gt;&lt;/pre&gt;<br/><br/>
+&lt;img src="blog-images/screenshot.jpg" alt="Description"/&gt;<br/><br/>
+&lt;blockquote&gt;A key quote or insight.&lt;/blockquote&gt;
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── CREDENTIALS (change these!) ── */
+var ADMIN_USER = 'biswarup';
+var ADMIN_PASS = 'aipython2026';
+
+/* ── LOGIN ── */
+function doLogin(){
+  var u=document.getElementById('l-user').value.trim();
+  var p=document.getElementById('l-pass').value;
+  if(u===ADMIN_USER&&p===ADMIN_PASS){
+    sessionStorage.setItem('blog-admin','1');
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('admin-panel').style.display='block';
+    loadPosts();
+    // Set today's date
+    document.getElementById('f-date').value=new Date().toISOString().split('T')[0];
+  } else {
+    document.getElementById('l-err').style.display='block';
+    setTimeout(function(){document.getElementById('l-err').style.display='none';},3000);
+  }
+}
+document.addEventListener('keydown',function(e){if(e.key==='Enter'&&document.getElementById('login-screen').style.display!=='none')doLogin();});
+function logout(){sessionStorage.removeItem('blog-admin');location.reload();}
+if(sessionStorage.getItem('blog-admin')==='1'){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('admin-panel').style.display='block';
+  document.getElementById('f-date').value=new Date().toISOString().split('T')[0];
+  loadPosts();
+}
+
+/* ── TABS ── */
+function showTab(tab){
+  ['new-post','all-posts','instructions'].forEach(function(t){
+    document.getElementById('tab-'+t).style.display='none';
+  });
+  document.getElementById('tab-'+tab).style.display='block';
+  document.querySelectorAll('.anav-btn').forEach(function(b,i){b.classList.remove('active');});
+  var tabs=['new-post','all-posts','instructions'];
+  var idx=tabs.indexOf(tab);
+  document.querySelectorAll('.anav-btn')[idx].classList.add('active');
+  if(tab==='all-posts')loadPosts();
+}
+
+/* ── TOOLBAR INSERT ── */
+function ins(open,close){
+  var ta=document.getElementById('f-content');
+  var s=ta.selectionStart,e=ta.selectionEnd;
+  var sel=ta.value.substring(s,e);
+  ta.value=ta.value.substring(0,s)+open+(close?sel:'')+(close||'')+ta.value.substring(e);
+  ta.focus();
+}
+
+/* ── EXCERPT COUNTER ── */
+document.getElementById('f-excerpt').addEventListener('input',function(){
+  document.getElementById('exc-count').textContent=this.value.length;
+});
+
+/* ── SLUG GENERATOR ── */
+function makeSlug(title){
+  return title.toLowerCase().trim().replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').substring(0,60);
+}
+
+/* ── GENERATE JSON ── */
+function generateJSON(){
+  var title=document.getElementById('f-title').value.trim();
+  var cat=document.getElementById('f-cat').value;
+  var excerpt=document.getElementById('f-excerpt').value.trim();
+  var thumb=document.getElementById('f-thumb').value.trim();
+  var tags=document.getElementById('f-tags').value.split(',').map(function(t){return t.trim();}).filter(Boolean);
+  var date=document.getElementById('f-date').value||new Date().toISOString().split('T')[0];
+  var readTime=document.getElementById('f-read').value;
+  var content=document.getElementById('f-content').value.trim();
+  var featured=document.getElementById('f-featured').checked;
+
+  if(!title){alert('Please enter a post title.');return;}
+  if(!cat){alert('Please select a category.');return;}
+  if(!excerpt){alert('Please enter an excerpt.');return;}
+  if(!content){alert('Please add some content.');return;}
+
+  var id=Date.now().toString();
+  var slug=makeSlug(title);
+
+  var entry={
+    id:id, slug:slug, title:title, excerpt:excerpt,
+    content:content, category:cat, tags:tags,
+    thumbnail:thumb||'', author:'Biswarup Mukherjee',
+    date:date, read_time:readTime, featured:featured
+  };
+
+  var json=JSON.stringify(entry,null,2);
+  document.getElementById('output-box').textContent=json;
+  document.getElementById('output-section').style.display='block';
+  document.getElementById('output-section').scrollIntoView({behavior:'smooth'});
+}
+
+/* ── COPY ── */
+function copyOutput(){
+  var text=document.getElementById('output-box').textContent;
+  navigator.clipboard.writeText(text).then(function(){showToast('Copied to clipboard! Now paste into blogs.json');});
+}
+function showToast(msg){
+  document.getElementById('toast-msg').textContent=msg;
+  var t=document.getElementById('toast');
+  t.classList.add('show');
+  setTimeout(function(){t.classList.remove('show');},3500);
+}
+function clearForm(){
+  ['f-title','f-cat','f-excerpt','f-thumb','f-tags','f-content'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('f-featured').checked=false;
+  document.getElementById('output-section').style.display='none';
+  document.getElementById('f-date').value=new Date().toISOString().split('T')[0];
+  document.getElementById('exc-count').textContent='0';
+}
+
+/* ── LOAD ALL POSTS ── */
+function loadPosts(){
+  fetch('blogs.json?v='+Date.now())
+    .then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+    .then(function(data){
+      document.getElementById('post-count').textContent='('+data.length+' posts)';
+      var sorted=data.sort(function(a,b){return new Date(b.date)-new Date(a.date);});
+      document.getElementById('posts-list').innerHTML=sorted.map(function(p){
+        var imgHtml=p.thumbnail?'<img src="'+p.thumbnail+'" alt="" class="pli-thumb" onerror="this.style.display=\'none\'"/>':'<div class="pli-thumb" style="background:linear-gradient(135deg,#1D4ED8,#7C3AED);display:flex;align-items:center;justify-content:center;font-size:1.2rem">📝</div>';
+        return '<div class="post-list-item">'+imgHtml
+          +'<div style="flex:1;min-width:0">'
+          +'<div class="pli-title">'+p.title+'<span class="pli-cat">'+p.category+'</span>'+(p.featured?'<span style="margin-left:6px;font-size:.65rem;color:var(--orange)">⭐</span>':'')+'</div>'
+          +'<div class="pli-meta">'+p.date+' · '+p.read_time+' · <code style="font-size:.68rem;color:var(--dim)">'+p.slug+'</code></div>'
+          +'</div>'
+          +'<div class="pli-actions">'
+          +'<button class="pli-btn view" onclick="window.open(\'post.html?slug='+p.slug+'\',\'_blank\')"><i class="bi bi-eye"></i> View</button>'
+          +'</div></div>';
+      }).join('');
+    })
+    .catch(function(){
+      // Try inline fallback
+      var fallback = [
+  {
+    "id": "1",
+    "slug": "python-basics-durgapur",
+    "title": "Python Basics: Getting Started with Variables, Lists & Loops",
+    "excerpt": "New to coding? This guide walks you through Python's core building blocks with simple examples you can run right now in your browser.",
+    "content": "<p>Python is the world's most beginner-friendly programming language — and also one of the most powerful. In this post, we'll cover the three most important concepts every Python beginner must master: <strong>variables, lists, and loops</strong>.</p>\n\n<h2>1. Variables — Storing Information</h2>\n<p>A variable is simply a named container for a value. Think of it like a labelled box.</p>\n<pre><code class=\"code-block\">name = \"Rahul\"\nage = 22\ncity = \"Durgapur\"\n\nprint(f\"Hello! I'm {name}, {age} years old from {city}.\")</code></pre>\n<p>Output: <code>Hello! I'm Rahul, 22 years old from Durgapur.</code></p>\n\n<h2>2. Lists — Storing Multiple Values</h2>\n<p>A list holds multiple values in a single variable. Lists are ordered, changeable, and allow duplicates.</p>\n<pre><code class=\"code-block\">courses = [\"Python\", \"Machine Learning\", \"Deep Learning\", \"NLP\"]\n\nprint(courses[0])    # Python\nprint(courses[-1])   # NLP\nprint(len(courses))  # 4</code></pre>\n\n<h2>3. Loops — Repeating Actions</h2>\n<p>Loops let you repeat a block of code without writing it multiple times.</p>\n<pre><code class=\"code-block\">for course in courses:\n    print(f\"Learning: {course}\")\n\n# Output:\n# Learning: Python\n# Learning: Machine Learning\n# Learning: Deep Learning\n# Learning: NLP</code></pre>\n\n<h2>Practice Exercise</h2>\n<p>Try this at home: create a list of 5 cities in West Bengal and print each one using a loop. This single exercise will cement your understanding of both lists and loops together.</p>\n\n<p>Ready to go deeper? Join our <strong>Python Fundamentals batch in Durgapur</strong> — we cover all of this and much more with live projects you actually build.</p>",
+    "category": "Python",
+    "tags": [
+      "Python",
+      "Beginners",
+      "Variables",
+      "Loops"
+    ],
+    "thumbnail": "blog-images/python-basics.jpg",
+    "author": "Biswarup Mukherjee",
+    "date": "2025-12-01",
+    "read_time": "5 min read",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "slug": "machine-learning-diabetes-prediction",
+    "title": "How We Built a Live Diabetes Prediction App Using Machine Learning",
+    "excerpt": "A step-by-step breakdown of one of our most popular student projects — a real ML model trained on medical data, deployed live on Streamlit Cloud.",
+    "content": "<p>One of the first real projects our students build is a <strong>diabetes prediction application</strong>. It uses actual medical data, a trained machine learning model, and is deployed live on the internet for anyone to use. Here's how it works.</p>\n\n<h2>The Dataset</h2>\n<p>We use the Pima Indians Diabetes Dataset — a classic ML dataset with 768 samples and 8 features including glucose level, BMI, age, and insulin levels. The target is binary: diabetic or not.</p>\n\n<h2>The ML Pipeline</h2>\n<pre><code class=\"code-block\">import pandas as pd\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score\n\n# Load data\ndf = pd.read_csv('diabetes.csv')\nX = df.drop('Outcome', axis=1)\ny = df['Outcome']\n\n# Split and train\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\nmodel = RandomForestClassifier(n_estimators=100, random_state=42)\nmodel.fit(X_train, y_train)\n\n# Evaluate\nprint(f\"Accuracy: {accuracy_score(y_test, model.predict(X_test))*100:.1f}%\")</code></pre>\n\n<h2>Deploying with Streamlit</h2>\n<p>Once the model is trained, we wrap it in a Streamlit interface — sliders for each health parameter, a predict button, and an instant result. The whole UI takes about 30 lines of Python code.</p>\n\n<h2>See It Live</h2>\n<p>You can try our student's live app at <a href=\"https://diabetespredictor2026.streamlit.app\" target=\"_blank\">diabetespredictor2026.streamlit.app</a>. This is exactly the kind of project you build in our Full Program.</p>",
+    "category": "Machine Learning",
+    "tags": [
+      "ML",
+      "Scikit-learn",
+      "Streamlit",
+      "Projects"
+    ],
+    "thumbnail": "blog-images/ml-diabetes.jpg",
+    "author": "Biswarup Mukherjee",
+    "date": "2025-12-10",
+    "read_time": "7 min read",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "slug": "why-learn-python-durgapur",
+    "title": "Why Python Is the #1 Skill to Learn in Durgapur in 2026",
+    "excerpt": "The job market has shifted. Here's exactly why Python — specifically AI and ML skills — is the highest-ROI skill you can learn in the Asansol-Durgapur belt right now.",
+    "content": "<p>If you're a student or working professional in Durgapur or Asansol asking yourself <em>\"what skill should I learn in 2026?\"</em> — the answer is Python. Specifically Python for AI and data science. Here's why.</p>\n\n<h2>The Demand is Real and Local</h2>\n<p>Companies in Kolkata and beyond are actively hiring Python developers with AI skills. Many students from our Durgapur batches have secured data analyst and ML engineer roles within months of completing the course.</p>\n\n<h2>Python is Beginner Friendly</h2>\n<p>Unlike Java or C++, Python reads almost like English. Compare these two ways to print \"Hello World\":</p>\n<pre><code class=\"code-block\"># Java\nSystem.out.println(\"Hello World\");\n\n# Python\nprint(\"Hello World\")</code></pre>\n<p>Python's simplicity means you spend less time fighting syntax and more time solving real problems.</p>\n\n<h2>The AI Revolution is Here</h2>\n<p>ChatGPT, Gemini, image recognition systems, recommendation engines — all built with Python. Learning Python today means you're positioned to work with the technologies that are reshaping every industry.</p>\n\n<h2>The Salary Picture</h2>\n<p>Entry-level data analysts in India earn ₹3.5–6 LPA. ML engineers with deployment skills command ₹8–15 LPA within 2–3 years. That's the career trajectory our Full Program is designed to put you on.</p>\n\n<p><strong>Ready to start?</strong> Our next batch in Durgapur begins January 15. <a href=\"#contact\">Call us at +91 7001186689</a> to reserve your seat.</p>",
+    "category": "Career",
+    "tags": [
+      "Career",
+      "Python",
+      "Durgapur",
+      "Jobs"
+    ],
+    "thumbnail": "blog-images/python-career.jpg",
+    "author": "Biswarup Mukherjee",
+    "date": "2025-12-18",
+    "read_time": "4 min read",
+    "featured": false
+  }
+];
+      var sorted=fallback.sort(function(a,b){return new Date(b.date)-new Date(a.date);});
+      document.getElementById('post-count').textContent='('+sorted.length+' posts — from local data)';
+      document.getElementById('posts-list').innerHTML=sorted.map(function(p){
+        return '<div class="post-list-item"><div style="flex:1"><div class="pli-title">'+p.title+'<span class="pli-cat">'+p.category+'</span></div><div class="pli-meta">'+p.date+' · '+p.read_time+'</div></div><div class="pli-actions"><button class="pli-btn view" onclick="window.open('post.html?slug='+p.slug+'','_blank')"><i class="bi bi-eye"></i> View</button></div></div>';
+      }).join('');
+    });
+}
+</script>
+</body>
+</html>

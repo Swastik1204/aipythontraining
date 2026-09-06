@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Python & AI Blog — Tutorials & Career Tips | Durgapur</title>
+<meta name="description" content="Free Python tutorials, ML project breakdowns and AI career tips from AI & Python Training Durgapur. For students in Durgapur & Asansol, West Bengal."/>
+<meta name="keywords" content="Python blog Durgapur, AI tutorials, machine learning tips India, Python career advice West Bengal"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://www.aipythontraining.in/blog.html"/>
+<link rel="sitemap" type="application/xml" href="https://www.aipythontraining.in/sitemap.xml"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="AI and Python Training"/>
+<meta property="og:title" content="Python & AI Blog — Tutorials & Career Tips | Durgapur"/>
+<meta property="og:description" content="Free Python tutorials, ML project breakdowns and AI career tips from AI & Python Training Durgapur. For students in Durgapur & Asansol, West Bengal."/>
+<meta property="og:url" content="https://www.aipythontraining.in/blog.html"/>
+<meta property="og:image" content="https://www.aipythontraining.in/og-cover.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="AI and Python Training Durgapur"/>
+<meta property="og:locale" content="en_IN"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Python & AI Blog — Tutorials & Career Tips | Durgapur"/>
+<meta name="twitter:description" content="Free Python tutorials, ML project breakdowns and AI career tips from AI & Python Training Durgapur. For students in Durgapur & Asansol, West Bengal."/>
+<meta name="twitter:image" content="https://www.aipythontraining.in/og-cover.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/>
+<link rel="dns-prefetch" href="https://wa.me"/>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Blog","name":"AI and Python Training Blog","description":"Free Python tutorials, ML project breakdowns and AI career tips from AI & Python Training Durgapur. For students in Durgapur & Asansol, West Bengal.","url":"https://www.aipythontraining.in/blog.html","publisher":{"@type":"EducationalOrganization","name":"AI and Python Training","url":"https://www.aipythontraining.in"}}
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#060B18;--bg2:#0A1020;--card:#0D1526;--card2:#111D35;
+  --brd:rgba(99,179,255,.10);--brd2:rgba(99,179,255,.20);
+  --blue:#3B82F6;--blue2:#60A5FA;--purple:#8B5CF6;--purple2:#A78BFA;
+  --cyan:#06B6D4;--green:#10B981;--green2:#34D399;--orange:#F59E0B;
+  --white:#fff;--text:#E2E8F0;--muted:#94A3B8;--dim:#475569;
+  --g1:linear-gradient(135deg,#3B82F6,#8B5CF6);
+  --g2:linear-gradient(135deg,#06B6D4,#3B82F6);
+  --glow:0 0 40px rgba(59,130,246,.2);
+  --r:10px;--r2:18px;--tr:.3s cubic-bezier(.4,0,.2,1);
+  --fh:'Space Grotesk',sans-serif;--fn:'Inter',sans-serif;--fm:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fn);background:var(--bg);color:var(--text);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(6,11,24,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--brd);padding:14px 0}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-brand{font-family:var(--fh);font-size:1.2rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:9px}
+.nav-icon{width:32px;height:32px;background:var(--g1);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem}
+.nav-links a{font-size:.84rem;font-weight:500;color:var(--muted);padding:7px 13px;border-radius:8px;transition:.2s;display:inline-block}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.06)}
+.nav-links a.active{color:var(--blue2)}
+
+/* HERO */
+.blog-hero{padding:120px 0 64px;background:linear-gradient(180deg,#0A0F20 0%,var(--bg) 100%);border-bottom:1px solid var(--brd);position:relative;overflow:hidden}
+.blog-hero::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,.08) 0%,transparent 70%);top:-200px;right:-100px}
+.blog-hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25);color:var(--blue2);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:16px}
+.blog-hero h1{font-family:var(--fh);font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:14px}
+.blog-hero h1 span{background:var(--g1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.blog-hero p{font-size:1rem;color:var(--muted);max-width:520px;line-height:1.75}
+
+/* SEARCH + FILTER */
+.search-bar{display:flex;gap:10px;margin:32px 0 0;flex-wrap:wrap}
+.search-input{flex:1;min-width:220px;background:var(--card);border:1.5px solid var(--brd);border-radius:50px;padding:12px 20px;color:#fff;font-size:.9rem;font-family:var(--fn);transition:border-color .2s}
+.search-input:focus{outline:none;border-color:var(--blue)}
+.search-input::placeholder{color:var(--dim)}
+.filter-pills{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+.filter-pill{font-size:.76rem;font-weight:600;padding:6px 16px;border-radius:50px;border:1.5px solid var(--brd);color:var(--muted);cursor:pointer;background:transparent;transition:var(--tr)}
+.filter-pill:hover,.filter-pill.active{background:var(--g1);border-color:transparent;color:#fff}
+
+/* BLOG GRID */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-top:48px}
+.blog-card{background:var(--card);border:1px solid var(--brd);border-radius:var(--r2);overflow:hidden;transition:var(--tr);display:flex;flex-direction:column;cursor:pointer}
+.blog-card:hover{border-color:var(--brd2);transform:translateY(-4px);box-shadow:var(--glow)}
+.bc-thumb{height:190px;overflow:hidden;position:relative;flex-shrink:0}
+.bc-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.blog-card:hover .bc-thumb img{transform:scale(1.05)}
+.bc-thumb-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+.bc-cat{position:absolute;top:12px;left:12px;font-size:.68rem;font-weight:700;padding:4px 12px;border-radius:50px;backdrop-filter:blur(8px)}
+.bc-featured{position:absolute;top:12px;right:12px;background:rgba(245,158,11,.9);color:#fff;font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:50px}
+.bc-body{padding:20px;flex:1;display:flex;flex-direction:column}
+.bc-title{font-family:var(--fh);font-size:1rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bc-excerpt{font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:16px;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bc-meta{display:flex;align-items:center;gap:10px;font-size:.72rem;color:var(--dim);flex-wrap:wrap}
+.bc-meta .bi{font-size:.75rem}
+.bc-meta span{display:flex;align-items:center;gap:4px}
+.bc-read{margin-top:14px;display:inline-flex;align-items:center;gap:6px;font-size:.8rem;font-weight:600;color:var(--blue2);transition:gap .2s}
+.blog-card:hover .bc-read{gap:10px}
+
+/* FEATURED CARD (first post) */
+.blog-card.featured-card{grid-column:1/-1}
+@media(min-width:768px){
+  .blog-card.featured-card{grid-template-columns:1fr 1fr;display:grid}
+  .blog-card.featured-card .bc-thumb{height:auto;min-height:260px}
+}
+
+/* NO RESULTS */
+.no-results{text-align:center;padding:60px 20px;color:var(--muted)}
+.no-results i{font-size:3rem;display:block;margin-bottom:16px;opacity:.4}
+
+/* PAGINATION */
+.pagination-wrap{display:flex;justify-content:center;gap:8px;margin-top:48px;flex-wrap:wrap}
+.pg-btn{width:40px;height:40px;border-radius:10px;border:1px solid var(--brd);background:transparent;color:var(--muted);font-size:.85rem;cursor:pointer;transition:var(--tr);display:flex;align-items:center;justify-content:center}
+.pg-btn:hover,.pg-btn.active{background:var(--g1);border-color:transparent;color:#fff}
+
+/* FOOTER */
+.blog-footer{background:var(--bg);border-top:1px solid var(--brd);padding:40px 0;margin-top:80px;text-align:center}
+.blog-footer p{font-size:.82rem;color:var(--dim)}
+.blog-footer a{color:var(--blue2)}
+
+/* CAT colours */
+.cat-python{background:rgba(16,185,129,.85);color:#fff}
+.cat-ml{background:rgba(59,130,246,.85);color:#fff}
+.cat-career{background:rgba(245,158,11,.85);color:#fff}
+.cat-deeplearning{background:rgba(139,92,246,.85);color:#fff}
+.cat-nlp{background:rgba(6,182,212,.85);color:#fff}
+.cat-genai{background:rgba(236,72,153,.85);color:#fff}
+.cat-projects{background:rgba(16,185,129,.85);color:#fff}
+.cat-default{background:rgba(99,102,241,.85);color:#fff}
+
+/* SKELETON */
+.skel{background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.08) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:6px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel-card{background:var(--card);border:1px solid var(--brd);border-radius:var(--r2);overflow:hidden}
+.skel-img{height:190px}
+.skel-body{padding:20px}
+.skel-line{height:12px;margin-bottom:10px}
+.skel-line.w80{width:80%}
+.skel-line.w60{width:60%}
+.skel-line.w40{width:40%}
+
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-in">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-icon">🐍</div>
+        <span>AI <span style="color:var(--blue2)">&</span> Python</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">← Home</a>
+        <a href="index.html#courses">Courses</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="interview.html" style="font-size:.82rem;color:var(--muted);padding:7px 13px;border-radius:8px;transition:.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">⚔️ Arena</a>
+        <a href="sandbox.html" style="font-size:.82rem;color:var(--muted);padding:7px 13px;border-radius:8px;transition:.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--muted)'">🖥️ Sandbox</a>
+        <a href="index.html#contact" style="background:var(--g1);color:#fff;border-radius:50px;padding:8px 18px;font-weight:600">Enroll Now</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="container">
+    <div class="blog-hero-tag"><i class="bi bi-journal-richtext"></i>Our Blog</div>
+    <h1>Python, AI &amp; Career<br/><span>Tips for Learners</span></h1>
+    <p>Tutorials, project breakdowns, career advice and Python tips — written by Biswarup Mukherjee for students in Durgapur &amp; Asansol.</p>
+    <div class="search-bar">
+      <input type="text" class="search-input" id="searchInput" placeholder="🔍  Search posts — Python, ML, Career..."/>
+    </div>
+    <div class="filter-pills" id="filterPills">
+      <button class="filter-pill active" onclick="filterCat('all',this)">All Posts</button>
+      <button class="filter-pill" onclick="filterCat('Python',this)">🐍 Python</button>
+      <button class="filter-pill" onclick="filterCat('Machine Learning',this)">🤖 Machine Learning</button>
+      <button class="filter-pill" onclick="filterCat('Deep Learning',this)">🧠 Deep Learning</button>
+      <button class="filter-pill" onclick="filterCat('NLP',this)">💬 NLP</button>
+      <button class="filter-pill" onclick="filterCat('Career',this)">💼 Career</button>
+      <button class="filter-pill" onclick="filterCat('Projects',this)">🚀 Projects</button>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG GRID -->
+<div style="padding:48px 0 0">
+  <div class="container">
+    <!-- Skeletons while loading -->
+    <div class="blog-grid" id="skeletonGrid">
+      <div class="skel-card"><div class="skel skel-img"></div><div class="skel-body"><div class="skel skel-line w80"></div><div class="skel skel-line"></div><div class="skel skel-line w60"></div><div class="skel skel-line w40" style="margin-top:16px"></div></div></div>
+      <div class="skel-card"><div class="skel skel-img"></div><div class="skel-body"><div class="skel skel-line w80"></div><div class="skel skel-line"></div><div class="skel skel-line w60"></div><div class="skel skel-line w40" style="margin-top:16px"></div></div></div>
+      <div class="skel-card"><div class="skel skel-img"></div><div class="skel-body"><div class="skel skel-line w80"></div><div class="skel skel-line"></div><div class="skel skel-line w60"></div><div class="skel skel-line w40" style="margin-top:16px"></div></div></div>
+    </div>
+    <div class="blog-grid" id="blogGrid" style="display:none"></div>
+    <div class="no-results" id="noResults" style="display:none"><i class="bi bi-search"></i><p>No posts found. Try a different search or category.</p></div>
+    <div class="pagination-wrap" id="pagination"></div>
+  </div>
+</div>
+
+
+<!-- ══ SEO SEMANTIC CONTENT ══ -->
+<section style="max-width:900px;margin:0 auto;padding:40px 20px 0">
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Python & AI Tutorials for Beginners in Durgapur</h2>
+    <p style="font-size:.88rem;color:#94A3B8;line-height:1.75">Our blog covers Python fundamentals, data science projects and machine learning tutorials written for students in Durgapur, Asansol and across West Bengal. Every article includes working code examples.</p>
+  </div>
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">Machine Learning Project Walkthroughs</h2>
+    <p style="font-size:.88rem;color:#94A3B8;line-height:1.75">Read step-by-step breakdowns of real student projects — diabetes predictors, sentiment analysers and stock price forecasters built with Scikit-learn, TensorFlow and Streamlit.</p>
+  </div>
+  <div style="margin-bottom:28px">
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:8px">AI Career Advice for Students in Durgapur & Asansol</h2>
+    <p style="font-size:.88rem;color:#94A3B8;line-height:1.75">Career articles on AI salary ranges, job market trends for Python developers in India, which language to learn in 2026 and how to build a portfolio that gets you hired.</p>
+  </div>
+</section>
+<section style="max-width:900px;margin:32px auto;padding:0 20px">
+  <p style="font-size:.88rem;color:#94A3B8;line-height:1.8">Welcome to the official blog of AI and Python Training — the leading Python and AI institute in Durgapur and Asansol, West Bengal. Our articles cover Python programming fundamentals, exploratory data analysis with Pandas and NumPy, machine learning with Scikit-learn, deep learning with TensorFlow and Keras, natural language processing, generative AI integration and live project deployment on Streamlit Cloud and GitHub. All articles are written by Biswarup Mukherjee, Python and AI practitioner and founder of the institute. Whether you are a complete beginner or an intermediate Python developer looking to move into AI and machine learning, our tutorials give you practical, working code examples you can run immediately.</p>
+</section>
+<div class="blog-footer">
+  <div class="container">
+    <p>© 2026 AI &amp; Python Training · <a href="index.html">Back to Home</a> · <a href="demo.html">📅 Book Free Demo</a> · <a href="index.html#contact">Enroll Now</a></p>
+    <p style="margin-top:8px">📍 3/14 Central Park, City Centre, Durgapur · +91 7001186689</p>
+  </div>
+</div>
+
+<script>
+var ALL_POSTS = [];
+var filtered  = [];
+var curCat    = 'all';
+var POSTS_PER = 6;
+var curPage   = 1;
+
+/* ── CAT COLOUR MAP ── */
+var catColors = {
+  'Python':'cat-python','Machine Learning':'cat-ml','Deep Learning':'cat-deeplearning',
+  'NLP':'cat-nlp','Gen AI':'cat-genai','Career':'cat-career','Projects':'cat-projects'
+};
+function catClass(c){return catColors[c]||'cat-default';}
+
+/* ── THUMB GRADIENT FALLBACKS ── */
+var gradients = [
+  'linear-gradient(135deg,#1D4ED8,#7C3AED)',
+  'linear-gradient(135deg,#065F46,#0D9488)',
+  'linear-gradient(135deg,#92400E,#B45309)',
+  'linear-gradient(135deg,#4C1D95,#6D28D9)',
+  'linear-gradient(135deg,#164E63,#0E7490)',
+  'linear-gradient(135deg,#7F1D1D,#B91C1C)',
+];
+function gradFor(i){return gradients[i%gradients.length];}
+
+/* ── RENDER CARD ── */
+function renderCard(post, idx, isFeatured){
+  var thumbHtml;
+  if(post.thumbnail){
+    thumbHtml = '<img src="'+post.thumbnail+'" alt="'+post.title+'" loading="lazy" onerror="this.parentElement.style.background=\''+gradFor(idx)+'\';this.remove()"/>';
+  } else {
+    thumbHtml = '<div class="bc-thumb-placeholder" style="background:'+gradFor(idx)+'">'+getCatEmoji(post.category)+'</div>';
+  }
+  var tagsHtml = (post.tags||[]).slice(0,3).map(function(t){
+    return '<span style="background:rgba(255,255,255,.06);border:1px solid var(--brd);border-radius:50px;padding:2px 9px;font-size:.65rem;color:var(--muted)">'+t+'</span>';
+  }).join('');
+
+  return '<div class="blog-card'+(isFeatured?' featured-card':'')+'" onclick="openPost(\''+post.slug+'\')">'
+    +'<div class="bc-thumb" style="'+(post.thumbnail?'':'background:'+gradFor(idx))+'">'
+    +thumbHtml
+    +'<span class="bc-cat '+catClass(post.category)+'">'+post.category+'</span>'
+    +(post.featured?'<span class="bc-featured">⭐ Featured</span>':'')
+    +'</div>'
+    +'<div class="bc-body">'
+    +'<div class="bc-title">'+post.title+'</div>'
+    +'<div class="bc-excerpt">'+post.excerpt+'</div>'
+    +'<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px">'+tagsHtml+'</div>'
+    +'<div class="bc-meta">'
+    +'<span><i class="bi bi-person-fill"></i>'+post.author+'</span>'
+    +'<span><i class="bi bi-calendar3"></i>'+formatDate(post.date)+'</span>'
+    +'<span><i class="bi bi-clock"></i>'+post.read_time+'</span>'
+    +'</div>'
+    +'<div class="bc-read">Read Article <i class="bi bi-arrow-right"></i></div>'
+    +'</div></div>';
+}
+
+function getCatEmoji(cat){
+  var m={'Python':'🐍','Machine Learning':'🤖','Deep Learning':'🧠','NLP':'💬','Career':'💼','Projects':'🚀','Gen AI':'✨'};
+  return m[cat]||'📝';
+}
+function formatDate(d){
+  var dt=new Date(d);
+  return dt.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+}
+
+/* ── RENDER PAGE ── */
+function renderPage(){
+  var start=(curPage-1)*POSTS_PER, end=start+POSTS_PER;
+  var page=filtered.slice(start,end);
+  var grid=document.getElementById('blogGrid');
+  var noRes=document.getElementById('noResults');
+
+  if(filtered.length===0){grid.style.display='none';noRes.style.display='block';}
+  else{noRes.style.display='none';grid.style.display='grid';}
+
+  grid.innerHTML = page.map(function(post,i){
+    return renderCard(post, ALL_POSTS.indexOf(post), i===0&&curPage===1&&curCat==='all'&&!document.getElementById('searchInput').value);
+  }).join('');
+
+  renderPagination();
+}
+
+function renderPagination(){
+  var total=Math.ceil(filtered.length/POSTS_PER);
+  var pg=document.getElementById('pagination');
+  if(total<=1){pg.innerHTML='';return;}
+  var html='';
+  if(curPage>1) html+='<button class="pg-btn" onclick="goPage('+(curPage-1)+')"><i class="bi bi-chevron-left"></i></button>';
+  for(var i=1;i<=total;i++){
+    html+='<button class="pg-btn'+(i===curPage?' active':'')+'" onclick="goPage('+i+')">'+i+'</button>';
+  }
+  if(curPage<total) html+='<button class="pg-btn" onclick="goPage('+(curPage+1)+')"><i class="bi bi-chevron-right"></i></button>';
+  pg.innerHTML=html;
+}
+function goPage(p){curPage=p;renderPage();window.scrollTo({top:400,behavior:'smooth'});}
+
+/* ── FILTER ── */
+function filterCat(cat,btn){
+  curCat=cat;curPage=1;
+  document.querySelectorAll('.filter-pill').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  applyFilters();
+}
+function applyFilters(){
+  var q=document.getElementById('searchInput').value.toLowerCase().trim();
+  filtered=ALL_POSTS.filter(function(p){
+    var matchCat=curCat==='all'||p.category===curCat;
+    var matchQ=!q||(p.title+p.excerpt+(p.tags||[]).join(' ')+p.category).toLowerCase().includes(q);
+    return matchCat&&matchQ;
+  });
+  curPage=1;renderPage();
+}
+document.getElementById('searchInput').addEventListener('input',applyFilters);
+
+/* ── OPEN POST ── */
+function openPost(slug){
+  window.location.href='post.html?slug='+slug;
+}
+
+/* ── LOAD DATA ── */
+var BLOG_DATA = [
+  {
+    "id": "1",
+    "slug": "python-basics-durgapur",
+    "title": "Python Basics: Getting Started with Variables, Lists & Loops",
+    "excerpt": "New to coding? This guide walks you through Python's core building blocks with simple examples you can run right now in your browser.",
+    "content": "<p>Python is the world's most beginner-friendly programming language — and also one of the most powerful. In this post, we'll cover the three most important concepts every Python beginner must master: <strong>variables, lists, and loops</strong>.</p>\n\n<h2>1. Variables — Storing Information</h2>\n<p>A variable is simply a named container for a value. Think of it like a labelled box.</p>\n<pre><code class=\"code-block\">name = \"Rahul\"\nage = 22\ncity = \"Durgapur\"\n\nprint(f\"Hello! I'm {name}, {age} years old from {city}.\")</code></pre>\n<p>Output: <code>Hello! I'm Rahul, 22 years old from Durgapur.</code></p>\n\n<h2>2. Lists — Storing Multiple Values</h2>\n<p>A list holds multiple values in a single variable. Lists are ordered, changeable, and allow duplicates.</p>\n<pre><code class=\"code-block\">courses = [\"Python\", \"Machine Learning\", \"Deep Learning\", \"NLP\"]\n\nprint(courses[0])    # Python\nprint(courses[-1])   # NLP\nprint(len(courses))  # 4</code></pre>\n\n<h2>3. Loops — Repeating Actions</h2>\n<p>Loops let you repeat a block of code without writing it multiple times.</p>\n<pre><code class=\"code-block\">for course in courses:\n    print(f\"Learning: {course}\")\n\n# Output:\n# Learning: Python\n# Learning: Machine Learning\n# Learning: Deep Learning\n# Learning: NLP</code></pre>\n\n<h2>Practice Exercise</h2>\n<p>Try this at home: create a list of 5 cities in West Bengal and print each one using a loop. This single exercise will cement your understanding of both lists and loops together.</p>\n\n<p>Ready to go deeper? Join our <strong>Python Fundamentals batch in Durgapur</strong> — we cover all of this and much more with live projects you actually build.</p>",
+    "category": "Python",
+    "tags": [
+      "Python",
+      "Beginners",
+      "Variables",
+      "Loops"
+    ],
+    "thumbnail": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=800&q=80&auto=format&fit=crop",
+    "author": "Biswarup Mukherjee",
+    "date": "2025-12-01",
+    "read_time": "5 min read",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "slug": "machine-learning-diabetes-prediction",
+    "title": "How We Built a Live Diabetes Prediction App Using Machine Learning",
+    "excerpt": "A step-by-step breakdown of one of our most popular student projects — a real ML model trained on medical data, deployed live on Streamlit Cloud.",
+    "content": "<p>One of the first real projects our students build is a <strong>diabetes prediction application</strong>. It uses actual medical data, a trained machine learning model, and is deployed live on the internet for anyone to use. Here's how it works.</p>\n\n<h2>The Dataset</h2>\n<p>We use the Pima Indians Diabetes Dataset — a classic ML dataset with 768 samples and 8 features including glucose level, BMI, age, and insulin levels. The target is binary: diabetic or not.</p>\n\n<h2>The ML Pipeline</h2>\n<pre><code class=\"code-block\">import pandas as pd\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import accuracy_score\n\n# Load data\ndf = pd.read_csv('diabetes.csv')\nX = df.drop('Outcome', axis=1)\ny = df['Outcome']\n\n# Split and train\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)\nmodel = RandomForestClassifier(n_estimators=100, random_state=42)\nmodel.fit(X_train, y_train)\n\n# Evaluate\nprint(f\"Accuracy: {accuracy_score(y_test, model.predict(X_test))*100:.1f}%\")</code></pre>\n\n<h2>Deploying with Streamlit</h2>\n<p>Once the model is trained, we wrap it in a Streamlit interface — sliders for each health parameter, a predict button, and an instant result. The whole UI takes about 30 lines of Python code.</p>\n\n<h2>See It Live</h2>\n<p>You can try our student's live app at <a href=\"https://diabetespredictor2026.streamlit.app\" target=\"_blank\">diabetespredictor2026.streamlit.app</a>. This is exactly the kind of project you build in our Full Program.</p>",
+    "category": "Machine Learning",
+    "tags": [
+      "ML",
+      "Scikit-learn",
+      "Streamlit",
+      "Projects"
+    ],
+    "thumbnail": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80&auto=format&fit=crop",
+    "author": "Biswarup Mukherjee",
+    "date": "2025-12-10",
+    "read_time": "7 min read",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "slug": "why-learn-python-durgapur",
+    "title": "Why Python Is the #1 Skill to Learn in Durgapur in 2026",
+    "excerpt": "The job market has shifted. Here's exactly why Python — specifically AI and ML skills — is the highest-ROI skill you can learn in the Asansol-Durgapur belt right now.",
+    "content": "<p>If you're a student or working professional in Durgapur or Asansol asking yourself <em>\"what skill should I learn in 2026?\"</em> — the answer is Python. Specifically Python for AI and data science. Here's why.</p>\n\n<h2>The Demand is Real and Local</h2>\n<p>Companies in Kolkata and beyond are actively hiring Python developers with AI skills. Many students from our Durgapur batches have secured data analyst and ML engineer roles within months of completing the course.</p>\n\n<h2>Python is Beginner Friendly</h2>\n<p>Unlike Java or C++, Python reads almost like English. Compare these two ways to print \"Hello World\":</p>\n<pre><code class=\"code-block\"># Java\nSystem.out.println(\"Hello World\");\n\n# Python\nprint(\"Hello World\")</code></pre>\n<p>Python's simplicity means you spend less time fighting syntax and more time solving real problems.</p>\n\n<h2>The AI Revolution is Here</h2>\n<p>ChatGPT, Gemini, image recognition systems, recommendation engines — all built with Python. Learning Python today means you're positioned to work with the technologies that are reshaping every industry.</p>\n\n<h2>The Salary Picture</h2>\n<p>Entry-level data analysts in India earn ₹3.5–6 LPA. ML engineers with deployment skills command ₹8–15 LPA within 2–3 years. That's the career trajectory our Full Program is designed to put you on.</p>\n\n<p><strong>Ready to start?</strong> Our next batch in Durgapur begins January 15. <a href=\"#contact\">Call us at +91 7001186689</a> to reserve your seat.</p>",
+    "category": "Career",
+    "tags": [
+      "Career",
+      "Python",
+      "Durgapur",
+      "Jobs"
+    ],
+    "thumbnail": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80&auto=format&fit=crop",
+    "author": "Biswarup Mukherjee",
+    "date": "2025-12-18",
+    "read_time": "4 min read",
+    "featured": false
+  }
+];
+
+function initBlog(data){
+  ALL_POSTS=data.sort(function(a,b){return new Date(b.date)-new Date(a.date);});
+  filtered=ALL_POSTS.slice();
+  document.getElementById('skeletonGrid').style.display='none';
+  document.getElementById('blogGrid').style.display='grid';
+  renderPage();
+}
+
+(function(){
+  if(window.location.protocol==='file:'){
+    initBlog(BLOG_DATA);
+    return;
+  }
+  var done=false;
+  var timer=setTimeout(function(){if(!done){done=true;initBlog(BLOG_DATA);}},4000);
+  fetch('blogs.json')
+    .then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+    .then(function(data){if(!done){done=true;clearTimeout(timer);initBlog(data);}})
+    .catch(function(){if(!done){done=true;clearTimeout(timer);initBlog(BLOG_DATA);}});
+})();
+</script>
+</body>
+</html>
