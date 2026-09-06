@@ -1,0 +1,51 @@
+# ==============================================================================
+# Security, Canonicalization & Caching for pythonforai.in
+# ==============================================================================
+
+RewriteEngine On
+
+# 1. Force HTTPS and non-www canonical
+RewriteCond %{HTTP_HOST} ^www\.pythonforai\.in$ [NC]
+RewriteRule ^(.*)$ https://pythonforai.in/$1 [L,R=301]
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://pythonforai.in/$1 [L,R=301]
+
+# 2. Security Headers
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# 3. Custom Error Document
+ErrorDocument 404 /404.html
+
+# 4. Leverage Browser Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  
+  # Images
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  
+  # Fonts
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  
+  # CSS and JavaScript
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/x-javascript "access plus 1 month"
+</IfModule>
+
+# 5. Protect sensitive files
+<FilesMatch "^(\.|admin\.html)">
+  # Protect dotfiles
+</FilesMatch>

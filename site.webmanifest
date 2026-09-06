@@ -1,0 +1,26 @@
+{
+  "name": "AI and Python Training",
+  "short_name": "PythonForAI",
+  "description": "Project-based Python, Machine Learning & AI training in Durgapur & Asansol.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060B18",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

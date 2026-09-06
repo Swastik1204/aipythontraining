@@ -154,8 +154,8 @@ select.field-input option{background:var(--bg2)}
     <div class="two-col">
       <div class="field-group">
         <label class="field-label">Thumbnail Image Path <span class="req">*</span></label>
-        <input type="text" class="field-input" id="f-thumb" placeholder="blog-images/my-post-image.jpg"/>
-        <div class="field-hint">Upload the image to your GoDaddy <code>public_html/blog-images/</code> folder, then type the filename here. Supports .jpg .png .webp</div>
+        <input type="text" class="field-input" id="f-thumb" placeholder="assets/images/blog/my-post-image.jpg"/>
+        <div class="field-hint">Upload the image to your GoDaddy <code>public_html/assets/images/blog/</code> folder, then type the filename here. Supports .jpg .png .webp</div>
       </div>
       <div class="field-group">
         <label class="field-label">Tags (comma separated)</label>
@@ -191,7 +191,7 @@ select.field-input option{background:var(--bg2)}
         <button class="tb-btn" onclick="ins('<ul>\n  <li>','</li>\n  <li>item</li>\n</ul>')">List</button>
         <button class="tb-btn" onclick="ins('<a href=\"\" target=\"_blank\">','</a>')">Link</button>
         <button class="tb-btn" onclick="ins('<pre><code class=\"code-block\">','</code></pre>')">Code</button>
-        <button class="tb-btn" onclick="ins('<img src=\"blog-images/\" alt=\"\"  style=\"width:100%;border-radius:12px;margin:16px 0\" />')">Img</button>
+        <button class="tb-btn" onclick="ins('<img src=\"assets/images/blog/\" alt=\"\"  style=\"width:100%;border-radius:12px;margin:16px 0\" />')">Img</button>
         <button class="tb-btn" onclick="ins('<blockquote>','</blockquote>')">Quote</button>
       </div>
       <textarea class="field-input editor" id="f-content" placeholder="Write your full article here in HTML...&#10;&#10;Example:&#10;<p>Your intro paragraph...</p>&#10;<h2>Section Title</h2>&#10;<p>Section content...</p>&#10;<pre><code class=&quot;code-block&quot;>your_python_code_here()</code></pre>&#10;<p>More content...</p>"></textarea>
@@ -237,7 +237,7 @@ select.field-input option{background:var(--bg2)}
 
     <div class="instr-card" style="margin-bottom:20px">
       <div class="instr-title">🚀 Adding a New Blog Post (Full Workflow)</div>
-      <div class="instr-step"><div class="instr-num">1</div>Upload your thumbnail image to <code style="color:var(--blue2)">public_html/blog-images/</code> on GoDaddy (e.g. <code>my-post.jpg</code>)</div>
+      <div class="instr-step"><div class="instr-num">1</div>Upload your thumbnail image to <code style="color:var(--blue2)">public_html/assets/images/blog/</code> on GoDaddy (e.g. <code>my-post.jpg</code>)</div>
       <div class="instr-step"><div class="instr-num">2</div>Come to this admin panel → New Post tab → fill all the fields</div>
       <div class="instr-step"><div class="instr-num">3</div>Click <strong style="color:#fff">Generate JSON Entry</strong> → copy the output</div>
       <div class="instr-step"><div class="instr-num">4</div>Download <code style="color:var(--blue2)">blogs.json</code> from your GoDaddy server</div>
@@ -250,8 +250,8 @@ select.field-input option{background:var(--bg2)}
       <div class="instr-step"><div class="instr-num">1</div>Recommended thumbnail size: <strong style="color:#fff">1200 × 630px</strong> (same as Facebook/WhatsApp share size)</div>
       <div class="instr-step"><div class="instr-num">2</div>Format: <strong style="color:#fff">.jpg or .webp</strong> for smallest file size. Keep under 200KB.</div>
       <div class="instr-step"><div class="instr-num">3</div>Name your files clearly: <code style="color:var(--blue2)">python-basics-durgapur.jpg</code> (no spaces, lowercase)</div>
-      <div class="instr-step"><div class="instr-num">4</div>Upload to <code style="color:var(--blue2)">public_html/blog-images/</code> folder. If that folder doesn't exist, create it.</div>
-      <div class="instr-step"><div class="instr-num">5</div>In the form, type: <code style="color:var(--blue2)">blog-images/your-image.jpg</code></div>
+      <div class="instr-step"><div class="instr-num">4</div>Upload to <code style="color:var(--blue2)">public_html/assets/images/blog/</code> folder. If that folder doesn't exist, create it.</div>
+      <div class="instr-step"><div class="instr-num">5</div>In the form, type: <code style="color:var(--blue2)">assets/images/blog/your-image.jpg</code></div>
     </div>
 
     <div class="instr-card">
@@ -263,7 +263,7 @@ select.field-input option{background:var(--bg2)}
 import pandas as pd<br/>
 df = pd.read_csv('data.csv')<br/>
 &lt;/code&gt;&lt;/pre&gt;<br/><br/>
-&lt;img src="blog-images/screenshot.jpg" alt="Description"/&gt;<br/><br/>
+&lt;img src="assets/images/blog/screenshot.jpg" alt="Description"/&gt;<br/><br/>
 &lt;blockquote&gt;A key quote or insight.&lt;/blockquote&gt;
       </div>
     </div>
@@ -419,7 +419,7 @@ function loadPosts(){
       "Variables",
       "Loops"
     ],
-    "thumbnail": "blog-images/python-basics.jpg",
+    "thumbnail": "assets/images/blog/python-basics.jpg",
     "author": "Biswarup Mukherjee",
     "date": "2025-12-01",
     "read_time": "5 min read",
@@ -438,7 +438,7 @@ function loadPosts(){
       "Streamlit",
       "Projects"
     ],
-    "thumbnail": "blog-images/ml-diabetes.jpg",
+    "thumbnail": "assets/images/blog/ml-diabetes.jpg",
     "author": "Biswarup Mukherjee",
     "date": "2025-12-10",
     "read_time": "7 min read",
@@ -457,7 +457,7 @@ function loadPosts(){
       "Durgapur",
       "Jobs"
     ],
-    "thumbnail": "blog-images/python-career.jpg",
+    "thumbnail": "assets/images/blog/python-career.jpg",
     "author": "Biswarup Mukherjee",
     "date": "2025-12-18",
     "read_time": "4 min read",
