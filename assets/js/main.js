@@ -279,10 +279,21 @@ function claimKit(){
   a.click();
   document.body.removeChild(a);
   // Also notify you on WhatsApp with the lead's email
-  var msg='📋 *Course Brochure Downloaded*\n\n📧 Email: '+email+'\n\n_This person downloaded the brochure from pythonforai.in — follow up!_';
-  setTimeout(function(){
-    window.open('https://wa.me/917001186689?text='+encodeURIComponent(msg),'_blank');
-  },800);
+  var msg = 'Hello Biswarup Sir! 📘
+
+'
+    + 'I just downloaded the *AI & Python Starter Kit / Brochure* from pythonforai.in.
+
+'
+    + '📧 *Email:* ' + email + '
+
+'
+    + 'Could you please share the upcoming weekend batch timings and fee details? Thank you!';
+  var waUrl = 'https://wa.me/917001186689?text=' + encodeURIComponent(msg);
+  var waWin = window.open(waUrl, '_blank');
+  if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
+    window.location.href = waUrl;
+  }
 }
 /* SYLLABUS */
 function sendSyllabus(){
@@ -299,10 +310,23 @@ function sendSyllabus(){
   a.click();
   document.body.removeChild(a);
   // Notify you on WhatsApp with lead details
-  var msg='📋 *Course Brochure Downloaded*\n\n👤 Name: '+name+'\n📞 Phone: '+phone+'\n\n_Follow up — they downloaded the brochure from pythonforai.in_';
-  setTimeout(function(){
-    window.open('https://wa.me/917001186689?text='+encodeURIComponent(msg),'_blank');
-  },800);
+  var msg = 'Hello Biswarup Sir! 🎓
+
+'
+    + 'I just downloaded the *Python & AI Course Brochure* from pythonforai.in.
+
+'
+    + '👤 *Name:* ' + name + '
+'
+    + '📞 *Phone:* ' + phone + '
+
+'
+    + 'Could you please share details on the upcoming weekend batch in Durgapur and seat availability? Thank you!';
+  var waUrl = 'https://wa.me/917001186689?text=' + encodeURIComponent(msg);
+  var waWin = window.open(waUrl, '_blank');
+  if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
+    window.location.href = waUrl;
+  }
 }
 /* TYPING EFFECT */
 (function(){var el=document.getElementById('typing-text');if(!el)return;var phrases=['Build Real AI Skills','Deploy Live Projects','Get Industry Ready','Learn by Building','Join 200+ Students'];var pi=0,ci=0,del=false;function type(){var ph=phrases[pi];el.textContent=del?ph.slice(0,ci-1):ph.slice(0,ci+1);if(!del&&el.textContent===ph){setTimeout(function(){del=true;type();},1800);return;}if(del&&el.textContent===''){del=false;pi=(pi+1)%phrases.length;ci=0;setTimeout(type,300);return;}ci=del?ci-1:ci+1;setTimeout(type,del?55:80);}setTimeout(type,800);})();

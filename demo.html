@@ -174,23 +174,26 @@ function submitDemo(){
   if(!name){alert('Please enter your name.');return;}
   if(!phone){alert('Please enter your WhatsApp number.');return;}
   if(!selSlotVal){alert('Please select a preferred time slot.');return;}
-  var msg='📅 *Free Demo Class Booking*
+  var msg = 'Hello Biswarup Sir! 📅
 
 '
-    +'👤 Name: '+name+'
-'
-    +'📞 Phone: '+phone+'
-'
-    +'🕐 Preferred Slot: '+selSlotVal+'
-'
-    +(bg?'🧑‍💻 Background: '+bg+'
-':'')
-    +(goal?'🎯 Goal: '+goal+'
-':'')
-    +'📍 Mode: '+(online?'Online (Zoom/Meet)':'In-Person — Durgapur')+'
+    + 'I would like to reserve a seat for the *Free Python & AI Demo Session*.
 
 '
-    +'_Booked from pythonforai.in/demo_';
+    + '👤 *Name:* ' + name + '
+'
+    + '📞 *Phone:* ' + phone + '
+'
+    + '🕐 *Preferred Slot:* ' + selSlotVal + '
+'
+    + (bg ? '🧑‍💻 *Background:* ' + bg + '
+' : '')
+    + (goal ? '🎯 *Goal:* ' + goal + '
+' : '')
+    + '📍 *Mode:* ' + (online ? 'Online (Google Meet/Zoom)' : 'In-Person (City Centre, Durgapur)') + '
+
+'
+    + 'Please confirm my demo slot reservation. Looking forward to attending! 🚀';
   document.getElementById('booking-form').style.display='none';
   document.getElementById('success-box').style.display='block';
   setTimeout(function(){
