@@ -150,63 +150,62 @@ applyDM(dm);
 /* FAQ */
 function tFaq(el){var a=el.nextElementSibling,open=el.parentElement.classList.contains('open');document.querySelectorAll('.faq-i.open').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-ans').classList.remove('open');});if(!open){el.parentElement.classList.add('open');a.classList.add('open');}}
 /* FORM */
-var cf=document.getElementById('cf');
-if(cf){cf.addEventListener('submit',function(e){
-  e.preventDefault();
+var cf = document.getElementById('cf');
+if (cf) {
+  cf.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-  // Read all fields
-  var name   = (document.getElementById('cf-name')  ||{}).value||'';
-  var phone  = (document.getElementById('cf-phone') ||{}).value||'';
-  var email  = (document.getElementById('cf-email') ||{}).value||'';
-  var course = (document.getElementById('cf-course')||{}).value||'Not specified';
-  var bg     = (document.getElementById('cf-bg')    ||{}).value||'Not specified';
-  var mode   = (document.getElementById('cf-mode')  ||{}).value||'Not specified';
-  var msg    = (document.getElementById('cf-msg')   ||{}).value||'';
+    var name   = (document.getElementById('cf-name')  || {}).value || '';
+    var phone  = (document.getElementById('cf-phone') || {}).value || '';
+    var email  = (document.getElementById('cf-email') || {}).value || '';
+    var course = (document.getElementById('cf-course')|| {}).value || 'Not specified';
+    var bg     = (document.getElementById('cf-bg')    || {}).value || 'Not specified';
+    var mode   = (document.getElementById('cf-mode')  || {}).value || 'Not specified';
+    var msg    = (document.getElementById('cf-msg')   || {}).value || '';
 
-  // Validate required fields
-  if(!name.trim()){alert('Please enter your name.');document.getElementById('cf-name').focus();return;}
-  if(!phone.trim()){alert('Please enter your phone number.');document.getElementById('cf-phone').focus();return;}
-  if(!document.getElementById('cf-course').value){alert('Please select a course.');document.getElementById('cf-course').focus();return;}
+    if (!name.trim()) {
+      alert('Please enter your name.');
+      document.getElementById('cf-name').focus();
+      return;
+    }
+    if (!phone.trim()) {
+      alert('Please enter your phone number.');
+      document.getElementById('cf-phone').focus();
+      return;
+    }
+    if (!document.getElementById('cf-course').value) {
+      alert('Please select a course.');
+      document.getElementById('cf-course').focus();
+      return;
+    }
 
-  // Build WhatsApp message
-  var wa = '🎓 *New Course Enquiry — AI & Python Training*\n\n'
-    + '👤 *Name:* ' + name.trim() + '\n'
-    + '📞 *Phone:* ' + phone.trim() + '\n'
-    + (email.trim() ? '📧 *Email:* ' + email.trim() + '\n' : '')
-    + '📚 *Interested In:* ' + course + '\n'
-    + '🧑‍💻 *Background:* ' + bg + '\n'
-    + '🏫 *Preferred Mode:* ' + mode + '\n'
-    + (msg.trim() ? '💬 *Message:* ' + msg.trim() + '\n' : '')
-    + '\n_Sent from pythonforai.in_';
+    var wa = 'Hello Biswarup Sir! 👋\n\n' + 'I would like to enquire about the *Python & AI Training* batch.\n\n' + '👤 *Name:* ' + name.trim() + '\n' + '📞 *Phone:* ' + phone.trim() + '\n' + (email.trim() ? '📧 *Email:* ' + email.trim() + '\n' : '') + '📚 *Interested Track:* ' + course + '\n' + '🧑‍💻 *Current Background:* ' + bg + '\n' + '📍 *Preferred Mode:* ' + mode + '\n' + (msg.trim() ? '💬 *Query:* ' + msg.trim() + '\n' : '') + '\nCould you please share the upcoming batch schedule and enrollment details? Looking forward to learning! 🚀';
 
-  // Show confirmation
-  var btn = this.querySelector('button[type="submit"]');
-  btn.innerHTML = '<i class="bi bi-whatsapp"></i> Opening WhatsApp...';
-  btn.disabled = true;
+    var btn = this.querySelector('button[type="submit"]');
+    btn.innerHTML = '<i class="bi bi-whatsapp"></i> Opening WhatsApp...';
+    btn.disabled = true;
 
-  var ok = document.getElementById('f-ok');
-  if(ok) ok.style.display='block';
+    var ok = document.getElementById('f-ok');
+    if (ok) ok.style.display = 'block';
 
-  // Save lead locally as backup
-  try {
-    var leads = JSON.parse(localStorage.getItem('leads_backup') || '[]');
-    leads.push({ name: name.trim(), phone: phone.trim(), email: email.trim(), course: course, date: new Date().toISOString() });
-    localStorage.setItem('leads_backup', JSON.stringify(leads));
-  } catch(err){}
+    try {
+      var leads = JSON.parse(localStorage.getItem('leads_backup') || '[]');
+      leads.push({ name: name.trim(), phone: phone.trim(), email: email.trim(), course: course, date: new Date().toISOString() });
+      localStorage.setItem('leads_backup', JSON.stringify(leads));
+    } catch(err){}
 
-  // Open WhatsApp directly without timer delay to prevent mobile popup blocking
-  var waUrl = 'https://wa.me/917001186689?text=' + encodeURIComponent(wa);
-  var waWin = window.open(waUrl, '_blank');
-  if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
-    // Fallback if popup blocked: navigate directly
-    window.location.href = waUrl;
-  }
-  cf.reset();
-  setTimeout(function(){
-    btn.innerHTML = '<i class="bi bi-whatsapp"></i> Send via WhatsApp';
-    btn.disabled = false;
-  }, 1000);
-});}
+    var waUrl = 'https://wa.me/917001186689?text=' + encodeURIComponent(wa);
+    var waWin = window.open(waUrl, '_blank');
+    if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
+      window.location.href = waUrl;
+    }
+    cf.reset();
+    setTimeout(function() {
+      btn.innerHTML = '<i class="bi bi-whatsapp"></i> Send via WhatsApp';
+      btn.disabled = false;
+    }, 1000);
+  });
+}
 /* COUNTDOWN */
 /* DYNAMIC BATCH COUNTDOWN */
 (function(){
@@ -268,27 +267,15 @@ function claimKit(){
   var em=document.getElementById('ep-email');
   if(!em||!em.value.trim()||!em.value.includes('@')){alert('Please enter a valid email address.');return;}
   var email=em.value.trim();
-  // Close popup
   var ep=document.getElementById('exit-popup');
   if(ep) ep.classList.remove('open');
-  // Directly download the brochure
   var a=document.createElement('a');
   a.href='assets/docs/brochure.pdf';
   a.download='AI-Python-Training-Brochure.pdf';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  // Also notify you on WhatsApp with the lead's email
-  var msg = 'Hello Biswarup Sir! 📘
-
-'
-    + 'I just downloaded the *AI & Python Starter Kit / Brochure* from pythonforai.in.
-
-'
-    + '📧 *Email:* ' + email + '
-
-'
-    + 'Could you please share the upcoming weekend batch timings and fee details? Thank you!';
+  var msg = 'Hello Biswarup Sir! 📘\n\n' + 'I just downloaded the *AI & Python Starter Kit / Brochure* from pythonforai.in.\n\n' + '📧 *Email:* ' + email + '\n\n' + 'Could you please share the upcoming weekend batch timings and fee details? Thank you!';
   var waUrl = 'https://wa.me/917001186689?text=' + encodeURIComponent(msg);
   var waWin = window.open(waUrl, '_blank');
   if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
@@ -302,26 +289,13 @@ function sendSyllabus(){
   var name=n.value.trim(), phone=p.value.trim();
   var cm=document.getElementById('curr-modal');
   if(cm) cm.classList.remove('open');
-  // Download brochure PDF directly
   var a=document.createElement('a');
   a.href='assets/docs/brochure.pdf';
   a.download='AI-Python-Training-Brochure.pdf';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  // Notify you on WhatsApp with lead details
-  var msg = 'Hello Biswarup Sir! 🎓
-
-'
-    + 'I just downloaded the *Python & AI Course Brochure* from pythonforai.in.
-
-'
-    + '👤 *Name:* ' + name + '
-'
-    + '📞 *Phone:* ' + phone + '
-
-'
-    + 'Could you please share details on the upcoming weekend batch in Durgapur and seat availability? Thank you!';
+  var msg = 'Hello Biswarup Sir! 🎓\n\n' + 'I just downloaded the *Python & AI Course Brochure* from pythonforai.in.\n\n' + '👤 *Name:* ' + name + '\n' + '📞 *Phone:* ' + phone + '\n\n' + 'Could you please share details on the upcoming weekend batch in Durgapur and seat availability? Thank you!';
   var waUrl = 'https://wa.me/917001186689?text=' + encodeURIComponent(msg);
   var waWin = window.open(waUrl, '_blank');
   if (!waWin || waWin.closed || typeof waWin.closed === 'undefined') {
@@ -522,3 +496,8 @@ if(document.readyState==='loading'){
     if(scroll) scroll.scrollBy({left:dir*300,behavior:'smooth'});
   };
 })();
+// Expose functions globally for inline HTML event handlers
+window.toggleDM = toggleDM;
+window.applyDM = applyDM;
+window.claimKit = claimKit;
+window.sendSyllabus = sendSyllabus;
